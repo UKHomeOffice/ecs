@@ -20,7 +20,7 @@ spec:
       {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
       secretName: branch-tls-internal
       {{ else }}
-      secretName: {{ .APP_NAME }}-internal
+      secretName: ingress-internal
       {{ end }}
   rules:
     {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
