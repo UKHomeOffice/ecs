@@ -18,7 +18,6 @@ spec:
       {{ else if eq .KUBE_NAMESPACE .UAT_ENV }}
         - ecs.uat.sas-notprod.homeoffice.gov.uk
       {{ else if eq .KUBE_NAMESPACE .PROD_ENV }}
-        - prod.internal.ecs.sas.homeoffice.gov.uk
         - {{ .PRODUCTION_URL }}
       {{ end }}
       {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}

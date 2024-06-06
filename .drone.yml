@@ -120,7 +120,7 @@ steps:
         from_secret: aws_secret_access_key
       region: eu-west-2
       #repo: ${IMAGE_REPO}
-      repo: sas/acrs 
+      repo: sas/ecs
       registry: 340268328991.dkr.ecr.eu-west-2.amazonaws.com
       tags:
         - latest_${DRONE_BRANCH}
