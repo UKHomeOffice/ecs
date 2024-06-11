@@ -1,0 +1,43 @@
+{
+  "name": "employers-checking-service",
+  "version": "1.0.0",
+  "description": "A service for employers to check employee's immigration status",
+  "main": "index.js",
+  "engines": {
+    "node": ">=18.12.1"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "start:dev": "hof-build watch",
+    "build": "hof-build",
+    "postinstall": "hof-build",
+    "test:lint": "eslint . --config ./node_modules/eslint-config-hof/default.js",
+    "test:unit": "LOG_LEVEL=error nyc _mocha \"test/_unit/**/*.spec.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UKHomeOffice/ecs.git"
+  },
+  "author": "HOF",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UKHomeOffice/ecs/issues"
+  },
+  "homepage": "https://github.com/UKHomeOffice/ecs#readme",
+  "dependencies": {
+    "hof": "^20.5.2"
+  },
+  "devDependencies": {
+    "chai": "^4.3.5",
+    "eslint": "^8.57.0",
+    "eslint-config-hof": "^1.3.4",
+    "mocha": "^10.4.0",
+    "nyc": "^15.1.0"
+  },
+  "mocha": {
+    "reporter": "spec",
+    "require": "test/setup.js",
+    "recursive": "true",
+    "timeout": "6000"
+  }
+}

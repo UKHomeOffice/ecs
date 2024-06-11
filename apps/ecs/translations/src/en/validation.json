@@ -1,0 +1,5 @@
+{
+  "worker-has-eligible-docs": {
+    "required": "Tell us if the worker has any of the listed documents or evidence"
+  }
+}

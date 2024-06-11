@@ -1,0 +1,16 @@
+{
+  "appName": "Employer's Checking Service",
+  "theme": "govUK",
+  "behaviours": [
+    "hof/components/clear-session"
+  ],
+  "translations": "./apps/ecs/translations",
+  "routes": [
+    "./apps/ecs"
+  ],
+  "session": {
+    "name": "ecs.hof.sid"
+  },
+  "getAccessibility": true,
+  "emailerFallback": true
+}

@@ -1,0 +1,17 @@
+{{<partials-page}}
+  {{$page-content}}
+    <p class="govuk-body">{{#t}}pages.ineligible.ineligible-intro{{/t}}</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <p class="govuk-body"><li>{{#t}}pages.ineligible.ineligible-has-ppt{{/t}}</li></p>
+      <p class="govuk-body"><li>{{#t}}pages.ineligible.ineligible-has-ho-docs{{/t}}</li></p>
+      <p class="govuk-body"><li>{{#t}}pages.ineligible.ineligible-has-digital-right{{/t}}</li></p>
+    </ul>
+
+    <p class="govuk-body">
+      {{#t}}pages.ineligible.ineligible-outro{{/t}}
+      <a href="https://www.gov.uk/legal-right-work-uk" class="govuk-link">{{#t}}pages.ineligible.ineligible-outro-link{{/t}}</a>
+      {{#t}}pages.ineligible.ineligible-outro-2{{/t}}
+    </p>
+  {{/page-content}}
+{{/partials-page}}
