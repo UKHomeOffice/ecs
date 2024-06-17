@@ -9,5 +9,31 @@
         "label": "No"
       }
     }
+  },
+  "person-work-for-you": {
+    "legend": "Does this person already work for you?",
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      }
+    }
+  },
+  "start-work-date": {
+    "legend": "When did they start working for you?",
+    "hint": "For example, 21 1 2024"
+  },
+  "use-digital-right-to-work": {
+    "legend": "Are you unable to use a digital Right to Work service due to a technical error?",
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      }
+    }
   }
 }

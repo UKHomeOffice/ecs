@@ -2,7 +2,6 @@
 
 const hof = require('hof');
 const config = require('./config.js');
-const logger = require('hof/lib/logger')({ env: config.env });
 
 let settings = require('./hof.settings');
 

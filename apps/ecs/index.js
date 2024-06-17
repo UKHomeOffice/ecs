@@ -1,4 +1,3 @@
-const hof = require('hof');
 
 module.exports = {
   name: 'ecs',
@@ -22,7 +21,36 @@ module.exports = {
 
     },
     '/already-employed': {
-
+      fields: ['person-work-for-you'],
+      forks: [
+        {
+          target: '/when-started',
+          condition: {
+            field: 'person-work-for-you',
+            value: 'yes'
+          }
+        },
+        {
+          target: '/digital-right-to-work-service',
+          condition: {
+            field: 'person-work-for-you',
+            value: 'no'
+          }
+        }
+      ]
+    },
+    '/when-started': {
+      fields: ['start-work-date'],
+      forks: [
+        {
+          target: '/tupe',
+          condition: req => req.sessionModel.get('start-work-date') < '2008-02-29'
+        }
+      ],
+      next: '/digital-right-to-work-service'
+    },
+    '/digital-right-to-work-service': {
+      fields: ['use-digital-right-to-work']
     }
   }
 };

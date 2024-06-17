@@ -1,5 +1,17 @@
 {
   "worker-has-eligible-docs": {
     "required": "Tell us if the worker has any of the listed documents or evidence"
+  },
+  "start-work-date": {
+    "required": "Tell us when the worker started working for you",
+    "date": "Enter a real worker start date",
+    "after": "Enter a real date when the worker started working for you",
+    "before": "The worker start date must be today or in the past"
+  },
+  "use-digital-right-to-work": {
+    "required": "Tell us if you are unable to use a digital Right to Work service"
+  },
+  "person-work-for-you": {
+    "required": "Tell us if the worker already works for you"
   }
 }
