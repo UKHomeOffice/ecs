@@ -15,5 +15,34 @@
     "ineligible-outro": "Where applicable, you still",
     "ineligible-outro-link": "need to check that the employee's or prospective employee's documents are valid",
     "ineligible-outro-2": "and keep copies of the documents."
+  },
+  "confirm": {
+    "header": "Summary",
+    "sections": {
+      "eligibility-criteria": {
+        "header": "Eligibility criteria"
+      },
+      "employee-details": {
+        "header": "Employee details"
+      },
+      "current-address": {
+        "header": "Current address"
+      },
+      "their-employment": {
+        "header": "Their employment"
+      },
+      "contact-details": {
+        "header": "Contact details"
+      },
+      "workers-job-information": {
+        "header": "Worker's job information"
+      },
+      "business-address": {
+        "header": "Business address"
+      },
+      "employer-contact-details": {
+        "header": "Employer contact details"
+      }
+    }
   }
 }
