@@ -1,0 +1,51 @@
+{
+  "eligibility": {
+    "header": "Right to work check eligibility",
+    "right-to-work-intro": "You do not need to use this service if the worker has any of the following: ",
+    "worker-has-ppt": "a UK or Irish passport (or Irish passport card)",
+    "worker-has-ho-docs": "immigration documents from the Home Office that demonstrate a right to work",
+    "worker-has-digital-right": "a digital immigration satus that demonstrates a right to work"
+  },
+  "ineligible": {
+    "header": "You do not need to request a Home Office right to work check",
+    "ineligible-intro": "You do not need to request a right to work check if the worker: ",
+    "ineligible-has-ppt": "has a UK or Irish passport or Irish passport card (current of expired)",
+    "ineligible-has-ho-docs": "has immigration documents from the Home Office that show a right to work",
+    "ineligible-has-digital-right": "has an immigration status which you can check online that demonstrates a right to work",
+    "ineligible-outro": "Where applicable, you still",
+    "ineligible-outro-link": "need to check that the employee's or prospective employee's documents are valid",
+    "ineligible-outro-2": "and keep copies of the documents."
+  },
+  "check-your-answers": {
+    "header": "Check your answers"
+  },
+  "confirm": {
+    "header": "Summary",
+    "sections": {
+      "eligibility-criteria": {
+        "header": "Eligibility criteria"
+      },
+      "employee-details": {
+        "header": "Employee details"
+      },
+      "current-address": {
+        "header": "Current address"
+      },
+      "their-employment": {
+        "header": "Their employment"
+      },
+      "contact-details": {
+        "header": "Contact details"
+      },
+      "workers-job-information": {
+        "header": "Worker's job information"
+      },
+      "business-address": {
+        "header": "Business address"
+      },
+      "employer-contact-details": {
+        "header": "Employer contact details"
+      }
+    }
+  }
+}
