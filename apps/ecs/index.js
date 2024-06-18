@@ -1,3 +1,5 @@
+const hof = require('hof');
+const Summary = hof.components.summary;
 
 module.exports = {
   name: 'ecs',
@@ -49,8 +51,17 @@ module.exports = {
       ],
       next: '/digital-right-to-work-service'
     },
+    '/tupe': {
+      next: '/check-your-answers'
+    },
     '/digital-right-to-work-service': {
-      fields: ['use-digital-right-to-work']
-    }
+      fields: ['use-digital-right-to-work'],
+      next: '/check-your-answers'
+    },
+    '/check-your-answers': {
+      behaviours: Summary,
+      sections: require('./sections/summary-data-sections'),
+      template: 'summary'
+    },
   }
 };

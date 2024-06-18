@@ -3,7 +3,16 @@
 
 module.exports = {
   'eligibility-criteria': {
-    steps: []
+    steps: [
+      {
+        step: '/eligibility',
+        field: 'worker-has-eligible-docs',
+      },
+      {
+        step: '/already-employed',
+        field: 'person-work-for-you'
+      }
+    ]
   },
   'employee-details': {
     steps: []
@@ -12,7 +21,7 @@ module.exports = {
     steps: []
   },
   'their-employment': {
-    steps: []
+    steps: ['start-work-date']
   },
   'contact-details': {
     steps: []
