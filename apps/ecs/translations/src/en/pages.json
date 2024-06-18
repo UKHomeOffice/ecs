@@ -16,6 +16,9 @@
     "ineligible-outro-link": "need to check that the employee's or prospective employee's documents are valid",
     "ineligible-outro-2": "and keep copies of the documents."
   },
+  "check-your-answers": {
+    "header": "Check your answers"
+  },
   "confirm": {
     "header": "Summary",
     "sections": {

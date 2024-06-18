@@ -3,7 +3,12 @@
 
 module.exports = {
   'eligibility-criteria': {
-    steps: []
+    steps: [
+      {
+        step: '/eligibility',
+        field: 'worker-has-eligible-docs'
+      }
+    ]
   },
   'employee-details': {
     steps: []
