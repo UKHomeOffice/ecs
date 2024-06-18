@@ -1,6 +1,9 @@
 
 'use strict';
 
+const moment = require('moment');
+const PRETTY_DATE_FORMAT = 'DD MMMM YYYY';
+
 module.exports = {
   'eligibility-criteria': {
     steps: [
@@ -21,7 +24,11 @@ module.exports = {
     steps: []
   },
   'their-employment': {
-    steps: ['start-work-date']
+    steps: [{
+      step: '/when-started',
+      field: 'start-work-date',
+      parse: d => d && moment(d).format(PRETTY_DATE_FORMAT)
+    }]
   },
   'contact-details': {
     steps: []

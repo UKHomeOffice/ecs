@@ -1,5 +1,7 @@
 const hof = require('hof');
 const Summary = hof.components.summary;
+const config = require('../../config')
+const legislativeEmploymentDate = config.legislativeEmploymentDate;
 
 module.exports = {
   name: 'ecs',
@@ -31,22 +33,16 @@ module.exports = {
             field: 'person-work-for-you',
             value: 'yes'
           }
-        },
-        {
-          target: '/digital-right-to-work-service',
-          condition: {
-            field: 'person-work-for-you',
-            value: 'no'
-          }
         }
-      ]
+      ],
+      next: '/digital-right-to-work-service'
     },
     '/when-started': {
       fields: ['start-work-date'],
       forks: [
         {
           target: '/tupe',
-          condition: req => req.sessionModel.get('start-work-date') < '2008-02-29'
+          condition: req => req.sessionModel.get('start-work-date') < legislativeEmploymentDate
         }
       ],
       next: '/digital-right-to-work-service'
