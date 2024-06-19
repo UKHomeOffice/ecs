@@ -1,0 +1,13 @@
+{
+  "worker-has-eligible-docs": {
+    "legend": "Does the worker have any of these?",
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      }
+    }
+  }
+}
