@@ -24,11 +24,13 @@ module.exports = {
     steps: []
   },
   'their-employment': {
-    steps: [{
-      step: '/when-started',
-      field: 'start-work-date',
-      parse: d => d && moment(d).format(PRETTY_DATE_FORMAT)
-    }]
+    steps: [
+      {
+        step: '/when-started',
+        field: 'start-work-date',
+        parse: d => d && moment(d).format(PRETTY_DATE_FORMAT)
+      }
+    ]
   },
   'contact-details': {
     steps: []
