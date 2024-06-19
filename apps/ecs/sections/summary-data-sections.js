@@ -1,12 +1,23 @@
 
 'use strict';
 
+const moment = require('moment');
+const PRETTY_DATE_FORMAT = 'DD MMMM YYYY';
+
 module.exports = {
   'eligibility-criteria': {
     steps: [
       {
         step: '/eligibility',
         field: 'worker-has-eligible-docs'
+      },
+      {
+        step: '/already-employed',
+        field: 'person-work-for-you'
+      },
+      {
+        step: '/digital-right-to-work-service',
+        field: 'use-digital-right-to-work'
       }
     ]
   },
@@ -17,7 +28,13 @@ module.exports = {
     steps: []
   },
   'their-employment': {
-    steps: []
+    steps: [
+      {
+        step: '/when-started',
+        field: 'start-work-date',
+        parse: d => d && moment(d).format(PRETTY_DATE_FORMAT)
+      }
+    ]
   },
   'contact-details': {
     steps: []
