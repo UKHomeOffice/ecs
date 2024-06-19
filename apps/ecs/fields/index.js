@@ -54,5 +54,27 @@ module.exports = {
         value: 'no'
       }
     ]
-  }
+  },
+  'work-for-you-result-of-tupe-transfer': {
+    className: 'govuk-radios govuk-radios--inline',
+    isPageHeading: 'true',
+    mixin: 'radio-group',
+    validate: ['required'],
+    options: [
+      {
+        value: 'yes'
+      },
+      {
+        value: 'no'
+      }
+    ]
+  },
+  'tupe-date': dateComponent('tupe-date', {
+    isPageHeading: 'true',
+    mixin: 'input-date',
+    validate: [
+      'required', 'date',
+      { type: 'before', arguments: ['0', 'days'] }
+    ]
+  })
 };

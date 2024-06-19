@@ -35,5 +35,21 @@
         "label": "No"
       }
     }
+  },
+  "work-for-you-result-of-tupe-transfer": {
+    "legend": "Do they work for you as a result of a TUPE transfer?",
+    "hint": "TUPE rules protect the employee's rights when the organisation or service they work for is transferred to a new employer",
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      }
+    }
+  },
+  "tupe-date": {
+    "legend": "When was the TUPE transfer?",
+    "hint": "For example, 21 2 2024"
   }
 }

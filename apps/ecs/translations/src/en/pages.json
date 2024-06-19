@@ -16,6 +16,16 @@
     "ineligible-outro-link": "need to check that the employee's or prospective employee's documents are valid",
     "ineligible-outro-2": "and keep copies of the documents."
   },
+  "ineligible-employee": {
+    "header": "You do not need to request a Home Office right to work check",
+    "ineligible-employee-reason-1": "If the employee has been working for you, without a break in employment, from a date before 29 February 2008, then you do not need to request a right to work check.",
+    "ineligible-employee-link": "Documents checks should have been carried out when the person was recruited.",
+    "ineligible-employee-reason-2": "This would have established you with a statutory defence from prosecution which you retain throughout the individual's employment.",
+    "ineligible-employee-reason-3": "Therefore no further checks are required provided that the employment has been continuous."
+  },
+  "ineligible-tupe": {
+    "header": "You do not need to request a Home Office right to work check"
+  },
   "check-your-answers": {
     "header": "Check your answers"
   },
@@ -45,6 +55,11 @@
       },
       "employer-contact-details": {
         "header": "Employer contact details"
+      }
+    },
+    "fields": {
+      "worker-has-eligible-docs": {
+        "label": "Does the worker has any of the Right to Work eligible documents"
       }
     }
   }
