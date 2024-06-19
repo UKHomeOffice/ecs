@@ -9,11 +9,15 @@ module.exports = {
     steps: [
       {
         step: '/eligibility',
-        field: 'worker-has-eligible-docs',
+        field: 'worker-has-eligible-docs'
       },
       {
         step: '/already-employed',
         field: 'person-work-for-you'
+      },
+      {
+        step: '/digital-right-to-work-service',
+        field: 'use-digital-right-to-work'
       }
     ]
   },

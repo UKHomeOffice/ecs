@@ -1,6 +1,6 @@
 const hof = require('hof');
 const Summary = hof.components.summary;
-const config = require('../../config')
+const config = require('../../config');
 const legislativeEmploymentDate = config.legislativeEmploymentDate;
 
 module.exports = {
@@ -58,6 +58,6 @@ module.exports = {
       behaviours: Summary,
       sections: require('./sections/summary-data-sections'),
       template: 'summary'
-    },
+    }
   }
 };
