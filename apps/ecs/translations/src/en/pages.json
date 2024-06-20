@@ -19,12 +19,14 @@
   "ineligible-employee": {
     "header": "You do not need to request a Home Office right to work check",
     "ineligible-employee-reason-1": "If the employee has been working for you, without a break in employment, from a date before 29 February 2008, then you do not need to request a right to work check.",
-    "ineligible-employee-link": "Documents checks should have been carried out when the person was recruited.",
+    "ineligible-employee-link": "Document checks should have been carried out when the person was recruited.",
     "ineligible-employee-reason-2": "This would have established you with a statutory defence from prosecution which you retain throughout the individual's employment.",
     "ineligible-employee-reason-3": "Therefore no further checks are required provided that the employment has been continuous."
   },
   "ineligible-tupe": {
-    "header": "You do not need to request a Home Office right to work check"
+    "header": "You do not need to request a Home Office right to work check",
+    "ineligible-tupe-employee-reason-1": "If the employee has been working for you as a result of TUPE transfer, without a break in employment, from a date before 29 February 2008, then you do not need to request a right to work check.",
+    "ineligible-tupe-employee-link": "Document checks should have been carried out when the person was recruited."
   },
   "check-your-answers": {
     "header": "Check your answers"
