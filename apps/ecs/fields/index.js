@@ -59,7 +59,6 @@ module.exports = {
     legend: {
       className: 'visuallyhidden'
     },
-    className: 'govuk-radios govuk-radios--inline',
     isPageHeading: 'true',
     mixin: 'radio-group',
     validate: ['required'],
