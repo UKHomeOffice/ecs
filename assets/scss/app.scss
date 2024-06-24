@@ -1,1 +1,13 @@
 @import "hof/frontend/themes/gov-uk/styles/govuk";
+
+ul {
+  @extend .govuk-list--bullet, .govuk-list;
+}
+
+p {
+  @extend .govuk-body;
+}
+
+h1 {
+  @extend .govuk-heading-l;
+}

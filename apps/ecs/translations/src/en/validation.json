@@ -13,5 +13,11 @@
   },
   "person-work-for-you": {
     "required": "Tell us if the worker already works for you"
+  },
+  "worker-applied-eu-settlement-scheme": {
+    "required": "Tell us if the worker has applied to the EU Settlement Scheme (EUSS)"
+  },
+  "worker-has-arc-card": {
+    "required": "Tell us if the worker has an application registration card (ARC) that shows they have the right to work"
   }
 }

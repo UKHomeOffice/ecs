@@ -35,5 +35,36 @@
         "label": "No"
       }
     }
+  },
+  "worker-applied-eu-settlement-scheme": {
+    "legend-1": "Has the worker applied to the",
+    "legend-link": "EU Settlement Scheme",
+    "legend-2": "(EUSS)?",
+    "options": {
+      "yes-certificate-of-application": {
+        "label": "Yes, they have a Certificate of Application issued following submission of an application to the EUSS"
+      },
+      "yes-evidence-of-settled-status": {
+        "label": "Yes, they have evidence to demonstrate they have settled or pre-settled status under the EUSS issued by a Crown Dependency"
+      },
+      "no-frontier-worker": {
+        "label": "No, they are a Frontier Worker in the UK"
+      },
+      "none-of-above": {
+        "label": "None of the above"
+      }
+    }
+  },
+  "worker-has-arc-card": {
+    "legend": "Does the worker have an application registration card (ARC) that shows they have the right to work?",
+    "hint": "ARCs are proof of asylum status. The right to work is shown in the Remarks section of the card",
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      }
+    }
   }
 }

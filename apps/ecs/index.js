@@ -52,8 +52,41 @@ module.exports = {
     },
     '/digital-right-to-work-service': {
       fields: ['use-digital-right-to-work'],
+      forks: [
+        {
+          target: '/eu-settlement-scheme',
+          condition: {
+            field: 'use-digital-right-to-work',
+            value: 'no'
+          }
+        }
+      ],
+      next: '/right-to-work-check'
+    },
+    '/eu-settlement-scheme': {
+      fields: ['worker-applied-eu-settlement-scheme'],
+      forks: [
+        {
+          target: '/arc-card',
+          condition: {
+            field: 'worker-applied-eu-settlement-scheme',
+            value: 'none-of-above'
+          }
+        }
+      ],
+      next: '/right-to-work-check'
+    },
+    '/right-to-work-check': {
+      next: '/worker-details-1988'
+    },
+    '/worker-details-1988': {
+
+    },
+    '/arc-card': {
+      fields: ['worker-has-arc-card'],
       next: '/check-your-answers'
     },
+
     '/check-your-answers': {
       behaviours: Summary,
       sections: require('./sections/summary-data-sections'),

@@ -21,6 +21,11 @@
   },
   "confirm": {
     "header": "Summary",
+    "fields": {
+      "worker-applied-eu-settlement-scheme": {
+        "label": "Has the worker applied to the EU Settlement Scheme (EUSS)?"
+      }
+    },
     "sections": {
       "eligibility-criteria": {
         "header": "Eligibility criteria"

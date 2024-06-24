@@ -18,6 +18,14 @@ module.exports = {
       {
         step: '/digital-right-to-work-service',
         field: 'use-digital-right-to-work'
+      },
+      {
+        step: '/eu-settlement-scheme',
+        field: 'worker-applied-eu-settlement-scheme'
+      },
+      {
+        step: '/arc-card',
+        field: 'worker-has-arc-card'
       }
     ]
   },

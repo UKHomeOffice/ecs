@@ -54,5 +54,42 @@ module.exports = {
         value: 'no'
       }
     ]
+  },
+  'worker-applied-eu-settlement-scheme': {
+    legend: {
+      className: 'visuallyhidden'
+    },
+    className: 'govuk-radios govuk-radios--inline',
+    isPageHeading: 'true',
+    mixin: 'radio-group',
+    validate: ['required'],
+    options: [
+      {
+        value: 'yes-certificate-of-application'
+      },
+      {
+        value: 'yes-evidence-of-settled-status'
+      },
+      {
+        value: 'no-frontier-worker'
+      },
+      {
+        value: 'none-of-above'
+      }
+    ]
+  },
+  'worker-has-arc-card': {
+    className: 'govuk-radios govuk-radios--inline',
+    isPageHeading: 'true',
+    mixin: 'radio-group',
+    validate: ['required'],
+    options: [
+      {
+        value: 'yes'
+      },
+      {
+        value: 'no'
+      }
+    ]
   }
 };
