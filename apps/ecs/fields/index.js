@@ -3,7 +3,7 @@ const dateComponent = require('hof').components.date;
 
 module.exports = {
   'worker-has-eligible-docs': {
-    className: 'govuk-radios govuk-radios--inline',
+    className: 'govuk-radios--inline',
     legend: {
       className: 'visuallyhidden'
     },
@@ -20,7 +20,7 @@ module.exports = {
   },
   'person-work-for-you': {
     isPageHeading: 'true',
-    className: 'govuk-radios govuk-radios--inline',
+    className: 'govuk-radios--inline',
     mixin: 'radio-group',
     validate: ['required'],
     options: [
@@ -42,7 +42,7 @@ module.exports = {
     ]
   }),
   'use-digital-right-to-work': {
-    className: 'govuk-radios govuk-radios--inline',
+    className: 'govuk-radios--inline',
     isPageHeading: 'true',
     mixin: 'radio-group',
     validate: ['required'],
@@ -78,7 +78,7 @@ module.exports = {
     ]
   },
   'worker-has-arc-card': {
-    className: 'govuk-radios govuk-radios--inline',
+    className: 'govuk-radios--inline',
     isPageHeading: 'true',
     mixin: 'radio-group',
     validate: ['required'],
