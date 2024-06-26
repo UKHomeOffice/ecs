@@ -13,5 +13,14 @@
   },
   "person-work-for-you": {
     "required": "Tell us if the worker already works for you"
+  },
+  "work-for-you-result-of-tupe-transfer": {
+    "required": "Tell us if the worker works for you as a result of a TUPE transfer"
+  },
+  "tupe-date": {
+    "required": "Tell us when the worker works for you as a result of a TUPE transfer",
+    "date": "Enter a real TUPE transfer date",
+    "after": "TUPE transfer date must be after ({{diff}}) the worker started working for you",
+    "before": "TUPE transfer date must be today or in the past"
   }
 }
