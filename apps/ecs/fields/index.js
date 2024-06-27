@@ -3,7 +3,7 @@ const dateComponent = require('hof').components.date;
 
 module.exports = {
   'worker-has-eligible-docs': {
-    className: 'govuk-radios govuk-radios--inline',
+    className: 'govuk-radios--inline',
     legend: {
       className: 'visuallyhidden'
     },
@@ -20,7 +20,7 @@ module.exports = {
   },
   'person-work-for-you': {
     isPageHeading: 'true',
-    className: 'govuk-radios govuk-radios--inline',
+    className: 'govuk-radios--inline',
     mixin: 'radio-group',
     validate: ['required'],
     options: [
@@ -42,7 +42,7 @@ module.exports = {
     ]
   }),
   'use-digital-right-to-work': {
-    className: 'govuk-radios govuk-radios--inline',
+    className: 'govuk-radios--inline',
     isPageHeading: 'true',
     mixin: 'radio-group',
     validate: ['required'],
@@ -56,7 +56,7 @@ module.exports = {
     ]
   },
   'work-for-you-result-of-tupe-transfer': {
-    className: 'govuk-radios govuk-radios--inline',
+    className: 'govuk-radios--inline',
     isPageHeading: 'true',
     mixin: 'radio-group',
     validate: ['required'],
@@ -76,5 +76,64 @@ module.exports = {
       'required', 'date',
       { type: 'before', arguments: ['0', 'days'] }
     ]
-  })
+  }),
+  'worker-has-arc-card': {
+    className: 'govuk-radios--inline',
+    isPageHeading: 'true',
+    mixin: 'radio-group',
+    validate: ['required'],
+    options: [
+      {
+        value: 'yes'
+      },
+      {
+        value: 'no'
+      }
+    ]
+  },
+  'worker-have-ongoing-appeal': {
+    className: 'govuk-radios--inline',
+    isPageHeading: 'true',
+    mixin: 'radio-group',
+    validate: ['required'],
+    options: [
+      {
+        value: 'yes'
+      },
+      {
+        value: 'no'
+      }
+    ]
+  },
+  'worker-been-in-UK-before-1988': {
+    className: 'govuk-radios--inline',
+    isPageHeading: 'true',
+    mixin: 'radio-group',
+    validate: ['required'],
+    options: [
+      {
+        value: 'yes'
+      },
+      {
+        value: 'no'
+      }
+    ]
+  },
+  'worker-applied-for-settlement-protection': {
+    className: 'govuk-radios--inline',
+    legend: {
+      className: 'visuallyhidden'
+    },
+    isPageHeading: 'true',
+    mixin: 'radio-group',
+    validate: ['required'],
+    options: [
+      {
+        value: 'yes'
+      },
+      {
+        value: 'no'
+      }
+    ]
+  }
 };
