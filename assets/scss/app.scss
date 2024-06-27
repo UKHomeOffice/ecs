@@ -1,1 +1,22 @@
 @import "hof/frontend/themes/gov-uk/styles/govuk";
+
+ul {
+  @extend .govuk-list--bullet, .govuk-list;
+  padding-left: 30px;
+}
+
+p {
+  @extend .govuk-body;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  @extend .govuk-heading-l;
+}
+
+.alert-complete {
+  background-color: #00703c;
+  border-color: #00703c;
+  padding: 15px !important;
+}

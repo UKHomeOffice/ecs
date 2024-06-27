@@ -79,12 +79,99 @@ module.exports = {
     },
     '/digital-right-to-work-service': {
       fields: ['use-digital-right-to-work'],
+      next: '/eu-settlement-scheme'
+    },
+    '/eu-settlement-scheme': {
+      next: '/arc-card'
+    },
+    '/arc-card': {
+      fields: ['worker-has-arc-card'],
+      forks: [
+        {
+          target: '/original-document',
+          condition: {
+            field: 'worker-has-arc-card',
+            value: 'yes'
+          }
+        }
+      ],
+      next: '/ongoing-appeal'
+    },
+    '/original-document': {
+      next: '/request-check'
+    },
+    '/request-check': {
+      next: '/worker-details-1988'
+    },
+    '/worker-details-1988': {
+      next: '/worker-address'
+    },
+    '/worker-address': {
+      next: '/job-information'
+    },
+    '/ongoing-appeal': {
+      fields: ['worker-have-ongoing-appeal'],
+      forks: [
+        {
+          target: '/request-check',
+          condition: {
+            field: 'worker-have-ongoing-appeal',
+            value: 'yes'
+          }
+        }
+      ],
+      next: '/before-1988'
+    },
+    '/before-1988': {
+      fields: ['worker-been-in-UK-before-1988'],
+      forks: [
+        {
+          target: '/request-check-before-1988',
+          condition: {
+            field: 'worker-been-in-UK-before-1988',
+            value: 'yes'
+          }
+        }
+      ],
+      next: '/settlement-protection'
+    },
+    '/settlement-protection': {
+      fields: ['worker-applied-for-settlement-protection'],
+      next: '/request-check'
+    },
+    '/request-check-before-1988': {
+      next: '/worker-details'
+    },
+    '/worker-details': {
+      next: '/reference-number'
+    },
+    '/reference-number': {
+      next: '/worker-address-uk'
+    },
+    '/worker-address-uk': {
+      next: '/job-information'
+    },
+    '/job-information': {
+      next: '/employer-contact-details'
+    },
+    '/employer-contact-details': {
+      next: '/business-address'
+    },
+    '/business-address': {
       next: '/check-your-answers'
     },
     '/check-your-answers': {
       behaviours: Summary,
       sections: require('./sections/summary-data-sections'),
-      template: 'summary'
+      template: 'summary',
+      next: '/data-protection'
+    },
+    '/data-protection': {
+      next: '/check-requested'
+    },
+    '/check-requested': {
+      backLink: false,
+      clearSession: true
     }
   }
 };
