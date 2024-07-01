@@ -55,7 +55,7 @@
   },
   "worker-has-arc-card": {
     "legend": "Does the worker have an application registration card (ARC) that shows they have the right to work?",
-    "hint": "ARCs are proof of asylum status. The right to work is shown in the Remarks section of the card",
+    "hint": "ARCs are proof of asylum status. The right to work is shown in the Remarks section of the card"
   },
   "work-for-you-result-of-tupe-transfer": {
     "legend": "Do they work for you as a result of a TUPE transfer?",

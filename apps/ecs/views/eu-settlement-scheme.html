@@ -1,12 +1,10 @@
 {{<partials-page}}
   {{$page-content}}
-  <p>
     <legend class="govuk-fieldset__legend--l">
       {{#t}}pages.eu-settlement-scheme.legend-1{{/t}}
       <a href="https://www.gov.uk/settled-status-eu-citizens-families">{{#t}}pages.eu-settlement-scheme.legend-link{{/t}}</a>
       {{#t}}pages.eu-settlement-scheme.legend-2{{/t}}
     </legend>
-  </p>
     {{#renderField}}worker-applied-eu-settlement-scheme{{/renderField}}
     {{#input-submit}}continue{{/input-submit}}
   {{/page-content}}

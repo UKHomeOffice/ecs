@@ -124,10 +124,10 @@ module.exports = {
     },
 
     '/ongoing-appeal': {
-      next:'/check-your-answers'
+      next: '/check-your-answers'
     },
     '/original-document': {
-      next:'/check-your-answers'
+      next: '/check-your-answers'
     },
     '/check-your-answers': {
       behaviours: Summary,
