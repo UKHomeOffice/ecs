@@ -14,6 +14,12 @@
   "person-work-for-you": {
     "required": "Tell us if the worker already works for you"
   },
+  "worker-applied-eu-settlement-scheme": {
+    "required": "Tell us if the worker has applied to the EU Settlement Scheme (EUSS)"
+  },
+  "worker-has-arc-card": {
+    "required": "Tell us if the worker has an application registration card (ARC) that shows they have the right to work"
+  },
   "work-for-you-result-of-tupe-transfer": {
     "required": "Tell us if the worker works for you as a result of a TUPE transfer"
   },
@@ -22,9 +28,6 @@
     "date": "Enter a real TUPE transfer date",
     "after": "TUPE transfer date must be after ({{diff}}) the worker started working for you",
     "before": "TUPE transfer date must be today or in the past"
-  },
-  "worker-has-arc-card": {
-    "required": "Tell us if the worker has an application registration card (ARC) that shows they have the right to work"
   },
   "worker-have-ongoing-appeal": {
     "required": "Tell us if the worker has an ongoing application or appeal for permission to stay in the UK"

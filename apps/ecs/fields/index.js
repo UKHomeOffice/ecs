@@ -55,6 +55,42 @@ module.exports = {
       }
     ]
   },
+  'worker-applied-eu-settlement-scheme': {
+    legend: {
+      className: 'visuallyhidden'
+    },
+    isPageHeading: 'true',
+    mixin: 'radio-group',
+    validate: ['required'],
+    options: [
+      {
+        value: 'yes-certificate-of-application'
+      },
+      {
+        value: 'yes-evidence-of-settled-status'
+      },
+      {
+        value: 'no-frontier-worker'
+      },
+      {
+        value: 'none-of-above'
+      }
+    ]
+  },
+  'worker-has-arc-card': {
+    className: 'govuk-radios--inline',
+    isPageHeading: 'true',
+    mixin: 'radio-group',
+    validate: ['required'],
+    options: [
+      {
+        value: 'yes'
+      },
+      {
+        value: 'no'
+      }
+    ]
+  },
   'work-for-you-result-of-tupe-transfer': {
     className: 'govuk-radios--inline',
     isPageHeading: 'true',
@@ -77,20 +113,6 @@ module.exports = {
       { type: 'before', arguments: ['0', 'days'] }
     ]
   }),
-  'worker-has-arc-card': {
-    className: 'govuk-radios--inline',
-    isPageHeading: 'true',
-    mixin: 'radio-group',
-    validate: ['required'],
-    options: [
-      {
-        value: 'yes'
-      },
-      {
-        value: 'no'
-      }
-    ]
-  },
   'worker-have-ongoing-appeal': {
     className: 'govuk-radios--inline',
     isPageHeading: 'true',

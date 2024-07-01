@@ -79,23 +79,42 @@ module.exports = {
     },
     '/digital-right-to-work-service': {
       fields: ['use-digital-right-to-work'],
-      next: '/eu-settlement-scheme'
+      forks: [
+        {
+          target: '/eu-settlement-scheme',
+          condition: {
+            field: 'use-digital-right-to-work',
+            value: 'no'
+          }
+        }
+      ],
+      next: '/request-check'
     },
     '/eu-settlement-scheme': {
-      next: '/arc-card'
+      fields: ['worker-applied-eu-settlement-scheme'],
+      forks: [
+        {
+          target: '/arc-card',
+          condition: {
+            field: 'worker-applied-eu-settlement-scheme',
+            value: 'none-of-above'
+          }
+        }
+      ],
+      next: '/request-check'
     },
     '/arc-card': {
       fields: ['worker-has-arc-card'],
       forks: [
         {
-          target: '/original-document',
+          target: '/ongoing-appeal',
           condition: {
             field: 'worker-has-arc-card',
-            value: 'yes'
+            value: 'no'
           }
         }
       ],
-      next: '/ongoing-appeal'
+      next: '/original-document'
     },
     '/original-document': {
       next: '/request-check'
