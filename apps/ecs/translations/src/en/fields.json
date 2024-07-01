@@ -37,9 +37,7 @@
     }
   },
   "worker-applied-eu-settlement-scheme": {
-    "legend-1": "Has the worker applied to the",
-    "legend-link": "EU Settlement Scheme",
-    "legend-2": "(EUSS)?",
+    "label": "Has the worker applied to the EU Settlement Scheme (EUSS)?",
     "options": {
       "yes-certificate-of-application": {
         "label": "Yes, they have a Certificate of Application issued following submission of an application to the EUSS"

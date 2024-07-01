@@ -61,7 +61,7 @@ module.exports = {
           }
         }
       ],
-      next: '/right-to-work-check'
+      next: '/request-check'
     },
     '/eu-settlement-scheme': {
       fields: ['worker-applied-eu-settlement-scheme'],
@@ -74,9 +74,9 @@ module.exports = {
           }
         }
       ],
-      next: '/right-to-work-check'
+      next: '/request-check'
     },
-    '/right-to-work-check': {
+    '/request-check': {
       next: '/worker-details-1988'
     },
     '/worker-details-1988': {
@@ -84,9 +84,24 @@ module.exports = {
     },
     '/arc-card': {
       fields: ['worker-has-arc-card'],
-      next: '/check-your-answers'
+      forks: [
+        {
+          target: '/ongoing-appeal',
+          condition: {
+            field: 'worker-has-arc-card',
+            value: 'no'
+          }
+        }
+      ],
+      next: '/original-document'
     },
 
+    '/ongoing-appeal': {
+      next:'/check-your-answers'
+    },
+    '/original-document': {
+      next:'/check-your-answers'
+    },
     '/check-your-answers': {
       behaviours: Summary,
       sections: require('./sections/summary-data-sections'),

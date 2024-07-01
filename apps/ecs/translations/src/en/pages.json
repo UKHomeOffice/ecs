@@ -16,16 +16,16 @@
     "ineligible-outro-link": "need to check that the employee's or prospective employee's documents are valid",
     "ineligible-outro-2": "and keep copies of the documents."
   },
+  "eu-settlement-scheme": {
+    "legend-1": "Has the worker applied to the",
+    "legend-link": "EU Settlement Scheme",
+    "legend-2": "(EUSS)?"
+  },
   "check-your-answers": {
     "header": "Check your answers"
   },
   "confirm": {
     "header": "Summary",
-    "fields": {
-      "worker-applied-eu-settlement-scheme": {
-        "label": "Has the worker applied to the EU Settlement Scheme (EUSS)?"
-      }
-    },
     "sections": {
       "eligibility-criteria": {
         "header": "Eligibility criteria"
