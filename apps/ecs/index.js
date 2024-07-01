@@ -1,6 +1,8 @@
 const hof = require('hof');
 const Summary = hof.components.summary;
-
+const config = require('../../config');
+const legislativeEmploymentDate = config.legislativeEmploymentDate;
+const checkValidation = require('./behaviours/check-validation');
 module.exports = {
   name: 'ecs',
   baseUrl: '/',
@@ -23,6 +25,108 @@ module.exports = {
 
     },
     '/already-employed': {
+      fields: ['person-work-for-you'],
+      forks: [
+        {
+          target: '/when-started',
+          condition: {
+            field: 'person-work-for-you',
+            value: 'yes'
+          }
+        }
+      ],
+      next: '/digital-right-to-work-service'
+    },
+    '/when-started': {
+      fields: ['start-work-date'],
+      forks: [
+        {
+          target: '/tupe',
+          condition: req => req.sessionModel.get('start-work-date') < legislativeEmploymentDate
+        }
+      ],
+      next: '/digital-right-to-work-service'
+    },
+    '/tupe': {
+      fields: ['work-for-you-result-of-tupe-transfer'],
+      forks: [
+        {
+          target: '/ineligible-employee',
+          condition: {
+            field: 'work-for-you-result-of-tupe-transfer',
+            value: 'no'
+          }
+        }
+      ],
+      next: '/tupe-date'
+    },
+    '/ineligible-employee': {
+
+    },
+    '/tupe-date': {
+      behaviours: [checkValidation],
+      fields: ['tupe-date'],
+      forks: [
+        {
+          target: '/ineligible-tupe',
+          condition: req => req.sessionModel.get('tupe-date') < legislativeEmploymentDate
+        }
+      ],
+      next: '/digital-right-to-work-service'
+    },
+    '/ineligible-tupe': {
+
+    },
+    '/digital-right-to-work-service': {
+      fields: ['use-digital-right-to-work'],
+      forks: [
+        {
+          target: '/eu-settlement-scheme',
+          condition: {
+            field: 'use-digital-right-to-work',
+            value: 'no'
+          }
+        }
+      ],
+      next: '/request-check'
+    },
+    '/eu-settlement-scheme': {
+      fields: ['worker-applied-eu-settlement-scheme'],
+      forks: [
+        {
+          target: '/arc-card',
+          condition: {
+            field: 'worker-applied-eu-settlement-scheme',
+            value: 'none-of-above'
+          }
+        }
+      ],
+      next: '/request-check'
+    },
+    '/request-check': {
+      next: '/worker-details-1988'
+    },
+    '/worker-details-1988': {
+
+    },
+    '/arc-card': {
+      fields: ['worker-has-arc-card'],
+      forks: [
+        {
+          target: '/ongoing-appeal',
+          condition: {
+            field: 'worker-has-arc-card',
+            value: 'no'
+          }
+        }
+      ],
+      next: '/original-document'
+    },
+
+    '/ongoing-appeal': {
+      next: '/check-your-answers'
+    },
+    '/original-document': {
       next: '/check-your-answers'
     },
     '/check-your-answers': {
