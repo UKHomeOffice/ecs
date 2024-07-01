@@ -16,6 +16,20 @@ module.exports = {
         field: 'person-work-for-you'
       },
       {
+        step: '/when-started',
+        field: 'start-work-date',
+        parse: d => d && moment(d).format(PRETTY_DATE_FORMAT)
+      },
+      {
+        step: '/tupe',
+        field: 'work-for-you-result-of-tupe-transfer'
+      },
+      {
+        step: '/tupe-date',
+        field: 'tupe-date',
+        parse: d => d && moment(d).format(PRETTY_DATE_FORMAT)
+      },
+      {
         step: '/digital-right-to-work-service',
         field: 'use-digital-right-to-work'
       },
@@ -36,13 +50,7 @@ module.exports = {
     steps: []
   },
   'their-employment': {
-    steps: [
-      {
-        step: '/when-started',
-        field: 'start-work-date',
-        parse: d => d && moment(d).format(PRETTY_DATE_FORMAT)
-      }
-    ]
+    steps: []
   },
   'contact-details': {
     steps: []
