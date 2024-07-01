@@ -16,6 +16,11 @@
     "ineligible-outro-link": "need to check that the employee's or prospective employee's documents are valid",
     "ineligible-outro-2": "and keep copies of the documents."
   },
+  "eu-settlement-scheme": {
+    "legend-1": "Has the worker applied to the",
+    "legend-link": "EU Settlement Scheme",
+    "legend-2": "(EUSS)?"
+  },
   "ineligible-employee": {
     "header": "You do not need to request a Home Office right to work check",
     "ineligible-employee-reason-1": "If the employee has been working for you, without a break in employment, from a date before 29 February 2008, then you do not need to request a right to work check.",

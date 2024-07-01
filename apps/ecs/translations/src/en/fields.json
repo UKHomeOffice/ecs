@@ -36,6 +36,27 @@
       }
     }
   },
+  "worker-applied-eu-settlement-scheme": {
+    "label": "Has the worker applied to the EU Settlement Scheme (EUSS)?",
+    "options": {
+      "yes-certificate-of-application": {
+        "label": "Yes, they have a Certificate of Application issued following submission of an application to the EUSS"
+      },
+      "yes-evidence-of-settled-status": {
+        "label": "Yes, they have evidence to demonstrate they have settled or pre-settled status under the EUSS issued by a Crown Dependency"
+      },
+      "no-frontier-worker": {
+        "label": "No, they are a Frontier Worker in the UK"
+      },
+      "none-of-above": {
+        "label": "None of the above"
+      }
+    }
+  },
+  "worker-has-arc-card": {
+    "legend": "Does the worker have an application registration card (ARC) that shows they have the right to work?",
+    "hint": "ARCs are proof of asylum status. The right to work is shown in the Remarks section of the card"
+  },
   "work-for-you-result-of-tupe-transfer": {
     "legend": "Do they work for you as a result of a TUPE transfer?",
     "hint": "TUPE rules protect the employee's rights when the organisation or service they work for is transferred to a new employer",
