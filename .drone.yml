@@ -222,22 +222,6 @@ steps:
           - feature/*
       event: pull_request
 
-  - name: snyk_scan
-    pull: if-not-exists
-    image: node:18
-    environment:
-      NOTIFY_STUB: true
-      SNYK_TOKEN:
-        from_secret: snyk_token
-    commands:
-      - yarn run test:snyk
-    when:
-      branch:
-        include:
-          - master
-          - feature/*
-      event: pull_request
-
   # Deploy to master UAT environment
   - name: deploy_to_uat
     pull: if-not-exists
@@ -347,7 +331,7 @@ steps:
       cron: tear_down_pr_envs
       event: cron
 
-  # CRON job steps that runs security scans using Snyk & Trivy
+  # CRON job steps that runs security scans using Trivy
   - name: cron_clone_repos
     image: alpine/git
     environment:
@@ -368,21 +352,6 @@ steps:
     volumes:
       - name: dockersock
         path: /var/run
-    when:
-      cron: security_scans
-      event: cron
-
-  - name: cron_snyk_scan
-    pull: if-not-exists
-    image: node:18
-    environment:
-      NOTIFY_STUB: true
-      SNYK_TOKEN:
-        from_secret: snyk_token
-    commands:
-      - yarn install --frozen-lockfile
-      - yarn run postinstall
-      - yarn run test:snyk
     when:
       cron: security_scans
       event: cron
