@@ -73,6 +73,7 @@ steps:
       branch:
         include:
         - master
+        - feature/*
       event: push
 
   - name: linting_deploy
@@ -81,6 +82,7 @@ steps:
       branch:
         include:
           - master
+          - feature/*
       event: push
 
   - name: unit_tests_deploy
@@ -97,6 +99,7 @@ steps:
       branch:
         include:
           - master
+          - feature/*
       event: push
 
   - name: build_image
@@ -111,7 +114,10 @@ steps:
       - name: dockersock
         path: /var/run
     when:
-      branch: master
+      branch: 
+        include:
+          - master
+          - feature/*
       event: [push, pull_request]
 
   - name: image_to_ecr
@@ -129,7 +135,10 @@ steps:
         - latest_${DRONE_BRANCH}
         - ${DRONE_COMMIT_SHA}
     when:
-      branch: master
+      branch:
+        include:
+          - master
+          - feature/*
       event: [push, pull_request]
 
   # Trivy Security Scannner
