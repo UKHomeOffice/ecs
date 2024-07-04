@@ -132,7 +132,7 @@ steps:
       repo: sas/ecs
       registry: 340268328991.dkr.ecr.eu-west-2.amazonaws.com
       tags:
-        - latest_${DRONE_BRANCH}
+        - latest_${DRONE_BRANCH//\//-}
         - ${DRONE_COMMIT_SHA}
     when:
       branch:
