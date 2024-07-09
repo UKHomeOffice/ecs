@@ -92,7 +92,7 @@ module.exports = {
     ]
   },
   'work-for-you-result-of-tupe-transfer': {
-    className: 'govuk-radios govuk-radios--inline',
+    className: 'govuk-radios--inline',
     isPageHeading: 'true',
     mixin: 'radio-group',
     validate: ['required'],
@@ -112,5 +112,50 @@ module.exports = {
       'required', 'date',
       { type: 'before', arguments: ['0', 'days'] }
     ]
-  })
+  }),
+  'worker-have-ongoing-appeal': {
+    className: 'govuk-radios--inline',
+    isPageHeading: 'true',
+    mixin: 'radio-group',
+    validate: ['required'],
+    options: [
+      {
+        value: 'yes'
+      },
+      {
+        value: 'no'
+      }
+    ]
+  },
+  'worker-been-in-UK-before-1988': {
+    className: 'govuk-radios--inline',
+    isPageHeading: 'true',
+    mixin: 'radio-group',
+    validate: ['required'],
+    options: [
+      {
+        value: 'yes'
+      },
+      {
+        value: 'no'
+      }
+    ]
+  },
+  'worker-applied-for-settlement-protection': {
+    className: 'govuk-radios--inline',
+    legend: {
+      className: 'visuallyhidden'
+    },
+    isPageHeading: 'true',
+    mixin: 'radio-group',
+    validate: ['required'],
+    options: [
+      {
+        value: 'yes'
+      },
+      {
+        value: 'no'
+      }
+    ]
+  }
 };
