@@ -72,5 +72,20 @@
   "tupe-date": {
     "legend": "When was the TUPE transfer?",
     "hint": "For example, 21 2 2024"
+  },
+  "seen-original-document": {
+    "legend": "Have you seen the original document?",
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      }
+    }
+  },
+  "arc-number": {
+    "label": "What is the worker’s application registration card number?",
+    "hint": "This is on the back left of the card. For example, ZU1234567"
   }
 }

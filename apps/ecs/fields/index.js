@@ -112,5 +112,24 @@ module.exports = {
       'required', 'date',
       { type: 'before', arguments: ['0', 'days'] }
     ]
-  })
+  }),
+  'seen-original-document': {
+    className: 'govuk-radios--inline',
+    isPageHeading: 'true',
+    mixin: 'radio-group',
+    validate: ['required'],
+    options: [
+      {
+        value: 'yes'
+      },
+      {
+        value: 'no'
+      }
+    ]
+  },
+  'arc-number': {
+    isPageHeading: 'true',
+    className: ['govuk-input', 'govuk-!-width-two-thirds'],
+    validate: ['required', 'notUrl', 'alphanum', { type: 'maxlength', arguments: [20]}]
+  },
 };

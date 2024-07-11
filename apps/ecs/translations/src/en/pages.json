@@ -33,6 +33,11 @@
     "ineligible-tupe-employee-reason-1": "If the employee has been working for you as a result of TUPE transfer, without a break in employment, from a date before 29 February 2008, then you do not need to request a right to work check.",
     "ineligible-tupe-employee-link": "Document checks should have been carried out when the person was recruited."
   },
+  "ineligible-document": {
+    "header": "You must have seen the original document",
+    "p1": "You must have seen the original application registration card to request a right to work check.",
+    "p2": "The purpose of this tool is to check the validity of documents you have seen."
+  },
   "check-your-answers": {
     "header": "Check your answers"
   },

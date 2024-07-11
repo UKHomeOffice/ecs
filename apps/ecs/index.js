@@ -127,7 +127,24 @@ module.exports = {
       next: '/check-your-answers'
     },
     '/original-document': {
-      next: '/check-your-answers'
+      fields: ['seen-original-document'],
+      forks: [
+        {
+          target: '/ineligible-document',
+          condition: {
+            field: 'seen-original-document',
+            value: 'no'
+          }
+        }
+      ],
+      next: '/arc-number'
+    },
+    '/ineligible-document': {
+      
+    },
+    '/arc-number': {
+      fields: ['arc-number'],
+      next: '/request-check'
     },
     '/check-your-answers': {
       behaviours: Summary,
