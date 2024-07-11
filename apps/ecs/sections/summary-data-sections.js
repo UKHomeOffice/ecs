@@ -40,6 +40,18 @@ module.exports = {
       {
         step: '/arc-card',
         field: 'worker-has-arc-card'
+      },
+      {
+        step: '/ongoing-appeal',
+        field: 'worker-have-ongoing-appeal'
+      },
+      {
+        step: '/before-1988',
+        field: 'worker-been-in-UK-before-1988'
+      },
+      {
+        step: '/settlement-protection',
+        field: 'worker-applied-for-settlement-protection'
       }
     ]
   },

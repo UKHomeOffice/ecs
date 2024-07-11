@@ -37,5 +37,14 @@
     "notUrl": "Your answer must not contain URLs or links",
     "alphanum": "ARC number can only have numbers and letters a-z",
     "maxlength": "Application registration card number must be 20 characters or less"
+  },
+  "worker-have-ongoing-appeal": {
+    "required": "Tell us if the worker has an ongoing application or appeal for permission to stay in the UK"
+  },
+  "worker-been-in-UK-before-1988": {
+    "required": "Tell us if the worker has been in the UK since before 1988"
+  },
+  "worker-applied-for-settlement-protection": {
+    "required": "Tell us if the worker has any evidence from or ongoing applications with the Home Office"
   }
 }

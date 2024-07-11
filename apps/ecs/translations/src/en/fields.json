@@ -53,10 +53,6 @@
       }
     }
   },
-  "worker-has-arc-card": {
-    "legend": "Does the worker have an application registration card (ARC) that shows they have the right to work?",
-    "hint": "ARCs are proof of asylum status. The right to work is shown in the Remarks section of the card"
-  },
   "work-for-you-result-of-tupe-transfer": {
     "legend": "Do they work for you as a result of a TUPE transfer?",
     "hint": "TUPE rules protect the employee's rights when the organisation or service they work for is transferred to a new employer",
@@ -84,8 +80,53 @@
       }
     }
   },
+  "worker-has-arc-card": {
+    "legend": "Does the worker have an application registration card (ARC) that shows they have the right to work?",
+    "hint": "ARCs are proof of asylum status. The right to work is shown in the Remarks section of the card",
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      }
+    }
+  },
   "arc-number": {
     "label": "What is the worker’s application registration card number?",
     "hint": "This is on the back left of the card. For example, ZU1234567"
+  },
+  "worker-have-ongoing-appeal": {
+    "legend": "Does the worker have an ongoing appeal or application with the Home Office?",
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      }
+    }
+  },
+  "worker-been-in-UK-before-1988": {
+    "legend": "Has the worker been in the UK since before 1988?",
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      }
+    }
+  },
+  "worker-applied-for-settlement-protection": {
+    "label": "Has the worker applied for, or do they qualify for, settlement protection?",
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      }
+    }
   }
 }
