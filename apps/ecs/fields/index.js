@@ -1,5 +1,5 @@
-
 const dateComponent = require('hof').components.date;
+const countries = require('hof').utils.countries();
 
 module.exports = {
   'worker-has-eligible-docs': {
@@ -157,5 +157,102 @@ module.exports = {
         value: 'no'
       }
     ]
+  },
+  'worker-full-name': {
+    mixin: 'input-text',
+    validate: ['required', 'notUrl'],
+    labelClassName: 'govuk-label--s',
+    className: ['govuk-input']
+  },
+  'worker-dob': dateComponent('worker-dob', {
+    mixin: 'input-date',
+    labelClassName: 'govuk-label--s',
+    legend: {
+      className: 'bold'
+    },
+    validate: [
+      'required', 'date',
+      { type: 'before', arguments: ['16', 'years'] },
+      { type: 'after', arguments: ['100', 'years']}
+    ]
+  }),
+  'worker-nationality': {
+    mixin: 'select',
+    className: ['typeahead'],
+    validate: ['required'],
+    options: [{
+      value: '',
+      label: 'fields.worker-nationality.options.null'
+    }].concat(countries),
+    labelClassName: 'govuk-label--s'
+  },
+  'worker-place-of-birth': {
+    mixin: 'input-text',
+    validate: ['required', 'notUrl'],
+    labelClassName: 'govuk-label--s',
+    className: ['govuk-input', 'govuk-!-width-one-half']
+  },
+  'worker-year-of-entry-to-uk': {
+    mixin: 'input-text',
+    validate: ['required'],
+    labelClassName: 'govuk-label--s',
+    className: ['govuk-input', 'govuk-input--width-4']
+  },
+  'worker-national-insurance-number': {
+    mixin: 'input-text',
+    validate: ['required', 'notUrl'],
+    labelClassName: 'govuk-label--s',
+    className: ['govuk-input', 'govuk-!-width-one-third']
+  },
+  'employer-telephone': {
+    mixin: 'input-text',
+    validate: ['notUrl', 'ukPhoneNumber'],
+    labelClassName: 'govuk-label--s',
+    className: ['govuk-input', 'govuk-!-width-one-half']
+  },
+  'employer-email': {
+    mixin: 'input-text',
+    validate: ['required', 'email'],
+    labelClassName: 'govuk-label--s'
+  },
+  'worker-address-line-1': {
+    validate: ['required', 'notUrl', { type: 'maxlength', arguments: [250] }],
+    className: ['govuk-input', 'govuk-!-width-two-thirds']
+  },
+  'worker-address-line-2': {
+    validate: ['notUrl', { type: 'maxlength', arguments: [250] }],
+    className: ['govuk-input', 'govuk-!-width-two-thirds']
+  },
+  'worker-town-or-city': {
+    validate: ['required', 'notUrl', { type: 'maxlength', arguments: [250] }],
+    className: ['govuk-input', 'govuk-!-width-two-thirds']
+  },
+  'worker-country': {
+    mixin: 'select',
+    validate: ['required'],
+    className: ['country-typeahead'],
+    options: [
+      {
+        value: '',
+        label: 'fields.worker-country.options.null'
+      }
+    ].concat(countries)
+  },
+  'worker-uk-address-line-1': {
+    validate: ['required', 'notUrl', { type: 'maxlength', arguments: [250] }],
+    className: ['govuk-input', 'govuk-!-width-two-thirds']
+  },
+  'worker-uk-address-line-2': {
+    validate: ['notUrl', { type: 'maxlength', arguments: [250] }],
+    className: ['govuk-input', 'govuk-!-width-two-thirds']
+  },
+  'worker-uk-town-or-city': {
+    validate: ['required', 'notUrl', { type: 'maxlength', arguments: [250] }],
+    className: ['govuk-input', 'govuk-!-width-two-thirds']
+  },
+  'worker-uk-postcode': {
+    validate: ['required', 'notUrl', 'postcode'],
+    formatter: ['ukPostcode'],
+    className: ['govuk-input', 'govuk-input--width-10']
   }
 };

@@ -37,5 +37,71 @@
   },
   "worker-applied-for-settlement-protection": {
     "required": "Tell us if the worker has any evidence from or ongoing applications with the Home Office"
+  },
+  "worker-full-name": {
+    "required": "Enter the worker's full name",
+    "notUrl": "Your answer must not contain URLs or links"
+  },
+  "worker-dob": {
+    "required": "Enter the worker's date of birth",
+    "before": "The worker must be 16 years or over – this service only applies to workers aged 16 or over",
+    "after": "Enter a real date of birth"
+  },
+  "worker-nationality": {
+    "required": "Select a country of nationality from the list",
+    "excludeUkIr": "You do not need to request a Home Office right to work check if you are a UK or Ireland Citizen"
+  },
+  "worker-place-of-birth": {
+    "required": "Tell us where the worker was born",
+    "notUrl": "Your answer must not contain URLs or links"
+  },
+  "worker-year-of-entry-to-uk": {
+    "required": "Tell us the year when the worker first came to the UK before 1988",
+    "after": "Enter the real year of entry to uk",
+    "afterDobYear": "Year of entry must be after ({{afterDobYear}}) the worker's Date of Birth year"
+  },
+  "worker-national-insurance-number": {
+    "required": "Enter a National Insurance number",
+    "notUrl": "Your answer must not contain URLs or links",
+    "niNumber": "Enter a National Insurance number in the correct format"
+  },
+  "employer-telephone": {
+    "required": "Tell us if the worker already works for you",
+    "notUrl": "Your answer must not contain URLs or links",
+    "ukPhoneNumber" : "Enter a valid UK telephone number"
+  },
+  "employer-email": {
+    "required": "Enter worker email address",
+    "email": "Enter a valid email address"
+  },
+  "worker-address-line-1": {
+    "required": "Enter address line 1, typically the building and street",
+    "notUrl": "Your answer must not contain URLs or links"
+  },
+  "worker-address-line-2": {
+    "notUrl": "Your answer must not contain URLs or links"
+  },
+  "worker-town-or-city": {
+    "required": "Enter a town or city",
+    "notUrl": "Your answer must not contain URLs or links"
+  },
+  "worker-country": {
+    "required": "Enter a town or city"
+  },
+  "worker-uk-address-line-1": {
+    "required": "Enter address line 1, typically the building and street",
+    "notUrl": "Your answer must not contain URLs or links"
+  },
+  "worker-uk-address-line-2": {
+    "notUrl": "Your answer must not contain URLs or links"
+  },
+  "worker-uk-town-or-city": {
+    "required": "Enter a town or city",
+    "notUrl": "Your answer must not contain URLs or links"
+  },
+  "worker-uk-postcode": {
+    "required": "Enter a postcode",
+    "notUrl": "Your answer must not contain URLs or links",
+    "postcode": "Enter a real postcode"
   }
 }

@@ -56,16 +56,84 @@ module.exports = {
     ]
   },
   'employee-details': {
-    steps: []
+    steps: [
+      {
+        step: '/worker-details-1988',
+        field: 'worker-full-name'
+      },
+      {
+        step: '/worker-details-1988',
+        field: 'worker-dob'
+      },
+      {
+        step: '/worker-details-1988',
+        field: 'worker-nationality'
+      },
+      {
+        step: '/worker-details-1988',
+        field: 'worker-place-of-birth'
+      },
+      {
+        step: '/worker-details-1988',
+        field: 'worker-year-of-entry-to-uk'
+      },
+      {
+        step: '/worker-details-1988',
+        field: 'worker-national-insurance-number',
+        parse: d => d.toUpperCase()
+      }
+    ]
   },
   'current-address': {
-    steps: []
+    steps: [
+      {
+        step: '/worker-address',
+        field: 'worker-address-line-1'
+      },
+      {
+        step: '/worker-address',
+        field: 'worker-address-line-2'
+      },
+      {
+        step: '/worker-address',
+        field: 'worker-town-or-city'
+      },
+      {
+        step: '/worker-address',
+        field: 'worker-country'
+      },
+      {
+        step: '/worker-address-uk',
+        field: 'worker-uk-address-line-1'
+      },
+      {
+        step: '/worker-address-uk',
+        field: 'worker-uk-address-line-2'
+      },
+      {
+        step: '/worker-address-uk',
+        field: 'worker-uk-town-or-city'
+      },
+      {
+        step: '/worker-address-uk',
+        field: 'worker-uk-postcode'
+      }
+    ]
   },
   'their-employment': {
     steps: []
   },
   'contact-details': {
-    steps: []
+    steps: [
+      {
+        step: '/worker-details-1988',
+        field: 'employer-telephone'
+      },
+      {
+        step: '/worker-details-1988',
+        field: 'employer-email'
+      }
+    ]
   },
   'workers-job-information': {
     steps: []
