@@ -68,12 +68,46 @@ module.exports = {
     steps: []
   },
   'workers-job-information': {
-    steps: []
+    steps: [
+      {
+        step: '/job-information',
+        field: 'job-title'
+      },
+      {
+        step: '/job-information',
+        field: 'hours-of-work-per-week'
+      },
+    ]
   },
   'business-address': {
     steps: []
   },
   'employer-contact-details': {
-    steps: []
+    steps: [
+      {
+        step: '/employer-contact-details',
+        field: 'business-name'
+      },
+      {
+        step: '/employer-contact-details',
+        field: 'type-of-business'
+      },
+      {
+        step: '/employer-contact-details',
+        field: 'employers-contact-name'
+      },
+      {
+        step: '/employer-contact-details',
+        field: 'contact-job-title'
+      },
+      {
+        step: '/employer-contact-details',
+        field: 'contact-telephone'
+      },
+      {
+        step: '/employer-contact-details',
+        field: 'contact-email-address'
+      },
+    ]
   }
 };

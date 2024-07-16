@@ -171,9 +171,12 @@ module.exports = {
       next: '/job-information'
     },
     '/job-information': {
+      fields: ['job-title', 'hours-of-work-per-week'],
       next: '/employer-contact-details'
     },
     '/employer-contact-details': {
+      fields: ['business-name', 'type-of-business', 'employers-contact-name',
+       'contact-job-title', 'contact-telephone', 'contact-email-address'],
       next: '/business-address'
     },
     '/business-address': {

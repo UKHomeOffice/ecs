@@ -113,5 +113,31 @@
         "label": "No"
       }
     }
+  },
+  "job-title": {
+    "label": "Job title"
+  },
+  "hours-of-work-per-week": {
+    "label": "Hours of work per week",
+    "hint": "If the hours can vary, enter the average from the last 17 weeks or an estimate"
+  },
+  "business-name": {
+    "label": "Business name"
+  },
+  "type-of-business": {
+    "label": "Type of business"
+  },
+  "employers-contact-name": {
+    "label": "Employer’s contact name"
+  },
+  "contact-job-title": {
+    "label": "Contact job title"
+  },
+  "contact-telephone": {
+    "label": "Contact telephone"
+  },
+  "contact-email-address": {
+    "label": "Contact email address",
+    "hint": "This needs to be the email address of the employer requesting the check"
   }
 }

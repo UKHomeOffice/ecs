@@ -37,5 +37,44 @@
   },
   "worker-applied-for-settlement-protection": {
     "required": "Tell us if the worker has any evidence from or ongoing applications with the Home Office"
+  },
+  "job-title": {
+    "required": "Enter the job title of the role",
+    "notUrl": "Your answer must not contain URLs or links"
+  },
+  "hours-of-work-per-week": {
+    "required": "Tell us how many hours per week the job involves",
+    "min": "Hours of work per week must be between 1 and 99",
+    "max": "Hours of work per week must be between 1 and 99"
+  },
+  "business-name": {
+    "required": "Tell us the business name",
+    "notUrl": "Your answer must not contain URLs or links",
+    "maxlength": "Business name must be 254 characters or less"
+  },
+  "type-of-business": {
+    "required": "Tell us the type of business",
+    "notUrl": "Your answer must not contain URLs or links",
+    "maxlength": "Type of business must be 254 characters or less"
+  },
+  "employers-contact-name": {
+    "required": "Tell us the employer's contact name",
+    "notUrl": "Your answer must not contain URLs or links",
+    "maxlength": "Employer's contact name must be 254 characters or less"
+  },
+  "contact-job-title": {
+    "required": "Tell us the contact job title",
+    "notUrl": "Your answer must not contain URLs or links",
+    "maxlength": "Contact job title must be 254 characters or less"
+  },
+  "contact-telephone": {
+    "required": "Tell us the contact telephone number",
+    "notUrl": "Your answer must not contain URLs or links"
+  },
+  "contact-email-address": {
+    "required": "Tell us the contact email address",
+    "email": "Enter a valid email address"
   }
 }
+
+

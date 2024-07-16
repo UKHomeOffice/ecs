@@ -38,6 +38,13 @@
     "heading-link": "settlement protection",
     "heading-2": "?"
   },
+  "job-information": {
+    "header": "Worker's job information",
+    "intro": "We need this information to check whether the worker’s immigration status allows them to do the job you are checking them for."
+  },
+  "employer-contact-details": {
+    "header": "Employer contact details"
+  },
   "check-your-answers": {
     "header": "Check your answers"
   },
