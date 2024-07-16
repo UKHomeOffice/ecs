@@ -76,7 +76,7 @@ module.exports = {
       {
         step: '/job-information',
         field: 'hours-of-work-per-week'
-      },
+      }
     ]
   },
   'business-address': {
@@ -107,7 +107,7 @@ module.exports = {
       {
         step: '/employer-contact-details',
         field: 'contact-email-address'
-      },
+      }
     ]
   }
 };

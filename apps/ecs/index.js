@@ -176,7 +176,7 @@ module.exports = {
     },
     '/employer-contact-details': {
       fields: ['business-name', 'type-of-business', 'employers-contact-name',
-       'contact-job-title', 'contact-telephone', 'contact-email-address'],
+        'contact-job-title', 'contact-telephone', 'contact-email-address'],
       next: '/business-address'
     },
     '/business-address': {

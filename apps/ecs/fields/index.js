@@ -159,29 +159,30 @@ module.exports = {
     ]
   },
   'job-title': {
-    validate: ['required', 'notUrl'],
+    validate: ['required', 'notUrl']
   },
   'hours-of-work-per-week': {
     validate: ['required', { type: 'max', arguments: 99 }, { type: 'min', arguments: 1 }],
     attributes: [{ suffix: 'hours' }],
-    className: 'govuk-input govuk-!-width-one-quarter',
+    className: 'govuk-input govuk-!-width-one-quarter'
   },
   'business-name': {
-    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }],
+    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }]
   },
   'type-of-business': {
-    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }],
+    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }]
   },
   'employers-contact-name': {
-    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }],
+    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }]
   },
   'contact-job-title': {
-    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }],
+    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }]
   },
   'contact-telephone': {
     validate: ['notUrl', 'required'],
+    className: ['govuk-input', 'govuk-!-width-two-thirds']
   },
   'contact-email-address': {
-    validate: ['required', 'email'],
+    validate: ['required', 'email']
   }
 };

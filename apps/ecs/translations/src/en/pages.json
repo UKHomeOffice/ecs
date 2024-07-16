@@ -82,7 +82,10 @@
     "fields": {
       "worker-has-eligible-docs": {
         "label": "Does the worker has any of the Right to Work eligible documents"
-      } 
+      },
+      "contact-job-title": {
+        "label": "Job title"
+      }
     }
   }
 }
