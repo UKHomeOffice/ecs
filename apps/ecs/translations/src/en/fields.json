@@ -123,7 +123,7 @@
     "hint": "For example, 31 3 1980"
   },
   "worker-been-in-uk-before-1988-nationality": {
-    "label": "Country of nationality",
+    "label": "Nationality",
     "hint": "Start to type the country name and options will appear",
     "options": {
       "null": "Select a country"

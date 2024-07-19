@@ -41,7 +41,7 @@
   },
   "worker-been-in-uk-before-1988-dob": { 
     "required": "Enter the worker's date of birth",
-    "before": "The worker date of birth year must be before 1989",
+    "before": "Worker's date of birth must be before 1988, when they came to the UK",
     "after": "Enter a real date of birth"
   },
   "worker-been-in-uk-before-1988-nationality": {
