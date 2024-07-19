@@ -56,7 +56,9 @@
     "notUrl": "Your answer must not contain URLs or links"
   },
   "worker-year-of-entry-to-uk": {
-    "required": "Tell us the year when the worker first came to the UK before 1988",
+    "required": "Tell us the year when the worker first came to the UK",
+    "numeric": "Year must only contain numbers",
+    "maxlength": "Year of entry to UK must be 4 characters",
     "after": "Enter the real year of entry to uk",
     "afterDobYear": "Year of entry must be after ({{afterDobYear}}) the worker's Date of Birth year"
   },
@@ -76,27 +78,35 @@
   },
   "worker-address-line-1": {
     "required": "Enter address line 1, typically the building and street",
+    "maxlength": "Address line 1 must be 250 characters or less",
     "notUrl": "Your answer must not contain URLs or links"
   },
   "worker-address-line-2": {
-    "notUrl": "Your answer must not contain URLs or links"
+    "notUrl": "Your answer must not contain URLs or links",
+    "maxlength": "Address line  must be 250 characters or less"
   },
   "worker-town-or-city": {
     "required": "Enter a town or city",
+    "maxlength": "Town/City must be 250 characters or less",
     "notUrl": "Your answer must not contain URLs or links"
   },
   "worker-country": {
-    "required": "Enter a town or city"
+    "required": "Enter worker country",
+    "maxlength": "Country must be 250 characters or less",
+    "excludeUkIr": "You do not need to request a Home Office right to work check if you are a UK or Ireland Citizen"
   },
   "worker-uk-address-line-1": {
     "required": "Enter address line 1, typically the building and street",
+    "maxlength": "Address line 1 must be 250 characters or less",
     "notUrl": "Your answer must not contain URLs or links"
   },
   "worker-uk-address-line-2": {
-    "notUrl": "Your answer must not contain URLs or links"
+    "notUrl": "Your answer must not contain URLs or links",
+    "maxlength": "Address line 2 must be 250 characters or less"
   },
   "worker-uk-town-or-city": {
     "required": "Enter a town or city",
+    "maxlength": "Town/City must be 250 characters or less",
     "notUrl": "Your answer must not contain URLs or links"
   },
   "worker-uk-postcode": {

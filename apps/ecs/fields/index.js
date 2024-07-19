@@ -161,15 +161,10 @@ module.exports = {
   'worker-full-name': {
     mixin: 'input-text',
     validate: ['required', 'notUrl'],
-    labelClassName: 'govuk-label--s',
     className: ['govuk-input']
   },
   'worker-dob': dateComponent('worker-dob', {
     mixin: 'input-date',
-    labelClassName: 'govuk-label--s',
-    legend: {
-      className: 'bold'
-    },
     validate: [
       'required', 'date',
       { type: 'before', arguments: ['16', 'years'] },
@@ -183,37 +178,31 @@ module.exports = {
     options: [{
       value: '',
       label: 'fields.worker-nationality.options.null'
-    }].concat(countries),
-    labelClassName: 'govuk-label--s'
+    }].concat(countries)
   },
   'worker-place-of-birth': {
     mixin: 'input-text',
     validate: ['required', 'notUrl'],
-    labelClassName: 'govuk-label--s',
     className: ['govuk-input', 'govuk-!-width-one-half']
   },
   'worker-year-of-entry-to-uk': {
     mixin: 'input-text',
-    validate: ['required'],
-    labelClassName: 'govuk-label--s',
+    validate: ['required', 'numeric', { type: 'maxlength', arguments: [4] }],
     className: ['govuk-input', 'govuk-input--width-4']
   },
   'worker-national-insurance-number': {
     mixin: 'input-text',
     validate: ['required', 'notUrl'],
-    labelClassName: 'govuk-label--s',
     className: ['govuk-input', 'govuk-!-width-one-third']
   },
   'employer-telephone': {
     mixin: 'input-text',
     validate: ['notUrl', 'ukPhoneNumber'],
-    labelClassName: 'govuk-label--s',
     className: ['govuk-input', 'govuk-!-width-one-half']
   },
   'employer-email': {
     mixin: 'input-text',
-    validate: ['required', 'email'],
-    labelClassName: 'govuk-label--s'
+    validate: ['required', 'email']
   },
   'worker-address-line-1': {
     validate: ['required', 'notUrl', { type: 'maxlength', arguments: [250] }],
@@ -230,7 +219,7 @@ module.exports = {
   'worker-country': {
     mixin: 'select',
     validate: ['required'],
-    className: ['country-typeahead'],
+    className: ['typeahead'],
     options: [
       {
         value: '',
