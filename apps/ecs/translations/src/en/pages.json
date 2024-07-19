@@ -38,6 +38,12 @@
     "heading-link": "settlement protection",
     "heading-2": "?"
   },
+  "worker-details": {
+    "header": "Worker Details"
+  },
+  "reference-number": {
+    "header": "Home Office reference numbers"
+  },
   "check-your-answers": {
     "header": "Check your answers"
   },
@@ -75,7 +81,13 @@
     "fields": {
       "worker-has-eligible-docs": {
         "label": "Does the worker has any of the Right to Work eligible documents"
-      } 
+      },
+      "worker-been-in-uk-before-1988-nationality": {
+        "label": "Nationality"
+      },
+      "worker-reference-number": {
+        "label": "Home Office reference number"
+      }
     }
   }
 }

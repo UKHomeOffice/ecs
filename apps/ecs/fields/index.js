@@ -1,5 +1,6 @@
 
 const dateComponent = require('hof').components.date;
+const countries = require('hof').utils.countries();
 
 module.exports = {
   'worker-has-eligible-docs': {
@@ -157,5 +158,33 @@ module.exports = {
         value: 'no'
       }
     ]
+  },
+  'worker-been-in-uk-before-1988-full-name': {
+    mixin: 'input-text',
+    validate: ['required', 'notUrl'],
+    className: ['govuk-input']
+  },
+  'worker-been-in-uk-before-1988-dob': dateComponent('worker-been-in-uk-before-1988-dob', {
+    mixin: 'input-date',
+    validate: [
+      'required', 'date',
+      { type: 'before', arguments: ['1988-12-31'] },
+      { type: 'after', arguments: ['100', 'years']}
+    ]
+  }),
+  'worker-been-in-uk-before-1988-nationality': {
+    mixin: 'select',
+    className: ['worker-in-uk-typeahead'],
+    validate: ['required'],
+    options: [{
+      value: '',
+      label: 'fields.worker-been-in-uk-before-1988-nationality.options.null'
+    }].concat(countries)
+  },
+  'worker-reference-number': {
+    mixin: 'input-text',
+    labelClassName: 'govuk-label--s',
+    validate: ['required', 'notUrl'],
+    className: ['govuk-input', 'govuk-!-width-two-thirds']
   }
 };

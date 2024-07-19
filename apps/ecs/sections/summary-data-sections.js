@@ -56,7 +56,24 @@ module.exports = {
     ]
   },
   'employee-details': {
-    steps: []
+    steps: [
+      {
+        step: '/worker-details',
+        field: 'worker-been-in-uk-before-1988-full-name'
+      },
+      {
+        step: '/worker-details',
+        field: 'worker-been-in-uk-before-1988-dob'
+      },
+      {
+        step: '/worker-details',
+        field: 'worker-been-in-uk-before-1988-nationality'
+      },
+      {
+        step: '/reference-number',
+        field: 'worker-reference-number'
+      }
+    ]
   },
   'current-address': {
     steps: []
