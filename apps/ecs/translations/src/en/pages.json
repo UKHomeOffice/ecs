@@ -41,8 +41,12 @@
   "check-your-answers": {
     "header": "Check your answers"
   },
+  "data-protection": {
+    "header": "Data protection statement"
+  },
   "check-requested": {
-    "confirmed": "Right to work check requested"
+    "confirmed": "Right to work check requested",
+    "p1": "A confirmation email with these details has been sent to the address you provided. We aim to respond within 5 working days. You need to wait for our response before taking any further action."
   },
   "confirm": {
     "header": "Summary",

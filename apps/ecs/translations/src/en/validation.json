@@ -37,5 +37,8 @@
   },
   "worker-applied-for-settlement-protection": {
     "required": "Tell us if the worker has any evidence from or ongoing applications with the Home Office"
+  },
+  "privacy-check": {
+    "required": "Confirm you have read the Data Protection statement"
   }
 }

@@ -157,5 +157,9 @@ module.exports = {
         value: 'no'
       }
     ]
+  },
+  'privacy-check': {
+    mixin: 'checkbox',
+    validate: ['required']
   }
 };
