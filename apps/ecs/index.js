@@ -180,6 +180,7 @@ module.exports = {
       next: '/business-address'
     },
     '/business-address': {
+      fields: ['business-address-line-1', 'business-address-line-2', 'business-town-city', 'business-postcode'],
       next: '/check-your-answers'
     },
     '/check-your-answers': {

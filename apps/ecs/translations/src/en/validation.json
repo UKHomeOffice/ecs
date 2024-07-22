@@ -75,7 +75,20 @@
   "contact-email-address": {
     "required": "Tell us the contact email address",
     "email": "Enter a valid email address"
+  },
+  "business-address-line-1": {
+    "required": "Enter address line 1, typically the building and street",
+    "notUrl": "Your answer must not contain URLs or links"
+  },
+  "business-address-line-2": {
+    "notUrl": "Your answer must not contain URLs or links"
+  },
+  "business-town-city": {
+    "required": "Enter a town or city",
+    "notUrl": "Your answer must not contain URLs or links"
+  },
+  "business-postcode": {
+    "required": "Enter a postcode",
+    "postcode": "Enter a real UK postcode"
   }
 }
-
-

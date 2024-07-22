@@ -184,5 +184,22 @@ module.exports = {
   },
   'contact-email-address': {
     validate: ['required', 'email']
+  },
+  'business-address-line-1': {
+    validate: ['required', 'notUrl'],
+    className: ['govuk-input', 'govuk-!-width-two-thirds']
+  },
+  'business-address-line-2': {
+    validate: ['notUrl'],
+    className: ['govuk-input', 'govuk-!-width-two-thirds']
+  },
+  'business-town-city': {
+    validate: ['required', 'notUrl'],
+    className: ['govuk-input', 'govuk-!-width-two-thirds']
+  },
+  'business-postcode': {
+    validate: ['required', 'postcode'],
+    formatter: ['ukPostcode'],
+    className: ['govuk-input', 'govuk-input--width-10']
   }
 };

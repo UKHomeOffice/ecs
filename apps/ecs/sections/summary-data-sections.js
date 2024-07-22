@@ -80,7 +80,24 @@ module.exports = {
     ]
   },
   'business-address': {
-    steps: []
+    steps: [
+      {
+        step: '/business-address',
+        field: 'business-address-line-1'
+      },
+      {
+        step: '/business-address',
+        field: 'business-address-line-2'
+      },
+      {
+        step: '/business-address',
+        field: 'business-town-city'
+      },
+      {
+        step: '/business-address',
+        field: 'business-postcode'
+      }
+    ]
   },
   'employer-contact-details': {
     steps: [

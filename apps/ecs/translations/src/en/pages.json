@@ -45,6 +45,9 @@
   "employer-contact-details": {
     "header": "Employer contact details"
   },
+  "business-address": {
+    "header": "Business address"
+  },
   "check-your-answers": {
     "header": "Check your answers"
   },
@@ -85,6 +88,15 @@
       },
       "contact-job-title": {
         "label": "Job title"
+      },
+      "business-address-line-1": {
+        "label": "Business address line 1"
+      },
+      "business-address-line-2": {
+        "label": "Address line 2"
+      },
+      "business-town-city": {
+        "label": "Town / City"
       }
     }
   }

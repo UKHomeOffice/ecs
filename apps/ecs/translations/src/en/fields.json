@@ -139,5 +139,17 @@
   "contact-email-address": {
     "label": "Contact email address",
     "hint": "This needs to be the email address of the employer requesting the check"
+  },
+  "business-address-line-1": {
+    "label": "Address line 1"
+  },
+  "business-address-line-2": {
+    "label": "Address line 2 (optional)"
+  },
+  "business-town-city": {
+    "label": "Town or city"
+  },
+  "business-postcode": {
+    "label": "Postcode"
   }
 }
