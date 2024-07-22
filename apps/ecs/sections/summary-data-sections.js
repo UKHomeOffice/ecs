@@ -52,6 +52,14 @@ module.exports = {
       {
         step: '/settlement-protection',
         field: 'worker-applied-for-settlement-protection'
+      },
+      {
+        step: '/original-document',
+        field: 'seen-original-document'
+      },
+      {
+        step: '/arc-number',
+        field: 'arc-number'
       }
     ]
   },

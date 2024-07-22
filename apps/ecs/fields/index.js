@@ -143,7 +143,7 @@ module.exports = {
   },
   'arc-number': {
     isPageHeading: 'true',
-    className: ['govuk-input', 'govuk-!-width-two-thirds'],
+    className: ['govuk-input', 'govuk-!-width-one-half'],
     validate: ['required', 'notUrl', 'alphanum', { type: 'maxlength', arguments: [20]}]
   },
   'worker-been-in-UK-before-1988': {
