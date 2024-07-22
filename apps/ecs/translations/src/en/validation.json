@@ -69,7 +69,8 @@
   },
   "contact-telephone": {
     "required": "Tell us the contact telephone number",
-    "notUrl": "Your answer must not contain URLs or links"
+    "notUrl": "Your answer must not contain URLs or links",
+    "ukPhoneNumber" : "Enter a valid UK telephone number"
   },
   "contact-email-address": {
     "required": "Tell us the contact email address",

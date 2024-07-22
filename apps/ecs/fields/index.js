@@ -164,7 +164,7 @@ module.exports = {
   'hours-of-work-per-week': {
     validate: ['required', { type: 'max', arguments: 99 }, { type: 'min', arguments: 1 }],
     attributes: [{ suffix: 'hours' }],
-    className: 'govuk-input govuk-!-width-one-quarter'
+    className: ['govuk-input--width-2', 'govuk-input']
   },
   'business-name': {
     validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }]
@@ -179,8 +179,8 @@ module.exports = {
     validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }]
   },
   'contact-telephone': {
-    validate: ['notUrl', 'required'],
-    className: ['govuk-input', 'govuk-!-width-two-thirds']
+    validate: ['notUrl', 'ukPhoneNumber', 'required'],
+    className: ['govuk-input', 'govuk-!-width-one-half']
   },
   'contact-email-address': {
     validate: ['required', 'email']
