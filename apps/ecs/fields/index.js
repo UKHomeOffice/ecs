@@ -159,7 +159,7 @@ module.exports = {
     ]
   },
   'job-title': {
-    validate: ['required', 'notUrl']
+    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }]
   },
   'hours-of-work-per-week': {
     validate: ['required', { type: 'max', arguments: 99 }, { type: 'min', arguments: 1 }],
@@ -186,15 +186,15 @@ module.exports = {
     validate: ['required', 'email']
   },
   'business-address-line-1': {
-    validate: ['required', 'notUrl'],
+    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }],
     className: ['govuk-input', 'govuk-!-width-two-thirds']
   },
   'business-address-line-2': {
-    validate: ['notUrl'],
+    validate: ['notUrl', { type: 'maxlength', arguments: 254 }],
     className: ['govuk-input', 'govuk-!-width-two-thirds']
   },
   'business-town-city': {
-    validate: ['required', 'notUrl'],
+    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }],
     className: ['govuk-input', 'govuk-!-width-two-thirds']
   },
   'business-postcode': {

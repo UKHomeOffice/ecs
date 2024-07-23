@@ -40,7 +40,8 @@
   },
   "job-title": {
     "required": "Enter the job title of the role",
-    "notUrl": "Your answer must not contain URLs or links"
+    "notUrl": "Your answer must not contain URLs or links",
+    "maxlength": "Contact job title must be 254 characters or less"
   },
   "hours-of-work-per-week": {
     "required": "Tell us how many hours per week the job involves",
@@ -78,14 +79,17 @@
   },
   "business-address-line-1": {
     "required": "Enter address line 1, typically the building and street",
-    "notUrl": "Your answer must not contain URLs or links"
+    "notUrl": "Your answer must not contain URLs or links",
+    "maxlength": "Contact job title must be 254 characters or less"
   },
   "business-address-line-2": {
-    "notUrl": "Your answer must not contain URLs or links"
+    "notUrl": "Your answer must not contain URLs or links",
+    "maxlength": "Contact job title must be 254 characters or less"
   },
   "business-town-city": {
     "required": "Enter a town or city",
-    "notUrl": "Your answer must not contain URLs or links"
+    "notUrl": "Your answer must not contain URLs or links",
+    "maxlength": "Contact job title must be 254 characters or less"
   },
   "business-postcode": {
     "required": "Enter a postcode",
