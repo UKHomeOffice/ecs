@@ -113,6 +113,20 @@ module.exports = {
       { type: 'before', arguments: ['0', 'days'] }
     ]
   }),
+  'seen-original-document': {
+    className: 'govuk-radios--inline',
+    isPageHeading: 'true',
+    mixin: 'radio-group',
+    validate: ['required'],
+    options: [
+      {
+        value: 'yes'
+      },
+      {
+        value: 'no'
+      }
+    ]
+  },
   'worker-have-ongoing-appeal': {
     className: 'govuk-radios--inline',
     isPageHeading: 'true',
@@ -126,6 +140,11 @@ module.exports = {
         value: 'no'
       }
     ]
+  },
+  'arc-number': {
+    isPageHeading: 'true',
+    className: ['govuk-input', 'govuk-!-width-one-half'],
+    validate: ['required', 'notUrl', 'alphanum', { type: 'maxlength', arguments: [20]}]
   },
   'worker-been-in-UK-before-1988': {
     className: 'govuk-radios--inline',

@@ -69,6 +69,17 @@
     "legend": "When was the TUPE transfer?",
     "hint": "For example, 21 2 2024"
   },
+  "seen-original-document": {
+    "legend": "Have you seen the original document?",
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      }
+    }
+  },
   "worker-has-arc-card": {
     "legend": "Does the worker have an application registration card (ARC) that shows they have the right to work?",
     "hint": "ARCs are proof of asylum status. The right to work is shown in the Remarks section of the card",
@@ -80,6 +91,10 @@
         "label": "No"
       }
     }
+  },
+  "arc-number": {
+    "label": "What is the worker’s application registration card number?",
+    "hint": "This is on the back left of the card. For example, ZU1234567"
   },
   "worker-have-ongoing-appeal": {
     "legend": "Does the worker have an ongoing appeal or application with the Home Office?",

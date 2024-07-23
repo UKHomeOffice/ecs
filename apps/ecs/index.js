@@ -117,6 +117,22 @@ module.exports = {
       next: '/original-document'
     },
     '/original-document': {
+      fields: ['seen-original-document'],
+      forks: [
+        {
+          target: '/ineligible-document',
+          condition: {
+            field: 'seen-original-document',
+            value: 'no'
+          }
+        }
+      ],
+      next: '/arc-number'
+    },
+    '/ineligible-document': {
+    },
+    '/arc-number': {
+      fields: ['arc-number'],
       next: '/request-check'
     },
     '/request-check': {

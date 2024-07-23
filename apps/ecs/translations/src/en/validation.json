@@ -29,6 +29,15 @@
     "after": "TUPE transfer date must be after ({{diff}}) the worker started working for you",
     "before": "TUPE transfer date must be today or in the past"
   },
+  "seen-original-document": {
+    "required": "Tell us if the you have seen the worker's original document"
+  },
+  "arc-number": {
+    "required": "Tell us the worker's application registration card number",
+    "notUrl": "Your answer must not contain URLs or links",
+    "alphanum": "ARC number can only have numbers and letters a-z",
+    "maxlength": "Application registration card number must be 20 characters or less"
+  },
   "worker-have-ongoing-appeal": {
     "required": "Tell us if the worker has an ongoing application or appeal for permission to stay in the UK"
   },
