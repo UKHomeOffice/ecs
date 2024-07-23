@@ -174,7 +174,7 @@ module.exports = {
   }),
   'worker-been-in-uk-before-1988-nationality': {
     mixin: 'select',
-    className: ['worker-in-uk-typeahead'],
+    className: ['typeahead'],
     validate: ['required'],
     options: [{
       value: '',
