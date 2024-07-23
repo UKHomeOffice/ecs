@@ -178,7 +178,7 @@ module.exports = {
     options: [{
       value: '',
       label: 'fields.worker-nationality.options.null'
-    }].concat(countries)
+    }].concat(countries.filter(country => !['Ireland', 'United Kingdom'].includes(country.value)))
   },
   'worker-place-of-birth': {
     mixin: 'input-text',

@@ -138,12 +138,9 @@ module.exports = {
         {
           target: '/worker-address',
           condition: req => req.sessionModel.get('use-digital-right-to-work') === 'yes'
-        },
-        {
-          target: '/worker-address-uk',
-          condition: req => req.sessionModel.get('use-digital-right-to-work') === 'no'
         }
-      ]
+      ],
+      next: '/worker-address-uk'
     },
     '/worker-address': {
       fields: [

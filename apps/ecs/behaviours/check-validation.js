@@ -31,7 +31,7 @@ module.exports = superclass => class extends superclass {
     if(key === 'worker-national-insurance-number')  {
       const niNumber = req.form.values[key];
       // eslint-disable-next-line max-len
-      const NINOregex = '^(?!BG)(?!GB)(?!NK)(?!KN)(?!TN)(?!NT)(?!ZZ)(?:[A-CEGHJ-PR-TW-Z][A-CEGHJ-NPR-TW-Z])(?:\\s*\\d\\s*){6}([A-D]|\\s)$';
+      const NINOregex = '^(?!BG)(?!GB)(?!NK)(?!KN)(?!TN)(?!NT)(?!ZZ)(?:[A-CEGHJ-PR-TW-Z][A-CEGHJ-NPR-TW-Z])(?:\s*\d\s*){6}([A-D]|\s)$';
       if(!validators.url(niNumber) && !validators.regex(niNumber.toUpperCase(), NINOregex)) {
         return validationErrorFunc('niNumber');
       }
