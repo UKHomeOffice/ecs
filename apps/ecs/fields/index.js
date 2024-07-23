@@ -176,5 +176,49 @@ module.exports = {
         value: 'no'
       }
     ]
+  },
+  'job-title': {
+    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }]
+  },
+  'hours-of-work-per-week': {
+    validate: ['required', { type: 'max', arguments: 99 }, { type: 'min', arguments: 1 }],
+    attributes: [{ suffix: 'hours' }],
+    className: ['govuk-input--width-2', 'govuk-input']
+  },
+  'business-name': {
+    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }]
+  },
+  'type-of-business': {
+    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }]
+  },
+  'employers-contact-name': {
+    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }]
+  },
+  'contact-job-title': {
+    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }]
+  },
+  'contact-telephone': {
+    validate: ['notUrl', 'ukPhoneNumber', 'required'],
+    className: ['govuk-input', 'govuk-!-width-one-half']
+  },
+  'contact-email-address': {
+    validate: ['required', 'email']
+  },
+  'business-address-line-1': {
+    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }],
+    className: ['govuk-input', 'govuk-!-width-two-thirds']
+  },
+  'business-address-line-2': {
+    validate: ['notUrl', { type: 'maxlength', arguments: 254 }],
+    className: ['govuk-input', 'govuk-!-width-two-thirds']
+  },
+  'business-town-city': {
+    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }],
+    className: ['govuk-input', 'govuk-!-width-two-thirds']
+  },
+  'business-postcode': {
+    validate: ['required', 'postcode'],
+    formatter: ['ukPostcode'],
+    className: ['govuk-input', 'govuk-input--width-10']
   }
 };

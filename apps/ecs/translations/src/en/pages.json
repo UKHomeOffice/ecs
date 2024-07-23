@@ -43,6 +43,16 @@
     "heading-link": "settlement protection",
     "heading-2": "?"
   },
+  "job-information": {
+    "header": "Worker's job information",
+    "intro": "We need this information to check whether the worker’s immigration status allows them to do the job you are checking them for."
+  },
+  "employer-contact-details": {
+    "header": "Employer contact details"
+  },
+  "business-address": {
+    "header": "Business address"
+  },
   "check-your-answers": {
     "header": "Check your answers"
   },
@@ -80,7 +90,19 @@
     "fields": {
       "worker-has-eligible-docs": {
         "label": "Does the worker has any of the Right to Work eligible documents"
-      } 
+      },
+      "contact-job-title": {
+        "label": "Job title"
+      },
+      "business-address-line-1": {
+        "label": "Business address line 1"
+      },
+      "business-address-line-2": {
+        "label": "Address line 2"
+      },
+      "business-town-city": {
+        "label": "Town / City"
+      }
     }
   }
 }

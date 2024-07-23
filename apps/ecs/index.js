@@ -187,12 +187,16 @@ module.exports = {
       next: '/job-information'
     },
     '/job-information': {
+      fields: ['job-title', 'hours-of-work-per-week'],
       next: '/employer-contact-details'
     },
     '/employer-contact-details': {
+      fields: ['business-name', 'type-of-business', 'employers-contact-name',
+        'contact-job-title', 'contact-telephone', 'contact-email-address'],
       next: '/business-address'
     },
     '/business-address': {
+      fields: ['business-address-line-1', 'business-address-line-2', 'business-town-city', 'business-postcode'],
       next: '/check-your-answers'
     },
     '/check-your-answers': {
