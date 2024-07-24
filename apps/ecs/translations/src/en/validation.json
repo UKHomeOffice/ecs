@@ -29,6 +29,15 @@
     "after": "TUPE transfer date must be after ({{diff}}) the worker started working for you",
     "before": "TUPE transfer date must be today or in the past"
   },
+  "seen-original-document": {
+    "required": "Tell us if the you have seen the worker's original document"
+  },
+  "arc-number": {
+    "required": "Tell us the worker's application registration card number",
+    "notUrl": "Your answer must not contain URLs or links",
+    "alphanum": "ARC number can only have numbers and letters a-z",
+    "maxlength": "Application registration card number must be 20 characters or less"
+  },
   "worker-have-ongoing-appeal": {
     "required": "Tell us if the worker has an ongoing application or appeal for permission to stay in the UK"
   },
@@ -37,7 +46,8 @@
   },
   "worker-been-in-uk-before-1988-full-name": {
     "required": "Enter the worker's full name",
-    "notUrl": "Your answer must not contain URLs or links"
+    "notUrl": "Your answer must not contain URLs or links",
+    "maxlength": "Worker's full name must be 250 characters or less"
   },
   "worker-been-in-uk-before-1988-dob": { 
     "required": "Enter the worker's date of birth",
@@ -49,6 +59,142 @@
   },
   "worker-reference-number": {
     "required": "Enter the worker's Home Office reference number",
+    "notUrl": "Your answer must not contain URLs or links",
+    "maxlength": "Worker's full name must be 250 characters or less"
+  },
+  "job-title": {
+    "required": "Enter the job title of the role",
+    "notUrl": "Your answer must not contain URLs or links",
+    "maxlength": "Contact job title must be 254 characters or less"
+  },
+  "hours-of-work-per-week": {
+    "required": "Tell us how many hours per week the job involves",
+    "min": "Hours of work per week must be between 1 and 99",
+    "max": "Hours of work per week must be between 1 and 99"
+  },
+  "business-name": {
+    "required": "Tell us the business name",
+    "notUrl": "Your answer must not contain URLs or links",
+    "maxlength": "Business name must be 254 characters or less"
+  },
+  "type-of-business": {
+    "required": "Tell us the type of business",
+    "notUrl": "Your answer must not contain URLs or links",
+    "maxlength": "Type of business must be 254 characters or less"
+  },
+  "employers-contact-name": {
+    "required": "Tell us the employer's contact name",
+    "notUrl": "Your answer must not contain URLs or links",
+    "maxlength": "Employer's contact name must be 254 characters or less"
+  },
+  "contact-job-title": {
+    "required": "Tell us the contact job title",
+    "notUrl": "Your answer must not contain URLs or links",
+    "maxlength": "Contact job title must be 254 characters or less"
+  },
+  "contact-telephone": {
+    "required": "Tell us the contact telephone number",
+    "notUrl": "Your answer must not contain URLs or links",
+    "ukPhoneNumber" : "Enter a valid UK telephone number"
+  },
+  "contact-email-address": {
+    "required": "Tell us the contact email address",
+    "email": "Enter a valid email address"
+  },
+  "business-address-line-1": {
+    "required": "Enter address line 1, typically the building and street",
+    "notUrl": "Your answer must not contain URLs or links",
+    "maxlength": "Contact job title must be 254 characters or less"
+  },
+  "business-address-line-2": {
+    "notUrl": "Your answer must not contain URLs or links",
+    "maxlength": "Contact job title must be 254 characters or less"
+  },
+  "business-town-city": {
+    "required": "Enter a town or city",
+    "notUrl": "Your answer must not contain URLs or links",
+    "maxlength": "Contact job title must be 254 characters or less"
+  },
+  "business-postcode": {
+    "required": "Enter a postcode",
+    "postcode": "Enter a real UK postcode"
+  },
+  "worker-full-name": {
+    "required": "Enter the worker's full name",
+    "notUrl": "Your answer must not contain URLs or links",
+    "maxlength": "Worker's full name must be 250 characters or less"
+  },
+  "worker-dob": {
+    "required": "Enter the worker's date of birth",
+    "before": "The worker must be 16 years or over – this service only applies to workers aged 16 or over",
+    "after": "Enter a real date of birth"
+  },
+  "worker-nationality": {
+    "required": "Select a country of nationality from the list",
+    "excludeUkIr": "You do not need to request a Home Office right to work check if you are a UK or Ireland Citizen"
+  },
+  "worker-place-of-birth": {
+    "required": "Tell us where the worker was born",
+    "notUrl": "Your answer must not contain URLs or links",
+    "maxlength": "Worker's place of birth must be 250 characters or less"
+  },
+  "worker-year-of-entry-to-uk": {
+    "required": "Tell us the year when the worker first came to the UK",
+    "numeric": "Year must only contain numbers",
+    "maxlength": "Year of entry to UK must be 4 characters",
+    "after": "Enter the real year of entry to uk",
+    "afterDobYear": "Year of entry must be after ({{afterDobYear}}) the worker's Date of Birth year"
+  },
+  "worker-national-insurance-number": {
+    "required": "Enter a National Insurance number",
+    "notUrl": "Your answer must not contain URLs or links",
+    "niNumber": "Enter a National Insurance number in the correct format"
+  },
+  "employer-telephone": {
+    "required": "Tell us if the worker already works for you",
+    "notUrl": "Your answer must not contain URLs or links",
+    "ukPhoneNumber" : "Enter a valid UK telephone number"
+  },
+  "employer-email": {
+    "required": "Enter worker email address",
+    "email": "Enter a valid email address"
+  },
+  "worker-address-line-1": {
+    "required": "Enter address line 1, typically the building and street",
+    "maxlength": "Address line 1 must be 250 characters or less",
     "notUrl": "Your answer must not contain URLs or links"
+  },
+  "worker-address-line-2": {
+    "notUrl": "Your answer must not contain URLs or links",
+    "maxlength": "Address line  must be 250 characters or less"
+  },
+  "worker-town-or-city": {
+    "required": "Enter a town or city",
+    "maxlength": "Town/City must be 250 characters or less",
+    "notUrl": "Your answer must not contain URLs or links"
+  },
+  "worker-country": {
+    "required": "Enter worker country",
+    "maxlength": "Country must be 250 characters or less",
+    "excludeUkIr": "You do not need to request a Home Office right to work check if you are a UK or Ireland Citizen"
+  },
+  "worker-uk-address-line-1": {
+    "required": "Enter address line 1, typically the building and street",
+    "maxlength": "Address line 1 must be 250 characters or less",
+    "notUrl": "Your answer must not contain URLs or links"
+  },
+  "worker-uk-address-line-2": {
+    "notUrl": "Your answer must not contain URLs or links",
+    "maxlength": "Address line 2 must be 250 characters or less"
+  },
+  "worker-uk-town-or-city": {
+    "required": "Enter a town or city",
+    "maxlength": "Town/City must be 250 characters or less",
+    "notUrl": "Your answer must not contain URLs or links"
+  },
+  "worker-uk-postcode": {
+    "required": "Enter a postcode",
+    "notUrl": "Your answer must not contain URLs or links",
+    "postcode": "Enter a real postcode"
   }
 }
