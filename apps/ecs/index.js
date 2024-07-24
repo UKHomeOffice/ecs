@@ -118,15 +118,54 @@ module.exports = {
       next: '/original-document'
     },
     '/original-document': {
+      fields: ['seen-original-document'],
+      forks: [
+        {
+          target: '/ineligible-document',
+          condition: {
+            field: 'seen-original-document',
+            value: 'no'
+          }
+        }
+      ],
+      next: '/arc-number'
+    },
+    '/ineligible-document': {
+    },
+    '/arc-number': {
+      fields: ['arc-number'],
       next: '/request-check'
     },
     '/request-check': {
       next: '/worker-details-1988'
     },
     '/worker-details-1988': {
-      next: '/worker-address'
+      behaviours: [checkValidation],
+      fields: [
+        'worker-full-name',
+        'worker-dob',
+        'worker-nationality',
+        'worker-place-of-birth',
+        'worker-year-of-entry-to-uk',
+        'worker-national-insurance-number',
+        'employer-telephone',
+        'employer-email'
+      ],
+      forks: [
+        {
+          target: '/worker-address',
+          condition: req => req.sessionModel.get('use-digital-right-to-work') === 'yes'
+        }
+      ],
+      next: '/worker-address-uk'
     },
     '/worker-address': {
+      fields: [
+        'worker-address-line-1',
+        'worker-address-line-2',
+        'worker-town-or-city',
+        'worker-country'
+      ],
       next: '/job-information'
     },
     '/ongoing-appeal': {
@@ -163,21 +202,44 @@ module.exports = {
       next: '/worker-details'
     },
     '/worker-details': {
+      behaviours: [checkValidation],
+      fields: [
+        'worker-been-in-uk-before-1988-full-name',
+        'worker-been-in-uk-before-1988-dob',
+        'worker-been-in-uk-before-1988-nationality'
+      ],
       next: '/reference-number'
     },
     '/reference-number': {
+      fields: ['worker-reference-number'],
+      forks: [
+        {
+          target: '/worker-address',
+          condition: req => req.sessionModel.get('use-digital-right-to-work') === 'yes'
+        }
+      ],
       next: '/worker-address-uk'
     },
     '/worker-address-uk': {
+      fields: [
+        'worker-uk-address-line-1',
+        'worker-uk-address-line-2',
+        'worker-uk-town-or-city',
+        'worker-uk-postcode'
+      ],
       next: '/job-information'
     },
     '/job-information': {
+      fields: ['job-title', 'hours-of-work-per-week'],
       next: '/employer-contact-details'
     },
     '/employer-contact-details': {
+      fields: ['business-name', 'type-of-business', 'employers-contact-name',
+        'contact-job-title', 'contact-telephone', 'contact-email-address'],
       next: '/business-address'
     },
     '/business-address': {
+      fields: ['business-address-line-1', 'business-address-line-2', 'business-town-city', 'business-postcode'],
       next: '/check-your-answers'
     },
     '/check-your-answers': {

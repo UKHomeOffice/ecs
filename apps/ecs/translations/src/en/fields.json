@@ -69,6 +69,17 @@
     "legend": "When was the TUPE transfer?",
     "hint": "For example, 21 2 2024"
   },
+  "seen-original-document": {
+    "legend": "Have you seen the original document?",
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      }
+    }
+  },
   "worker-has-arc-card": {
     "legend": "Does the worker have an application registration card (ARC) that shows they have the right to work?",
     "hint": "ARCs are proof of asylum status. The right to work is shown in the Remarks section of the card",
@@ -80,6 +91,10 @@
         "label": "No"
       }
     }
+  },
+  "arc-number": {
+    "label": "What is the worker’s application registration card number?",
+    "hint": "This is on the back left of the card. For example, ZU1234567"
   },
   "worker-have-ongoing-appeal": {
     "legend": "Does the worker have an ongoing appeal or application with the Home Office?",
@@ -113,6 +128,122 @@
         "label": "No"
       }
     }
+  },
+  "job-title": {
+    "label": "Job title"
+  },
+  "hours-of-work-per-week": {
+    "label": "Hours of work per week",
+    "hint": "If the hours can vary, enter the average from the last 17 weeks or an estimate"
+  },
+  "business-name": {
+    "label": "Business name"
+  },
+  "type-of-business": {
+    "label": "Type of business"
+  },
+  "employers-contact-name": {
+    "label": "Employer’s contact name"
+  },
+  "contact-job-title": {
+    "label": "Contact job title"
+  },
+  "contact-telephone": {
+    "label": "Contact telephone"
+  },
+  "contact-email-address": {
+    "label": "Contact email address",
+    "hint": "This needs to be the email address of the employer requesting the check"
+  },
+  "business-address-line-1": {
+    "label": "Address line 1"
+  },
+  "business-address-line-2": {
+    "label": "Address line 2 (optional)"
+  },
+  "business-town-city": {
+    "label": "Town or city"
+  },
+  "business-postcode": {
+    "label": "Postcode"
+  },
+  "worker-full-name": {
+    "label": "Full name",
+    "hint": "Include any middle names"
+  },
+  "worker-dob": {
+    "legend":"Date of Birth",
+    "hint": "For example, 31 3 1980"
+  },
+  "worker-nationality": {
+    "label": "Country of nationality",
+    "hint": "Start to type the country name and options will appear",
+    "options": {
+      "null": "Select a country"
+    }
+  },
+  "worker-place-of-birth": {
+    "label": "Place of birth"
+  },
+  "worker-year-of-entry-to-uk": {
+    "label": "Year of entry to the UK",
+    "hint": "For example, 1980"
+  },
+  "worker-national-insurance-number": {
+    "label": "National Insurance number (optional)",
+    "hint": "This is on their National Insurance card, benefit letter, payslip or P60. For example, QQ 12 34 56 C"
+  },
+  "employer-telephone": {
+    "label": "Employer telephone number (optional)"
+  },
+  "employer-email": {
+    "label": "Employer email address"
+  },
+  "worker-address-line-1": {
+    "label": "Address line 1"
+  },
+  "worker-address-line-2": {
+    "label": "Address line 2 (optional)"
+  },
+  "worker-town-or-city": {
+    "label": "Town or city"
+  },
+  "worker-country": {
+    "label": "Country",
+    "hint": "Start to type the country name and options will appear",
+    "options": {
+      "null": "Select a country"
+    }
+  },
+  "worker-uk-address-line-1": {
+    "label": "Address line 1"
+  },
+  "worker-uk-address-line-2": {
+    "label": "Address line 2 (optional)"
+  },
+  "worker-uk-town-or-city": {
+    "label": "Town or city"
+  },
+  "worker-uk-postcode": {
+    "label": "Postcode"
+  },
+  "worker-been-in-uk-before-1988-full-name": {
+    "label": "Full name",
+    "hint": "Include any middle names"
+  },
+  "worker-been-in-uk-before-1988-dob": {
+    "legend":"Date of Birth",
+    "hint": "For example, 31 3 1980"
+  },
+  "worker-been-in-uk-before-1988-nationality": {
+    "label": "Nationality",
+    "hint": "Start to type the country name and options will appear",
+    "options": {
+      "null": "Select a country"
+    }
+  },
+  "worker-reference-number": {
+    "label": "Reference number"
   },
   "privacy-check": {
     "label": "I confirm that I have read, understood and complied with this data protection statement"

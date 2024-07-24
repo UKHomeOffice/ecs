@@ -33,10 +33,42 @@
     "ineligible-tupe-employee-reason-1": "If the employee has been working for you as a result of TUPE transfer, without a break in employment, from a date before 29 February 2008, then you do not need to request a right to work check.",
     "ineligible-tupe-employee-link": "Document checks should have been carried out when the person was recruited."
   },
+  "ineligible-document": {
+    "header": "You must have seen the original document",
+    "p1": "You must have seen the original application registration card to request a right to work check.",
+    "p2": "The purpose of this tool is to check the validity of documents you have seen."
+  },
   "settlement-protection": {
     "heading-1": "Has the worker applied for, or do they qualify for,",
     "heading-link": "settlement protection",
     "heading-2": "?"
+  },
+  "job-information": {
+    "header": "Worker's job information",
+    "intro": "We need this information to check whether the worker’s immigration status allows them to do the job you are checking them for."
+  },
+  "employer-contact-details": {
+    "header": "Employer contact details"
+  },
+  "business-address": {
+    "header": "Business address"
+  },
+  "worker-details-1988": {
+    "header": "Worker Details"
+  },
+  "worker-address": {
+    "header": "Worker's current address",
+    "intro": "We need to check this address against the one the worker has provided to the Home Office"
+  },
+  "worker-address-uk": {
+    "header": "Worker's current address",
+    "intro": "We need to check this address against the one the worker has provided to the Home Office"
+  },
+  "worker-details": {
+    "header": "Worker Details"
+  },
+  "reference-number": {
+    "header": "Home Office reference numbers"
   },
   "check-your-answers": {
     "header": "Check your answers"
@@ -79,7 +111,37 @@
     "fields": {
       "worker-has-eligible-docs": {
         "label": "Does the worker has any of the Right to Work eligible documents"
-      } 
+      },
+      "contact-job-title": {
+        "label": "Job title"
+      },
+      "business-address-line-1": {
+        "label": "Business address line 1"
+      },
+      "business-address-line-2": {
+        "label": "Address line 2"
+      },
+      "business-town-city": {
+        "label": "Town / City"
+      },
+      "worker-nationality": {
+        "label": "Nationality"
+      },
+      "worker-national-insurance-number": {
+        "label": "National Insurance number"
+      },
+      "employer-telephone": {
+        "label": "Telephone number"
+      },
+      "employer-email": {
+        "label": "Email address"
+      },
+      "worker-been-in-uk-before-1988-nationality": {
+        "label": "Nationality"
+      },
+      "worker-reference-number": {
+        "label": "Home Office reference number"
+      }
     }
   }
 }

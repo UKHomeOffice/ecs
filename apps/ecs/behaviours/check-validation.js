@@ -14,6 +14,29 @@ module.exports = superclass => class extends superclass {
       }
     }
 
+    if(key === 'worker-nationality' || key === 'worker-country') {
+      if(req.form.values[key] === 'United Kingdom' || req.form.values[key] === 'Ireland') {
+        return validationErrorFunc('excludeUkIr');
+      }
+    }
+
+    if(key === 'worker-year-of-entry-to-uk') {
+      const yearOfEntry = req.form.values[key];
+      const workerDob = req.form.values['worker-dob'];
+      if(yearOfEntry.length > 1 && !validators.url(yearOfEntry) && yearOfEntry < moment(workerDob).format('YYYY')) {
+        return validationErrorFunc('afterDobYear', [moment(workerDob).format('YYYY')]);
+      }
+    }
+
+    if(key === 'worker-national-insurance-number')  {
+      const niNumber = req.form.values[key];
+      // eslint-disable-next-line max-len
+      const NINOregex = '^(?!BG)(?!GB)(?!NK)(?!KN)(?!TN)(?!NT)(?!ZZ)(?:[A-CEGHJ-PR-TW-Z][A-CEGHJ-NPR-TW-Z])(?:\\s*\\d\\s*){6}([A-D]|\\s)$';
+      if(!validators.url(niNumber) && !validators.regex(niNumber.toUpperCase(), NINOregex)) {
+        return validationErrorFunc('niNumber');
+      }
+    }
+
     return super.validateField(key, req);
   }
 };
