@@ -33,7 +33,7 @@
     "required": "Tell us if the you have seen the worker's original document"
   },
   "arc-number": {
-    "required": "Tell us the worker's application registration card number",
+    "required": "Enter an ARC number",
     "notUrl": "Your answer must not contain URLs or links",
     "alphanum": "ARC number can only have numbers and letters a-z",
     "maxlength": "Application registration card number must be 20 characters or less"
@@ -43,6 +43,9 @@
   },
   "worker-been-in-UK-before-1988": {
     "required": "Tell us if the worker has been in the UK since before 1988"
+  },
+  "worker-applied-for-settlement-protection": {
+    "required": "Tell us if the worker has any evidence from or ongoing applications with the Home Office"
   },
   "worker-been-in-uk-before-1988-full-name": {
     "required": "Enter the worker's full name",
@@ -196,5 +199,8 @@
     "required": "Enter a postcode",
     "notUrl": "Your answer must not contain URLs or links",
     "postcode": "Enter a real postcode"
+  },
+  "privacy-check": {
+    "required": "Confirm you have read the Data Protection statement"
   }
 }

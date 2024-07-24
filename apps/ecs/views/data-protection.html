@@ -1,0 +1,10 @@
+{{<partials-page}}
+  {{$page-content}}
+
+    {{#markdown}}data-protection-statement{{/markdown}}
+    {{#markdown}}privacy-policy{{/markdown}}
+    {{#renderField}}privacy-check{{/renderField}}
+    <div id="loader-container" class=""></div>
+    <div id="report-submit">{{#input-submit}}submit{{/input-submit}}</div>
+  {{/page-content}}
+{{/partials-page}}

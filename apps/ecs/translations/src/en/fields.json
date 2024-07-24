@@ -244,5 +244,8 @@
   },
   "worker-reference-number": {
     "label": "Reference number"
+  },
+  "privacy-check": {
+    "label": "I confirm that I have read, understood and complied with this data protection statement"
   }
 }

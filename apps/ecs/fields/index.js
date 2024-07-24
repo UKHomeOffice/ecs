@@ -334,5 +334,9 @@ module.exports = {
     labelClassName: 'govuk-label--s',
     validate: ['required', 'notUrl', { type: 'maxlength', arguments: [250] }],
     className: ['govuk-input', 'govuk-!-width-two-thirds']
+  },
+  'privacy-check': {
+    mixin: 'checkbox',
+    validate: ['required']
   }
 };

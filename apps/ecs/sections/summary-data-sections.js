@@ -88,7 +88,7 @@ module.exports = {
       {
         step: '/worker-details-1988',
         field: 'worker-national-insurance-number',
-        parse: d => d.toUpperCase()
+        parse: ni => ni?.toUpperCase() ?? null
       },
       {
         step: '/worker-details',

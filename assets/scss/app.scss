@@ -11,14 +11,24 @@ p {
   margin-bottom: 20px;
 }
 
-h1 {
-  @extend .govuk-heading-l;
-}
-
 .alert-complete {
   background-color: #00703c;
   border-color: #00703c;
   padding: 15px !important;
+}
+
+.govuk-button.request-another-check {
+  margin-right: 0.5rem;
+  margin-top: 30px;
+}
+
+.spinner-loader {
+  border: 5px solid #DEE0E2;
+  border-radius: 50%;
+  border-top-color: #005EA5;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
 }
 
 // Accessible autocomplete
