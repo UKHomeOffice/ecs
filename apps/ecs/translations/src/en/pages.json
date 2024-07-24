@@ -53,6 +53,17 @@
   "business-address": {
     "header": "Business address"
   },
+  "worker-details-1988": {
+    "header": "Worker Details"
+  },
+  "worker-address": {
+    "header": "Worker's current address",
+    "intro": "We need to check this address against the one the worker has provided to the Home Office"
+  },
+  "worker-address-uk": {
+    "header": "Worker's current address",
+    "intro": "We need to check this address against the one the worker has provided to the Home Office"
+  },
   "check-your-answers": {
     "header": "Check your answers"
   },
@@ -102,7 +113,19 @@
       },
       "business-town-city": {
         "label": "Town / City"
-      }
+      },
+      "worker-nationality": {
+        "label": "Nationality"
+      },
+      "worker-national-insurance-number": {
+        "label": "National Insurance number"
+      },
+      "employer-telephone": {
+        "label": "Telephone number"
+      },
+      "employer-email": {
+        "label": "Email address"
+      } 
     }
   }
 }

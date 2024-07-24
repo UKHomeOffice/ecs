@@ -139,9 +139,32 @@ module.exports = {
       next: '/worker-details-1988'
     },
     '/worker-details-1988': {
-      next: '/worker-address'
+      behaviours: [checkValidation],
+      fields: [
+        'worker-full-name',
+        'worker-dob',
+        'worker-nationality',
+        'worker-place-of-birth',
+        'worker-year-of-entry-to-uk',
+        'worker-national-insurance-number',
+        'employer-telephone',
+        'employer-email'
+      ],
+      forks: [
+        {
+          target: '/worker-address',
+          condition: req => req.sessionModel.get('use-digital-right-to-work') === 'yes'
+        }
+      ],
+      next: '/worker-address-uk'
     },
     '/worker-address': {
+      fields: [
+        'worker-address-line-1',
+        'worker-address-line-2',
+        'worker-town-or-city',
+        'worker-country'
+      ],
       next: '/job-information'
     },
     '/ongoing-appeal': {
@@ -181,9 +204,15 @@ module.exports = {
       next: '/reference-number'
     },
     '/reference-number': {
-      next: '/worker-address-uk'
+      next: '/job-information'
     },
     '/worker-address-uk': {
+      fields: [
+        'worker-uk-address-line-1',
+        'worker-uk-address-line-2',
+        'worker-uk-town-or-city',
+        'worker-uk-postcode'
+      ],
       next: '/job-information'
     },
     '/job-information': {

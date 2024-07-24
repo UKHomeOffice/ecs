@@ -166,5 +166,65 @@
   },
   "business-postcode": {
     "label": "Postcode"
+  },
+  "worker-full-name": {
+    "label": "Full name",
+    "hint": "Include any middle names"
+  },
+  "worker-dob": {
+    "legend":"Date of Birth",
+    "hint": "For example, 31 3 1980"
+  },
+  "worker-nationality": {
+    "label": "Country of nationality",
+    "hint": "Start to type the country name and options will appear",
+    "options": {
+      "null": "Select a country"
+    }
+  },
+  "worker-place-of-birth": {
+    "label": "Place of birth"
+  },
+  "worker-year-of-entry-to-uk": {
+    "label": "Year of entry to the UK",
+    "hint": "For example, 1980"
+  },
+  "worker-national-insurance-number": {
+    "label": "National Insurance number (optional)",
+    "hint": "This is on their National Insurance card, benefit letter, payslip or P60. For example, QQ 12 34 56 C"
+  },
+  "employer-telephone": {
+    "label": "Employer telephone number (optional)"
+  },
+  "employer-email": {
+    "label": "Employer email address"
+  },
+  "worker-address-line-1": {
+    "label": "Address line 1"
+  },
+  "worker-address-line-2": {
+    "label": "Address line 2 (optional)"
+  },
+  "worker-town-or-city": {
+    "label": "Town or city"
+  },
+  "worker-country": {
+    "label": "Country",
+    "hint": "Start to type the country name and options will appear",
+    "options": {
+      "null": "Select a country"
+    }
+  },
+  "worker-uk-address-line-1": {
+    "label": "Address line 1"
+  },
+  "worker-uk-address-line-2": {
+    "label": "Address line 2 (optional)"
+  },
+  "worker-uk-town-or-city": {
+    "label": "Town or city"
+  },
+  "worker-uk-postcode": {
+    "label": "Postcode"
   }
 }
