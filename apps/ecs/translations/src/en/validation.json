@@ -44,8 +44,23 @@
   "worker-been-in-UK-before-1988": {
     "required": "Tell us if the worker has been in the UK since before 1988"
   },
-  "worker-applied-for-settlement-protection": {
-    "required": "Tell us if the worker has any evidence from or ongoing applications with the Home Office"
+  "worker-been-in-uk-before-1988-full-name": {
+    "required": "Enter the worker's full name",
+    "notUrl": "Your answer must not contain URLs or links",
+    "maxlength": "Worker's full name must be 250 characters or less"
+  },
+  "worker-been-in-uk-before-1988-dob": { 
+    "required": "Enter the worker's date of birth",
+    "before": "Worker's date of birth must be before 1988, when they came to the UK",
+    "after": "Enter a real date of birth"
+  },
+  "worker-been-in-uk-before-1988-nationality": {
+    "required": "Select a country of nationality from the list"
+  },
+  "worker-reference-number": {
+    "required": "Enter the worker's Home Office reference number",
+    "notUrl": "Your answer must not contain URLs or links",
+    "maxlength": "Worker's full name must be 250 characters or less"
   },
   "job-title": {
     "required": "Enter the job title of the role",

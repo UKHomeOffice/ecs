@@ -226,5 +226,23 @@
   },
   "worker-uk-postcode": {
     "label": "Postcode"
+  },
+  "worker-been-in-uk-before-1988-full-name": {
+    "label": "Full name",
+    "hint": "Include any middle names"
+  },
+  "worker-been-in-uk-before-1988-dob": {
+    "legend":"Date of Birth",
+    "hint": "For example, 31 3 1980"
+  },
+  "worker-been-in-uk-before-1988-nationality": {
+    "label": "Nationality",
+    "hint": "Start to type the country name and options will appear",
+    "options": {
+      "null": "Select a country"
+    }
+  },
+  "worker-reference-number": {
+    "label": "Reference number"
   }
 }

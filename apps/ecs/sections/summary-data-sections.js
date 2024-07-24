@@ -89,6 +89,22 @@ module.exports = {
         step: '/worker-details-1988',
         field: 'worker-national-insurance-number',
         parse: d => d.toUpperCase()
+      },
+      {
+        step: '/worker-details',
+        field: 'worker-been-in-uk-before-1988-full-name'
+      },
+      {
+        step: '/worker-details',
+        field: 'worker-been-in-uk-before-1988-dob'
+      },
+      {
+        step: '/worker-details',
+        field: 'worker-been-in-uk-before-1988-nationality'
+      },
+      {
+        step: '/reference-number',
+        field: 'worker-reference-number'
       }
     ]
   },

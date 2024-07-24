@@ -201,10 +201,23 @@ module.exports = {
       next: '/worker-details'
     },
     '/worker-details': {
+      behaviours: [checkValidation],
+      fields: [
+        'worker-been-in-uk-before-1988-full-name',
+        'worker-been-in-uk-before-1988-dob',
+        'worker-been-in-uk-before-1988-nationality'
+      ],
       next: '/reference-number'
     },
     '/reference-number': {
-      next: '/job-information'
+      fields: ['worker-reference-number'],
+      forks: [
+        {
+          target: '/worker-address',
+          condition: req => req.sessionModel.get('use-digital-right-to-work') === 'yes'
+        }
+      ],
+      next: '/worker-address-uk'
     },
     '/worker-address-uk': {
       fields: [

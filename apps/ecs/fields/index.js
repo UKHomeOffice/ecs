@@ -143,7 +143,7 @@ module.exports = {
   },
   'arc-number': {
     isPageHeading: 'true',
-    className: ['govuk-input', 'govuk-!-width-one-half'],
+    className: ['govuk-input', 'govuk-!-width-one-third'],
     validate: ['required', 'notUrl', 'alphanum', { type: 'maxlength', arguments: [20]}]
   },
   'worker-been-in-UK-before-1988': {
@@ -288,7 +288,7 @@ module.exports = {
         value: '',
         label: 'fields.worker-country.options.null'
       }
-    ].concat(countries)
+    ].concat(countries.filter(country => !['Ireland', 'United Kingdom'].includes(country.value)))
   },
   'worker-uk-address-line-1': {
     validate: ['required', 'notUrl', { type: 'maxlength', arguments: [250] }],
@@ -306,5 +306,33 @@ module.exports = {
     validate: ['required', 'notUrl', 'postcode'],
     formatter: ['ukPostcode'],
     className: ['govuk-input', 'govuk-input--width-10']
+  },
+  'worker-been-in-uk-before-1988-full-name': {
+    mixin: 'input-text',
+    validate: ['required', 'notUrl', { type: 'maxlength', arguments: [250] }],
+    className: ['govuk-input']
+  },
+  'worker-been-in-uk-before-1988-dob': dateComponent('worker-been-in-uk-before-1988-dob', {
+    mixin: 'input-date',
+    validate: [
+      'required', 'date',
+      { type: 'before', arguments: ['1988-12-31'] },
+      { type: 'after', arguments: ['100', 'years']}
+    ]
+  }),
+  'worker-been-in-uk-before-1988-nationality': {
+    mixin: 'select',
+    className: ['typeahead'],
+    validate: ['required'],
+    options: [{
+      value: '',
+      label: 'fields.worker-been-in-uk-before-1988-nationality.options.null'
+    }].concat(countries)
+  },
+  'worker-reference-number': {
+    mixin: 'input-text',
+    labelClassName: 'govuk-label--s',
+    validate: ['required', 'notUrl', { type: 'maxlength', arguments: [250] }],
+    className: ['govuk-input', 'govuk-!-width-two-thirds']
   }
 };

@@ -64,6 +64,12 @@
     "header": "Worker's current address",
     "intro": "We need to check this address against the one the worker has provided to the Home Office"
   },
+  "worker-details": {
+    "header": "Worker Details"
+  },
+  "reference-number": {
+    "header": "Home Office reference numbers"
+  },
   "check-your-answers": {
     "header": "Check your answers"
   },
@@ -125,7 +131,13 @@
       },
       "employer-email": {
         "label": "Email address"
-      } 
+      },
+      "worker-been-in-uk-before-1988-nationality": {
+        "label": "Nationality"
+      },
+      "worker-reference-number": {
+        "label": "Home Office reference number"
+      }
     }
   }
 }
