@@ -22,7 +22,14 @@ module.exports = {
       },
       {
         step: '/tupe',
-        field: 'work-for-you-result-of-tupe-transfer'
+        field: 'work-for-you-result-of-tupe-transfer',
+        parse: (value, req) => {
+          if (req.sessionModel.get('person-work-for-you') === 'no' ||
+            !req.sessionModel.get('steps').includes('/tupe')) {
+            return null;
+          }
+          return value;
+        }
       },
       {
         step: '/tupe-date',
@@ -35,11 +42,25 @@ module.exports = {
       },
       {
         step: '/eu-settlement-scheme',
-        field: 'worker-applied-eu-settlement-scheme'
+        field: 'worker-applied-eu-settlement-scheme',
+        parse: (value, req) => {
+          if (req.sessionModel.get('use-digital-right-to-work') === 'yes' ||
+            !req.sessionModel.get('steps').includes('/eu-settlement-scheme')) {
+            return null;
+          }
+          return value;
+        }
       },
       {
         step: '/arc-card',
-        field: 'worker-has-arc-card'
+        field: 'worker-has-arc-card',
+        parse: (value, req) => {
+          if (req.sessionModel.get('use-digital-right-to-work') === 'yes' ||
+            !req.sessionModel.get('steps').includes('/arc-card')) {
+            return null;
+          }
+          return value;
+        }
       },
       {
         step: '/ongoing-appeal',
