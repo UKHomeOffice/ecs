@@ -255,7 +255,7 @@ module.exports = {
   },
   'worker-national-insurance-number': {
     mixin: 'input-text',
-    validate: ['required', 'notUrl'],
+    validate: ['notUrl'],
     className: ['govuk-input', 'govuk-!-width-one-third']
   },
   'employer-telephone': {
@@ -265,7 +265,7 @@ module.exports = {
   },
   'employer-email': {
     mixin: 'input-text',
-    validate: ['required', 'email']
+    validate: ['email']
   },
   'worker-address-line-1': {
     validate: ['required', 'notUrl', { type: 'maxlength', arguments: [250] }],

@@ -197,7 +197,7 @@
     "label": "Employer telephone number (optional)"
   },
   "employer-email": {
-    "label": "Employer email address"
+    "label": "Employer email address (optional)"
   },
   "worker-address-line-1": {
     "label": "Address line 1"

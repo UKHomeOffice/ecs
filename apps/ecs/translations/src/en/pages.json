@@ -86,23 +86,14 @@
       "eligibility-criteria": {
         "header": "Eligibility criteria"
       },
-      "employee-details": {
-        "header": "Employee details"
+      "worker-details": {
+        "header": "Worker details"
       },
-      "current-address": {
-        "header": "Current address"
-      },
-      "their-employment": {
-        "header": "Their employment"
-      },
-      "contact-details": {
-        "header": "Contact details"
+      "Worker-address": {
+        "header": "worker's address"
       },
       "workers-job-information": {
-        "header": "Worker's job information"
-      },
-      "business-address": {
-        "header": "Business address"
+        "header": "Job information"
       },
       "employer-contact-details": {
         "header": "Employer contact details"
@@ -115,14 +106,8 @@
       "contact-job-title": {
         "label": "Job title"
       },
-      "business-address-line-1": {
-        "label": "Business address line 1"
-      },
-      "business-address-line-2": {
-        "label": "Address line 2"
-      },
-      "business-town-city": {
-        "label": "Town / City"
+      "business-address-details": {
+        "label": "Business address"
       },
       "worker-nationality": {
         "label": "Nationality"
@@ -141,6 +126,9 @@
       },
       "worker-reference-number": {
         "label": "Home Office reference number"
+      },
+      "worker-address-details": {
+        "label": "Current address"
       }
     }
   }
