@@ -124,16 +124,16 @@
       "business-town-city": {
         "label": "Town / City"
       },
-      "worker-nationality": {
+      "before-1988-worker-nationality": {
         "label": "Nationality"
       },
-      "worker-national-insurance-number": {
+      "before-1988-worker-national-insurance-number": {
         "label": "National Insurance number"
       },
-      "employer-telephone": {
+      "before-1988-employer-telephone": {
         "label": "Telephone number"
       },
-      "employer-email": {
+      "before-1988-employer-email": {
         "label": "Email address"
       },
       "worker-been-in-uk-before-1988-nationality": {

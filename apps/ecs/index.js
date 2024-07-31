@@ -142,14 +142,14 @@ module.exports = {
     '/worker-details-1988': {
       behaviours: [checkValidation],
       fields: [
-        'worker-full-name',
-        'worker-dob',
-        'worker-nationality',
-        'worker-place-of-birth',
-        'worker-year-of-entry-to-uk',
-        'worker-national-insurance-number',
-        'employer-telephone',
-        'employer-email'
+        'before-1988-worker-full-name',
+        'before-1988-worker-dob',
+        'before-1988-worker-nationality',
+        'before-1988-worker-place-of-birth',
+        'before-1988-worker-year-of-entry-to-uk',
+        'before-1988-worker-national-insurance-number',
+        'before-1988-employer-telephone',
+        'before-1988-employer-email'
       ],
       next: '/reference-number'
     },
@@ -204,8 +204,8 @@ module.exports = {
         }
       ],
       fields: [
-        'worker-been-in-uk-before-1988-full-name',
-        'worker-been-in-uk-before-1988-dob',
+        'worker-full-name',
+        'worker-dob',
         'worker-been-in-uk-before-1988-nationality'
       ],
       next: '/worker-address-uk'
