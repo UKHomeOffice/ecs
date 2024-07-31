@@ -137,7 +137,7 @@ module.exports = {
       next: '/request-check'
     },
     '/request-check': {
-      next: '/worker-details-1988'
+      next: '/worker-details'
     },
     '/worker-details-1988': {
       behaviours: [checkValidation],
@@ -151,13 +151,7 @@ module.exports = {
         'employer-telephone',
         'employer-email'
       ],
-      forks: [
-        {
-          target: '/worker-address',
-          condition: req => req.sessionModel.get('use-digital-right-to-work') === 'yes'
-        }
-      ],
-      next: '/worker-address-uk'
+      next: '/reference-number'
     },
     '/worker-address': {
       fields: [
@@ -199,16 +193,22 @@ module.exports = {
       next: '/request-check'
     },
     '/request-check-before-1988': {
-      next: '/worker-details'
+      next: '/worker-details-1988'
     },
     '/worker-details': {
       behaviours: [checkValidation],
+      forks: [
+        {
+          target: '/worker-address',
+          condition: req => req.sessionModel.get('use-digital-right-to-work') === 'yes'
+        }
+      ],
       fields: [
         'worker-been-in-uk-before-1988-full-name',
         'worker-been-in-uk-before-1988-dob',
         'worker-been-in-uk-before-1988-nationality'
       ],
-      next: '/reference-number'
+      next: '/worker-address-uk'
     },
     '/reference-number': {
       fields: ['worker-reference-number'],
