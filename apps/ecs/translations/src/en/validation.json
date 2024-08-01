@@ -47,17 +47,17 @@
   "worker-applied-for-settlement-protection": {
     "required": "Tell us if the worker has any evidence from or ongoing applications with the Home Office"
   },
-  "worker-been-in-uk-before-1988-full-name": {
+  "worker-full-name": {
     "required": "Enter the worker's full name",
     "notUrl": "Your answer must not contain URLs or links",
     "maxlength": "Worker's full name must be 250 characters or less"
   },
-  "worker-been-in-uk-before-1988-dob": { 
+  "worker-dob": { 
     "required": "Enter the worker's date of birth",
     "before": "Worker's date of birth must be before 1988, when they came to the UK",
     "after": "Enter a real date of birth"
   },
-  "worker-been-in-uk-before-1988-nationality": {
+  "worker-nationality": {
     "required": "Select a country of nationality from the list"
   },
   "worker-reference-number": {
@@ -122,43 +122,43 @@
     "required": "Enter a postcode",
     "postcode": "Enter a real UK postcode"
   },
-  "worker-full-name": {
+  "before-1988-worker-full-name": {
     "required": "Enter the worker's full name",
     "notUrl": "Your answer must not contain URLs or links",
     "maxlength": "Worker's full name must be 250 characters or less"
   },
-  "worker-dob": {
+  "before-1988-worker-dob": {
     "required": "Enter the worker's date of birth",
     "before": "The worker must be 16 years or over – this service only applies to workers aged 16 or over",
     "after": "Enter a real date of birth"
   },
-  "worker-nationality": {
+  "before-1988-worker-nationality": {
     "required": "Select a country of nationality from the list",
     "excludeUkIr": "You do not need to request a Home Office right to work check if you are a UK or Ireland Citizen"
   },
-  "worker-place-of-birth": {
+  "before-1988-worker-place-of-birth": {
     "required": "Tell us where the worker was born",
     "notUrl": "Your answer must not contain URLs or links",
     "maxlength": "Worker's place of birth must be 250 characters or less"
   },
-  "worker-year-of-entry-to-uk": {
+  "before-1988-worker-year-of-entry-to-uk": {
     "required": "Tell us the year when the worker first came to the UK",
     "numeric": "Year must only contain numbers",
     "maxlength": "Year of entry to UK must be 4 characters",
     "after": "Enter the real year of entry to uk",
     "afterDobYear": "Year of entry must be after ({{afterDobYear}}) the worker's Date of Birth year"
   },
-  "worker-national-insurance-number": {
+  "before-1988-worker-national-insurance-number": {
     "required": "Enter a National Insurance number",
     "notUrl": "Your answer must not contain URLs or links",
     "niNumber": "Enter a National Insurance number in the correct format"
   },
-  "employer-telephone": {
+  "before-1988-employer-telephone": {
     "required": "Tell us if the worker already works for you",
     "notUrl": "Your answer must not contain URLs or links",
     "ukPhoneNumber" : "Enter a valid UK telephone number"
   },
-  "employer-email": {
+  "before-1988-employer-email": {
     "required": "Enter worker email address",
     "email": "Enter a valid email address"
   },

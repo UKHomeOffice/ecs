@@ -88,27 +88,27 @@ module.exports = {
     steps: [
       {
         step: '/worker-details-1988',
-        field: 'worker-full-name'
+        field: 'before-1988-worker-full-name'
       },
       {
         step: '/worker-details-1988',
-        field: 'worker-dob'
+        field: 'before-1988-worker-dob'
       },
       {
         step: '/worker-details-1988',
-        field: 'worker-nationality'
+        field: 'before-1988-worker-nationality'
       },
       {
         step: '/worker-details-1988',
-        field: 'worker-place-of-birth'
+        field: 'before-1988-worker-place-of-birth'
       },
       {
         step: '/worker-details-1988',
-        field: 'worker-year-of-entry-to-uk'
+        field: 'before-1988-worker-year-of-entry-to-uk'
       },
       {
         step: '/worker-details-1988',
-        field: 'worker-national-insurance-number',
+        field: 'before-1988-worker-national-insurance-number',
         parse: ni => ni?.toUpperCase() ?? null
       },
       {
@@ -121,15 +121,15 @@ module.exports = {
       },
       {
         step: '/worker-details',
-        field: 'worker-been-in-uk-before-1988-full-name'
+        field: 'worker-full-name'
       },
       {
         step: '/worker-details',
-        field: 'worker-been-in-uk-before-1988-dob'
+        field: 'worker-dob'
       },
       {
         step: '/worker-details',
-        field: 'worker-been-in-uk-before-1988-nationality'
+        field: 'worker-nationality'
       },
       {
         step: '/reference-number',

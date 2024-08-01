@@ -221,12 +221,12 @@ module.exports = {
     formatter: ['ukPostcode'],
     className: ['govuk-input', 'govuk-input--width-10']
   },
-  'worker-full-name': {
+  'before-1988-worker-full-name': {
     mixin: 'input-text',
     validate: ['required', 'notUrl', { type: 'maxlength', arguments: [250] }],
     className: ['govuk-input']
   },
-  'worker-dob': dateComponent('worker-dob', {
+  'before-1988-worker-dob': dateComponent('before-1988-worker-dob', {
     mixin: 'input-date',
     validate: [
       'required', 'date',
@@ -234,36 +234,36 @@ module.exports = {
       { type: 'after', arguments: ['100', 'years']}
     ]
   }),
-  'worker-nationality': {
+  'before-1988-worker-nationality': {
     mixin: 'select',
     className: ['typeahead'],
     validate: ['required'],
     options: [{
       value: '',
-      label: 'fields.worker-nationality.options.null'
+      label: 'fields.before-1988-worker-nationality.options.null'
     }].concat(countries.filter(country => !['Ireland', 'United Kingdom'].includes(country.value)))
   },
-  'worker-place-of-birth': {
+  'before-1988-worker-place-of-birth': {
     mixin: 'input-text',
     validate: ['required', 'notUrl', { type: 'maxlength', arguments: [250] }],
     className: ['govuk-input', 'govuk-!-width-one-half']
   },
-  'worker-year-of-entry-to-uk': {
+  'before-1988-worker-year-of-entry-to-uk': {
     mixin: 'input-text',
     validate: ['required', 'numeric', { type: 'maxlength', arguments: [4] }],
     className: ['govuk-input', 'govuk-input--width-4']
   },
-  'worker-national-insurance-number': {
+  'before-1988-worker-national-insurance-number': {
     mixin: 'input-text',
     validate: ['notUrl'],
     className: ['govuk-input', 'govuk-!-width-one-third']
   },
-  'employer-telephone': {
+  'before-1988-employer-telephone': {
     mixin: 'input-text',
     validate: ['notUrl', 'ukPhoneNumber'],
     className: ['govuk-input', 'govuk-!-width-one-half']
   },
-  'employer-email': {
+  'before-1988-employer-email': {
     mixin: 'input-text',
     validate: ['email']
   },
@@ -307,12 +307,12 @@ module.exports = {
     formatter: ['ukPostcode'],
     className: ['govuk-input', 'govuk-input--width-10']
   },
-  'worker-been-in-uk-before-1988-full-name': {
+  'worker-full-name': {
     mixin: 'input-text',
     validate: ['required', 'notUrl', { type: 'maxlength', arguments: [250] }],
     className: ['govuk-input']
   },
-  'worker-been-in-uk-before-1988-dob': dateComponent('worker-been-in-uk-before-1988-dob', {
+  'worker-dob': dateComponent('worker-dob', {
     mixin: 'input-date',
     validate: [
       'required', 'date',
@@ -320,13 +320,13 @@ module.exports = {
       { type: 'after', arguments: ['100', 'years']}
     ]
   }),
-  'worker-been-in-uk-before-1988-nationality': {
+  'worker-nationality': {
     mixin: 'select',
     className: ['typeahead'],
     validate: ['required'],
     options: [{
       value: '',
-      label: 'fields.worker-been-in-uk-before-1988-nationality.options.null'
+      label: 'fields.worker-nationality.options.null'
     }].concat(countries)
   },
   'worker-reference-number': {
