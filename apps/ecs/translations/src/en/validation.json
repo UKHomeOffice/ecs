@@ -149,17 +149,14 @@
     "afterDobYear": "Year of entry must be after ({{afterDobYear}}) the worker's Date of Birth year"
   },
   "before-1988-worker-national-insurance-number": {
-    "required": "Enter a National Insurance number",
     "notUrl": "Your answer must not contain URLs or links",
     "niNumber": "Enter a National Insurance number in the correct format"
   },
   "before-1988-employer-telephone": {
-    "required": "Tell us if the worker already works for you",
     "notUrl": "Your answer must not contain URLs or links",
     "ukPhoneNumber" : "Enter a valid UK telephone number"
   },
   "before-1988-employer-email": {
-    "required": "Enter worker email address",
     "email": "Enter a valid email address"
   },
   "worker-address-line-1": {
