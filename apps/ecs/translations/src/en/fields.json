@@ -167,36 +167,36 @@
   "business-postcode": {
     "label": "Postcode"
   },
-  "worker-full-name": {
+  "before-1988-worker-full-name": {
     "label": "Full name",
     "hint": "Include any middle names"
   },
-  "worker-dob": {
+  "before-1988-worker-dob": {
     "legend":"Date of Birth",
     "hint": "For example, 31 3 1980"
   },
-  "worker-nationality": {
+  "before-1988-worker-nationality": {
     "label": "Country of nationality",
     "hint": "Start to type the country name and options will appear",
     "options": {
       "null": "Select a country"
     }
   },
-  "worker-place-of-birth": {
+  "before-1988-worker-place-of-birth": {
     "label": "Place of birth"
   },
-  "worker-year-of-entry-to-uk": {
+  "before-1988-worker-year-of-entry-to-uk": {
     "label": "Year of entry to the UK",
     "hint": "For example, 1980"
   },
-  "worker-national-insurance-number": {
+  "before-1988-worker-national-insurance-number": {
     "label": "National Insurance number (optional)",
     "hint": "This is on their National Insurance card, benefit letter, payslip or P60. For example, QQ 12 34 56 C"
   },
-  "employer-telephone": {
+  "before-1988-employer-telephone": {
     "label": "Employer telephone number (optional)"
   },
-  "employer-email": {
+  "before-1988-employer-email": {
     "label": "Employer email address"
   },
   "worker-address-line-1": {
@@ -227,11 +227,11 @@
   "worker-uk-postcode": {
     "label": "Postcode"
   },
-  "worker-been-in-uk-before-1988-full-name": {
+  "worker-full-name": {
     "label": "Full name",
     "hint": "Include any middle names"
   },
-  "worker-been-in-uk-before-1988-dob": {
+  "worker-dob": {
     "legend":"Date of Birth",
     "hint": "For example, 31 3 1980"
   },
