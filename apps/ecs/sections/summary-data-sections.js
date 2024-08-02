@@ -112,15 +112,20 @@ module.exports = {
     steps: [
       {
         step: '/worker-address',
-        field: 'worker-address-line-1'
-      },
-      {
-        step: '/worker-address',
-        field: 'worker-address-line-2'
-      },
-      {
-        step: '/worker-address',
-        field: 'worker-town-or-city'
+        field: 'worker-address-details',
+        parse: (list, req) => {
+          if (!req.sessionModel.get('steps').includes('/worker-address')) {
+            return null;
+          }
+          const workerAddressDetails = [];
+          workerAddressDetails.push(req.sessionModel.get('worker-address-line-1'));
+          if (req.sessionModel.get('worker-address-line-2')) {
+            workerAddressDetails.push(req.sessionModel.get('worker-address-line-2'));
+          }
+          workerAddressDetails.push(req.sessionModel.get('worker-town-or-city'));
+          req.sessionModel.set('workerAddress', workerAddressDetails.join(', '));
+          return workerAddressDetails.join('\n');
+        }
       },
       {
         step: '/worker-address',
@@ -128,19 +133,21 @@ module.exports = {
       },
       {
         step: '/worker-address-uk',
-        field: 'worker-uk-address-line-1'
-      },
-      {
-        step: '/worker-address-uk',
-        field: 'worker-uk-address-line-2'
-      },
-      {
-        step: '/worker-address-uk',
-        field: 'worker-uk-town-or-city'
-      },
-      {
-        step: '/worker-address-uk',
-        field: 'worker-uk-postcode'
+        field: 'worker-address-details',
+        parse: (list, req) => {
+          if (!req.sessionModel.get('steps').includes('/worker-address-uk')) {
+            return null;
+          }
+          const workerUkAddressDetails = [];
+          workerUkAddressDetails.push(req.sessionModel.get('worker-uk-address-line-1'));
+          if (req.sessionModel.get('worker-uk-address-line-2')) {
+            workerUkAddressDetails.push(req.sessionModel.get('worker-uk-address-line-2'));
+          }
+          workerUkAddressDetails.push(req.sessionModel.get('worker-uk-town-or-city'));
+          workerUkAddressDetails.push(req.sessionModel.get('worker-uk-postcode'));
+          req.sessionModel.set('workerUkAddress', workerUkAddressDetails.join(', '));
+          return workerUkAddressDetails.join('\n');
+        }
       }
     ]
   },
@@ -171,26 +178,6 @@ module.exports = {
       }
     ]
   },
-  'business-address': {
-    steps: [
-      {
-        step: '/business-address',
-        field: 'business-address-line-1'
-      },
-      {
-        step: '/business-address',
-        field: 'business-address-line-2'
-      },
-      {
-        step: '/business-address',
-        field: 'business-town-city'
-      },
-      {
-        step: '/business-address',
-        field: 'business-postcode'
-      }
-    ]
-  },
   'employer-contact-details': {
     steps: [
       {
@@ -216,6 +203,24 @@ module.exports = {
       {
         step: '/employer-contact-details',
         field: 'contact-email-address'
+      },
+      {
+        step: '/business-address',
+        field: 'business-address-details',
+        parse: (list, req) => {
+          if (!req.sessionModel.get('steps').includes('/business-address')) {
+            return null;
+          }
+          const businessAddressDetails = [];
+          businessAddressDetails.push(req.sessionModel.get('business-address-line-1'));
+          if (req.sessionModel.get('business-address-line-2')) {
+            businessAddressDetails.push(req.sessionModel.get('business-address-line-2'));
+          }
+          businessAddressDetails.push(req.sessionModel.get('business-town-city'));
+          businessAddressDetails.push(req.sessionModel.get('business-postcode'));
+          req.sessionModel.set('businessAddress', businessAddressDetails.join(', '));
+          return businessAddressDetails.join('\n');
+        }
       }
     ]
   }
