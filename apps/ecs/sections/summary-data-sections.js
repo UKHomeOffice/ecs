@@ -64,7 +64,14 @@ module.exports = {
       },
       {
         step: '/ongoing-appeal',
-        field: 'worker-have-ongoing-appeal'
+        field: 'worker-have-ongoing-appeal',
+        parse: (value, req) => {
+          if (req.sessionModel.get('use-digital-right-to-work') === 'yes' ||
+            !req.sessionModel.get('steps').includes('ongoing-appeal')) {
+            return null;
+          }
+          return value;
+        }
       },
       {
         step: '/before-1988',
