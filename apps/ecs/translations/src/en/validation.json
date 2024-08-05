@@ -57,7 +57,7 @@
     "before": "Worker's date of birth must be before 1988, when they came to the UK",
     "after": "Enter a real date of birth"
   },
-  "worker-been-in-uk-before-1988-nationality": {
+  "worker-nationality": {
     "required": "Select a country of nationality from the list"
   },
   "worker-reference-number": {
@@ -149,17 +149,14 @@
     "afterDobYear": "Year of entry must be after ({{afterDobYear}}) the worker's Date of Birth year"
   },
   "before-1988-worker-national-insurance-number": {
-    "required": "Enter a National Insurance number",
     "notUrl": "Your answer must not contain URLs or links",
     "niNumber": "Enter a National Insurance number in the correct format"
   },
   "before-1988-employer-telephone": {
-    "required": "Tell us if the worker already works for you",
     "notUrl": "Your answer must not contain URLs or links",
     "ukPhoneNumber" : "Enter a valid UK telephone number"
   },
   "before-1988-employer-email": {
-    "required": "Enter worker email address",
     "email": "Enter a valid email address"
   },
   "worker-address-line-1": {
