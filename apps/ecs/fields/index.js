@@ -255,7 +255,7 @@ module.exports = {
   },
   'before-1988-worker-national-insurance-number': {
     mixin: 'input-text',
-    validate: ['required', 'notUrl'],
+    validate: ['notUrl'],
     className: ['govuk-input', 'govuk-!-width-one-third']
   },
   'before-1988-employer-telephone': {
@@ -265,7 +265,7 @@ module.exports = {
   },
   'before-1988-employer-email': {
     mixin: 'input-text',
-    validate: ['required', 'email']
+    validate: ['email']
   },
   'worker-address-line-1': {
     validate: ['required', 'notUrl', { type: 'maxlength', arguments: [250] }],
@@ -320,13 +320,13 @@ module.exports = {
       { type: 'after', arguments: ['100', 'years']}
     ]
   }),
-  'worker-been-in-uk-before-1988-nationality': {
+  'worker-nationality': {
     mixin: 'select',
     className: ['typeahead'],
     validate: ['required'],
     options: [{
       value: '',
-      label: 'fields.worker-been-in-uk-before-1988-nationality.options.null'
+      label: 'fields.worker-nationality.options.null'
     }].concat(countries)
   },
   'worker-reference-number': {

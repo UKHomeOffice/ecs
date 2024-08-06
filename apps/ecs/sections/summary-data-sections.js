@@ -2,7 +2,7 @@
 'use strict';
 
 const moment = require('moment');
-const PRETTY_DATE_FORMAT = 'DD MMMM YYYY';
+const config = require('../../../config');
 
 module.exports = {
   'eligibility-criteria': {
@@ -18,16 +18,23 @@ module.exports = {
       {
         step: '/when-started',
         field: 'start-work-date',
-        parse: d => d && moment(d).format(PRETTY_DATE_FORMAT)
+        parse: d => d && moment(d).format(config.PRETTY_DATE_FORMAT)
       },
       {
         step: '/tupe',
-        field: 'work-for-you-result-of-tupe-transfer'
+        field: 'work-for-you-result-of-tupe-transfer',
+        parse: (value, req) => {
+          if (req.sessionModel.get('person-work-for-you') === 'no' ||
+            !req.sessionModel.get('steps').includes('/tupe')) {
+            return null;
+          }
+          return value;
+        }
       },
       {
         step: '/tupe-date',
         field: 'tupe-date',
-        parse: d => d && moment(d).format(PRETTY_DATE_FORMAT)
+        parse: d => d && moment(d).format(config.PRETTY_DATE_FORMAT)
       },
       {
         step: '/digital-right-to-work-service',
@@ -35,15 +42,36 @@ module.exports = {
       },
       {
         step: '/eu-settlement-scheme',
-        field: 'worker-applied-eu-settlement-scheme'
+        field: 'worker-applied-eu-settlement-scheme',
+        parse: (value, req) => {
+          if (req.sessionModel.get('use-digital-right-to-work') === 'yes' ||
+            !req.sessionModel.get('steps').includes('/eu-settlement-scheme')) {
+            return null;
+          }
+          return value;
+        }
       },
       {
         step: '/arc-card',
-        field: 'worker-has-arc-card'
+        field: 'worker-has-arc-card',
+        parse: (value, req) => {
+          if (req.sessionModel.get('use-digital-right-to-work') === 'yes' ||
+            !req.sessionModel.get('steps').includes('/arc-card')) {
+            return null;
+          }
+          return value;
+        }
       },
       {
         step: '/ongoing-appeal',
-        field: 'worker-have-ongoing-appeal'
+        field: 'worker-have-ongoing-appeal',
+        parse: (value, req) => {
+          if (req.sessionModel.get('use-digital-right-to-work') === 'yes' ||
+            !req.sessionModel.get('steps').includes('ongoing-appeal')) {
+            return null;
+          }
+          return value;
+        }
       },
       {
         step: '/before-1988',
@@ -59,11 +87,12 @@ module.exports = {
       },
       {
         step: '/arc-number',
-        field: 'arc-number'
+        field: 'arc-number',
+        parse: value => value?.toUpperCase() ?? null
       }
     ]
   },
-  'employee-details': {
+  'worker-details': {
     steps: [
       {
         step: '/worker-details-1988',
@@ -88,7 +117,15 @@ module.exports = {
       {
         step: '/worker-details-1988',
         field: 'before-1988-worker-national-insurance-number',
-        parse: ni => ni?.toUpperCase() ?? null
+        parse: value => value?.toUpperCase() ?? null
+      },
+      {
+        step: '/worker-details-1988',
+        field: 'employer-telephone'
+      },
+      {
+        step: '/worker-details-1988',
+        field: 'employer-email'
       },
       {
         step: '/worker-details',
@@ -100,15 +137,16 @@ module.exports = {
       },
       {
         step: '/worker-details',
-        field: 'worker-been-in-uk-before-1988-nationality'
+        field: 'worker-nationality'
       },
       {
         step: '/reference-number',
-        field: 'worker-reference-number'
+        field: 'worker-reference-number',
+        parse: value => value?.toUpperCase() ?? null
       }
     ]
   },
-  'current-address': {
+  'worker-address': {
     steps: [
       {
         step: '/worker-address',
@@ -148,21 +186,6 @@ module.exports = {
           req.sessionModel.set('workerUkAddress', workerUkAddressDetails.join(', '));
           return workerUkAddressDetails.join('\n');
         }
-      }
-    ]
-  },
-  'their-employment': {
-    steps: []
-  },
-  'contact-details': {
-    steps: [
-      {
-        step: '/worker-details-1988',
-        field: 'before-1988-employer-telephone'
-      },
-      {
-        step: '/worker-details-1988',
-        field: 'before-1988-employer-email'
       }
     ]
   },

@@ -41,6 +41,7 @@ module.exports = {
     },
     '/when-started': {
       fields: ['start-work-date'],
+      continueOnEdit: true,
       forks: [
         {
           target: '/tupe',
@@ -51,6 +52,7 @@ module.exports = {
     },
     '/tupe': {
       fields: ['work-for-you-result-of-tupe-transfer'],
+      continueOnEdit: true,
       forks: [
         {
           target: '/ineligible-employee',
@@ -81,6 +83,7 @@ module.exports = {
     },
     '/digital-right-to-work-service': {
       fields: ['use-digital-right-to-work'],
+      continueOnEdit: true,
       forks: [
         {
           target: '/eu-settlement-scheme',
@@ -94,6 +97,7 @@ module.exports = {
     },
     '/eu-settlement-scheme': {
       fields: ['worker-applied-eu-settlement-scheme'],
+      continueOnEdit: true,
       forks: [
         {
           target: '/arc-card',
@@ -107,6 +111,7 @@ module.exports = {
     },
     '/arc-card': {
       fields: ['worker-has-arc-card'],
+      continueOnEdit: true,
       forks: [
         {
           target: '/ongoing-appeal',
@@ -138,7 +143,8 @@ module.exports = {
       next: '/request-check'
     },
     '/request-check': {
-      next: '/worker-details'
+      next: '/worker-details',
+      continueOnEdit: true
     },
     '/worker-details-1988': {
       behaviours: [checkValidation],
@@ -165,6 +171,7 @@ module.exports = {
     },
     '/ongoing-appeal': {
       fields: ['worker-have-ongoing-appeal'],
+      continueOnEdit: true,
       forks: [
         {
           target: '/request-check',
@@ -178,6 +185,7 @@ module.exports = {
     },
     '/before-1988': {
       fields: ['worker-been-in-UK-before-1988'],
+      continueOnEdit: true,
       forks: [
         {
           target: '/request-check-before-1988',
@@ -197,6 +205,7 @@ module.exports = {
       next: '/worker-details-1988'
     },
     '/worker-details': {
+      continueOnEdit: true,
       behaviours: [checkValidation],
       forks: [
         {
@@ -207,7 +216,7 @@ module.exports = {
       fields: [
         'worker-full-name',
         'worker-dob',
-        'worker-been-in-uk-before-1988-nationality'
+        'worker-nationality'
       ],
       next: '/worker-address-uk'
     },

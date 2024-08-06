@@ -18,5 +18,6 @@ module.exports = {
     caseworkerEmail: process.env.CASEWORKER_EMAIL,
     userConfirmationTemplateId: process.env.USER_CONFIRMATION_TEMPLATE_ID,
     businessConfirmationTemplateId: process.env.BUSINESS_CONFIRMATION_TEMPLATE_ID
-  }
+  },
+  PRETTY_DATE_FORMAT: 'DD MMMM YYYY'
 };
