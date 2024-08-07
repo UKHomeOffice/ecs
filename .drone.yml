@@ -6,6 +6,7 @@ type: kubernetes
 environment:
   APP_NAME: ecs
   PROD_ENV: sas-ecs-prod
+  STG_ENV: sas-ecs-stg
   UAT_ENV: sas-ecs-uat
   BRANCH_ENV: sas-ecs-branch
   PRODUCTION_URL: www.employer-request-a-check.homeoffice.gov.uk
@@ -273,6 +274,36 @@ steps:
       branch: master
       event: push
 
+   # Deploy to Staging environment
+  - name: deploy_to_stg
+    pull: if-not-exists
+    image: quay.io/ukhomeofficedigital/kd:v1.14.0
+    environment:
+      KUBE_SERVER:
+        from_secret: kube_server_prod
+      KUBE_TOKEN:
+        from_secret: kube_token_prod
+    commands:
+      - bin/deploy.sh $${STG_ENV}
+    when:
+      branch: master
+      event: push
+  
+     # Deploy to Staging environment
+  - name: deploy_to_stg
+    pull: if-not-exists
+    image: quay.io/ukhomeofficedigital/kd:v1.14.0
+    environment:
+      KUBE_SERVER:
+        from_secret: kube_server_prod
+      KUBE_TOKEN:
+        from_secret: kube_token_prod
+    commands:
+      - bin/deploy.sh $${STG_ENV}
+    when:
+      branch: master
+      event: push
+      
   # Checks a build being promoted has passed, is on master which effectively means a healthy build on Staging
   - name: sanity_check_build_prod
     pull: if-not-exists
