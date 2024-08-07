@@ -3,6 +3,7 @@ const Summary = hof.components.summary;
 const config = require('../../config');
 const legislativeEmploymentDate = config.legislativeEmploymentDate;
 const checkValidation = require('./behaviours/check-validation');
+const sendEmailNotification = require('./behaviours/submit-notify');
 
 module.exports = {
   name: 'ecs',
@@ -258,6 +259,7 @@ module.exports = {
       next: '/data-protection'
     },
     '/data-protection': {
+      behaviours: [sendEmailNotification],
       fields: ['privacy-check'],
       next: '/check-requested'
     },

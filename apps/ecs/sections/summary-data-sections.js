@@ -2,7 +2,7 @@
 'use strict';
 
 const moment = require('moment');
-const PRETTY_DATE_FORMAT = 'DD MMMM YYYY';
+const config = require('../../../config');
 
 module.exports = {
   'eligibility-criteria': {
@@ -18,7 +18,7 @@ module.exports = {
       {
         step: '/when-started',
         field: 'start-work-date',
-        parse: d => d && moment(d).format(PRETTY_DATE_FORMAT)
+        parse: d => d && moment(d).format(config.PRETTY_DATE_FORMAT)
       },
       {
         step: '/tupe',
@@ -34,7 +34,7 @@ module.exports = {
       {
         step: '/tupe-date',
         field: 'tupe-date',
-        parse: d => d && moment(d).format(PRETTY_DATE_FORMAT)
+        parse: d => d && moment(d).format(config.PRETTY_DATE_FORMAT)
       },
       {
         step: '/digital-right-to-work-service',
@@ -87,7 +87,8 @@ module.exports = {
       },
       {
         step: '/arc-number',
-        field: 'arc-number'
+        field: 'arc-number',
+        parse: value => value?.toUpperCase() ?? null
       }
     ]
   },
@@ -116,7 +117,7 @@ module.exports = {
       {
         step: '/worker-details-1988',
         field: 'before-1988-worker-national-insurance-number',
-        parse: ni => ni?.toUpperCase() ?? null
+        parse: value => value?.toUpperCase() ?? null
       },
       {
         step: '/worker-details-1988',
@@ -140,7 +141,8 @@ module.exports = {
       },
       {
         step: '/reference-number',
-        field: 'worker-reference-number'
+        field: 'worker-reference-number',
+        parse: value => value?.toUpperCase() ?? null
       }
     ]
   },
