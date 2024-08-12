@@ -194,10 +194,10 @@
     "hint": "This is on their National Insurance card, benefit letter, payslip or P60. For example, QQ 12 34 56 C"
   },
   "before-1988-employer-telephone": {
-    "label": "Employer telephone number (optional)"
+    "label": "Telephone number (optional)"
   },
   "before-1988-employer-email": {
-    "label": "Employer email address"
+    "label": "Email address (optional)"
   },
   "worker-address-line-1": {
     "label": "Address line 1"
@@ -236,7 +236,7 @@
     "hint": "For example, 31 3 1980"
   },
   "worker-been-in-uk-before-1988-nationality": {
-    "label": "Nationality",
+    "label": "Country of nationality",
     "hint": "Start to type the country name and options will appear",
     "options": {
       "null": "Select a country"

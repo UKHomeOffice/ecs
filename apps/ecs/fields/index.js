@@ -178,7 +178,7 @@ module.exports = {
     ]
   },
   'job-title': {
-    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }]
+    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 250 }]
   },
   'hours-of-work-per-week': {
     validate: ['required', { type: 'max', arguments: 99 }, { type: 'min', arguments: 1 }],
@@ -186,23 +186,23 @@ module.exports = {
     className: ['govuk-input--width-2', 'govuk-input']
   },
   'business-name': {
-    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }]
+    validate: ['required', 'notUrl', { type: 'minlength', arguments: 3 }, { type: 'maxlength', arguments: 256 }]
   },
   'type-of-business': {
-    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }]
+    validate: ['required', 'notUrl', { type: 'minlength', arguments: 3 }, { type: 'maxlength', arguments: 256 }]
   },
   'employers-contact-name': {
-    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }]
+    validate: ['required', 'notUrl', { type: 'minlength', arguments: 3 }, { type: 'maxlength', arguments: 256 }]
   },
   'contact-job-title': {
-    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }]
+    validate: ['required', 'notUrl', { type: 'minlength', arguments: 3 }, { type: 'maxlength', arguments: 256 }]
   },
   'contact-telephone': {
-    validate: ['notUrl', 'ukPhoneNumber', 'required'],
+    validate: ['ukPhoneNumber', 'required'],
     className: ['govuk-input', 'govuk-!-width-one-half']
   },
   'contact-email-address': {
-    validate: ['required', 'email']
+    validate: ['required', 'email', { type: 'minlength', arguments: 3 }, { type: 'maxlength', arguments: 256 }]
   },
   'business-address-line-1': {
     validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }],
@@ -230,8 +230,8 @@ module.exports = {
     mixin: 'input-date',
     validate: [
       'required', 'date',
-      { type: 'before', arguments: ['16', 'years'] },
-      { type: 'after', arguments: ['100', 'years']}
+      { type: 'before', arguments: ['16', 'years']},
+      { type: 'after', arguments: ['120', 'years']}
     ]
   }),
   'before-1988-worker-nationality': {
@@ -250,22 +250,25 @@ module.exports = {
   },
   'before-1988-worker-year-of-entry-to-uk': {
     mixin: 'input-text',
-    validate: ['required', 'numeric', { type: 'maxlength', arguments: [4] }],
+    validate: [
+      'required', 'numeric',
+      { type: 'maxlength', arguments: [4]}
+    ],
     className: ['govuk-input', 'govuk-input--width-4']
   },
   'before-1988-worker-national-insurance-number': {
     mixin: 'input-text',
-    validate: ['required', 'notUrl'],
+    validate: ['notUrl'],
     className: ['govuk-input', 'govuk-!-width-one-third']
   },
   'before-1988-employer-telephone': {
     mixin: 'input-text',
-    validate: ['notUrl', 'ukPhoneNumber'],
+    validate: ['ukPhoneNumber'],
     className: ['govuk-input', 'govuk-!-width-one-half']
   },
   'before-1988-employer-email': {
     mixin: 'input-text',
-    validate: ['required', 'email']
+    validate: ['email']
   },
   'worker-address-line-1': {
     validate: ['required', 'notUrl', { type: 'maxlength', arguments: [250] }],
@@ -316,8 +319,8 @@ module.exports = {
     mixin: 'input-date',
     validate: [
       'required', 'date',
-      { type: 'before', arguments: ['1988-12-31'] },
-      { type: 'after', arguments: ['100', 'years']}
+      { type: 'before', arguments: ['16', 'years'] },
+      { type: 'after', arguments: ['120', 'years']}
     ]
   }),
   'worker-been-in-uk-before-1988-nationality': {
@@ -327,12 +330,12 @@ module.exports = {
     options: [{
       value: '',
       label: 'fields.worker-been-in-uk-before-1988-nationality.options.null'
-    }].concat(countries)
+    }].concat(countries.filter(country => !['Ireland', 'United Kingdom'].includes(country.value)))
   },
   'worker-reference-number': {
     mixin: 'input-text',
     labelClassName: 'govuk-label--s',
-    validate: ['required', 'notUrl', { type: 'maxlength', arguments: [250] }],
+    validate: ['required', 'notUrl', { type: 'minlength', arguments: 2 }, { type: 'maxlength', arguments: 250 }],
     className: ['govuk-input', 'govuk-!-width-two-thirds']
   },
   'privacy-check': {

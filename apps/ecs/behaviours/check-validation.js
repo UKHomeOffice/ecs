@@ -14,17 +14,34 @@ module.exports = superclass => class extends superclass {
       }
     }
 
-    if(key === 'before-1988-worker-nationality' || key === 'worker-country') {
+    if(key === 'before-1988-worker-nationality' || key === 'worker-country' ||
+     key === 'worker-been-in-uk-before-1988-nationality') {
       if(req.form.values[key] === 'United Kingdom' || req.form.values[key] === 'Ireland') {
         return validationErrorFunc('excludeUkIr');
       }
     }
 
+    if(key === 'before-1988-worker-dob') {
+      const workerDob = req.form.values[key];
+      if (moment(workerDob).isSameOrAfter('01-01-1988')) {
+        return validationErrorFunc('afterDobYear');
+      }
+    }
+
     if(key === 'before-1988-worker-year-of-entry-to-uk') {
       const yearOfEntry = req.form.values[key];
+      const currentYear = moment().year();
+      const oneHundredTwentyYearsAgo =  moment().year(currentYear - 120).format('YYYY');
+      if (yearOfEntry !== '' && yearOfEntry <= oneHundredTwentyYearsAgo) {
+        return validationErrorFunc('after120Years');
+      }
+      if (yearOfEntry !== '' && yearOfEntry >= '1988') {
+        return validationErrorFunc('after1988Years');
+      }
       const workerDob = req.form.values['before-1988-worker-dob'];
-      if(yearOfEntry.length > 1 && !validators.url(yearOfEntry) && yearOfEntry < moment(workerDob).format('YYYY')) {
-        return validationErrorFunc('afterDobYear', [moment(workerDob).format('YYYY')]);
+      if(yearOfEntry.length > 1 && !validators.url(yearOfEntry)
+         && yearOfEntry < moment(workerDob).format('YYYY') && workerDob) {
+        return validationErrorFunc('beforeDateOfBirth', [moment(workerDob).format('DD MMMM YYYY')]);
       }
     }
 
