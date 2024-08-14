@@ -1,6 +1,6 @@
 const validators = require('hof/controller/validation/validators');
 const moment = require('moment');
-const PRETTY_DATE_FORMAT = 'DD MMMM YYYY';
+const config = require('../../../config');
 
 module.exports = superclass => class extends superclass {
   validateField(key, req) {
@@ -10,12 +10,12 @@ module.exports = superclass => class extends superclass {
       const DateToBeValidated = req.form.values[key];
       const startDateOfWork = req.sessionModel.get('start-work-date');
       if(!validators.after(DateToBeValidated, startDateOfWork)) {
-        return validationErrorFunc('after', [moment(startDateOfWork).format(PRETTY_DATE_FORMAT)]);
+        return validationErrorFunc('after', [moment(startDateOfWork).format(config.PRETTY_DATE_FORMAT)]);
       }
     }
 
     if(key === 'before-1988-worker-nationality' || key === 'worker-country' ||
-     key === 'worker-been-in-uk-before-1988-nationality') {
+     key === 'worker-nationality') {
       if(req.form.values[key] === 'United Kingdom' || req.form.values[key] === 'Ireland') {
         return validationErrorFunc('excludeUkIr');
       }

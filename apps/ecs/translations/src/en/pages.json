@@ -86,23 +86,14 @@
       "eligibility-criteria": {
         "header": "Eligibility criteria"
       },
-      "employee-details": {
-        "header": "Employee details"
+      "worker-details": {
+        "header": "Worker details"
       },
-      "current-address": {
-        "header": "Current address"
-      },
-      "their-employment": {
-        "header": "Their employment"
-      },
-      "contact-details": {
-        "header": "Contact details"
+      "worker-address": {
+        "header": "Worker's address"
       },
       "workers-job-information": {
-        "header": "Worker's job information"
-      },
-      "business-address": {
-        "header": "Business address"
+        "header": "Job information"
       },
       "employer-contact-details": {
         "header": "Employer contact details"
@@ -110,22 +101,13 @@
     },
     "fields": {
       "worker-has-eligible-docs": {
-        "label": "Does the worker has any of the Right to Work eligible documents"
+        "label": "Does the worker have right to work documents?"
       },
       "contact-job-title": {
-        "label": "Job title"
+        "label": "Contact job title"
       },
-      "business-address-line-1": {
-        "label": "Business address line 1"
-      },
-      "business-address-line-2": {
-        "label": "Address line 2"
-      },
-      "business-town-city": {
-        "label": "Town / City"
-      },
-      "before-1988-worker-nationality": {
-        "label": "Nationality"
+      "business-address-details": {
+        "label": "Business address"
       },
       "before-1988-worker-national-insurance-number": {
         "label": "National Insurance number"
@@ -136,11 +118,53 @@
       "before-1988-employer-email": {
         "label": "Email address"
       },
-      "worker-been-in-uk-before-1988-nationality": {
-        "label": "Nationality"
-      },
       "worker-reference-number": {
         "label": "Home Office reference number"
+      },
+      "worker-address-details": {
+        "label": "Current address"
+      },
+      "employers-contact-name": {
+        "label": "Contact name"
+      },
+      "type-of-business": {
+        "label": "Business type"
+      },
+      "contact-email-address": {
+        "label": "Contact email"
+      },
+      "person-work-for-you": {
+        "label": "Already work for you?"
+      },
+      "hours-of-work-per-week": {
+        "label": "Hours per week"
+      },
+      "start-work-date": {
+        "label": "Date they started working for you"
+      },
+      "work-for-you-result-of-tupe-transfer": {
+        "label": "Work for you due to a TUPE?"
+      },
+      "tupe-date": {
+        "label": "Date of TUPE transfer"
+      },
+      "use-digital-right-to-work": {
+        "label": "Unable to use the digital Right to Work service?"
+      },
+      "worker-applied-eu-settlement-scheme": {
+        "label": "Has the worker applied to the EUSS?"
+      },
+      "worker-has-arc-card": {
+        "label": "Does the worker have an ARC with a right to work?"
+      },
+      "arc-number": {
+        "label": "Worker’s application registration card number"
+      },
+      "worker-have-ongoing-appeal": {
+        "label": "Ongoing appeal or application with the Home Office?"
+      },
+      "worker-been-in-UK-before-1988": {
+        "label": "Has the worker been in the UK since before 1988?"
       }
     }
   }

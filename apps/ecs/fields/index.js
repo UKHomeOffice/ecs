@@ -323,13 +323,13 @@ module.exports = {
       { type: 'after', arguments: ['120', 'years']}
     ]
   }),
-  'worker-been-in-uk-before-1988-nationality': {
+  'worker-nationality': {
     mixin: 'select',
     className: ['typeahead'],
     validate: ['required'],
     options: [{
       value: '',
-      label: 'fields.worker-been-in-uk-before-1988-nationality.options.null'
+      label: 'fields.worker-nationality.options.null'
     }].concat(countries.filter(country => !['Ireland', 'United Kingdom'].includes(country.value)))
   },
   'worker-reference-number': {

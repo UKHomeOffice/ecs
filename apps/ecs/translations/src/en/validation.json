@@ -57,7 +57,7 @@
     "before": "The worker must be 16 years or older – this service only applies to workers aged 16 or over",
     "after": "Enter a real date of birth"
   },
-  "worker-been-in-uk-before-1988-nationality": {
+  "worker-nationality": {
     "required": "Enter a country of nationality",
     "excludeUkIr": "You do not need to request a Home Office right to work check if the worker is a UK or Republic of Ireland citizen"
   },
