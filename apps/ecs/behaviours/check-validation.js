@@ -23,7 +23,7 @@ module.exports = superclass => class extends superclass {
 
     if(key === 'before-1988-worker-dob') {
       const workerDob = req.form.values[key];
-      if (moment(workerDob).isSameOrAfter('01-01-1988')) {
+      if (moment(workerDob).isSameOrAfter('1988-01-01')) {
         return validationErrorFunc('afterDobYear');
       }
     }
