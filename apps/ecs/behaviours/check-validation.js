@@ -30,8 +30,7 @@ module.exports = superclass => class extends superclass {
 
     if(key === 'before-1988-worker-year-of-entry-to-uk') {
       const yearOfEntry = req.form.values[key];
-      const currentYear = moment().year();
-      const oneHundredTwentyYearsAgo =  moment().year(currentYear - 120).format('YYYY');
+      const oneHundredTwentyYearsAgo = moment().subtract(120, 'years').format('YYYY');
       if (yearOfEntry !== '' && yearOfEntry <= oneHundredTwentyYearsAgo) {
         return validationErrorFunc('after120Years');
       }
