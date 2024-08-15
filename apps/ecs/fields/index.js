@@ -178,7 +178,7 @@ module.exports = {
     ]
   },
   'job-title': {
-    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }]
+    validate: ['required', 'notUrl',  { type: 'maxlength', arguments: [250] }, { type: 'minlength', arguments: [2] }]
   },
   'hours-of-work-per-week': {
     validate: ['required', { type: 'max', arguments: 99 }, { type: 'min', arguments: 1 }],
@@ -198,22 +198,22 @@ module.exports = {
     validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }]
   },
   'contact-telephone': {
-    validate: ['notUrl', 'ukPhoneNumber', 'required'],
+    validate: ['required', 'notUrl', 'internationalPhoneNumber' ],
     className: ['govuk-input', 'govuk-!-width-one-half']
   },
   'contact-email-address': {
     validate: ['required', 'email']
   },
   'business-address-line-1': {
-    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }],
+    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 250 }],
     className: ['govuk-input', 'govuk-!-width-two-thirds']
   },
   'business-address-line-2': {
-    validate: ['notUrl', { type: 'maxlength', arguments: 254 }],
+    validate: ['notUrl', { type: 'maxlength', arguments: 250 }],
     className: ['govuk-input', 'govuk-!-width-two-thirds']
   },
   'business-town-city': {
-    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }],
+    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 250 }],
     className: ['govuk-input', 'govuk-!-width-two-thirds']
   },
   'business-postcode': {
@@ -279,6 +279,10 @@ module.exports = {
     validate: ['required', 'notUrl', { type: 'maxlength', arguments: [250] }],
     className: ['govuk-input', 'govuk-!-width-two-thirds']
   },
+  'worker-zipcode': {
+    className: ['govuk-input', 'govuk-input--width-10'],
+    validate: ['notUrl', { type: 'maxlength', arguments: [10] }]
+  },
   'worker-country': {
     mixin: 'select',
     validate: ['required'],
@@ -332,7 +336,7 @@ module.exports = {
   'worker-reference-number': {
     mixin: 'input-text',
     labelClassName: 'govuk-label--s',
-    validate: ['required', 'notUrl', { type: 'maxlength', arguments: [250] }],
+    validate: ['required', 'notUrl', { type: 'maxlength', arguments: [250] }, { type: 'minlength', arguments: [2] }],
     className: ['govuk-input', 'govuk-!-width-two-thirds']
   },
   'privacy-check': {

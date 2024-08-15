@@ -161,10 +161,12 @@ module.exports = {
       next: '/reference-number'
     },
     '/worker-address': {
+      behaviours: [checkValidation],
       fields: [
         'worker-address-line-1',
         'worker-address-line-2',
         'worker-town-or-city',
+        'worker-zipcode',
         'worker-country'
       ],
       next: '/job-information'

@@ -9,7 +9,8 @@ module.exports = {
     steps: [
       {
         step: '/eligibility',
-        field: 'worker-has-eligible-docs'
+        field: 'worker-has-eligible-docs',
+        omitChangeLink: true
       },
       {
         step: '/already-employed',
@@ -100,7 +101,8 @@ module.exports = {
       },
       {
         step: '/worker-details-1988',
-        field: 'before-1988-worker-dob'
+        field: 'before-1988-worker-dob',
+        parse: d => d && moment(d).format(config.PRETTY_DATE_FORMAT)
       },
       {
         step: '/worker-details-1988',
@@ -133,7 +135,8 @@ module.exports = {
       },
       {
         step: '/worker-details',
-        field: 'worker-dob'
+        field: 'worker-dob',
+        parse: d => d && moment(d).format(config.PRETTY_DATE_FORMAT)
       },
       {
         step: '/worker-details',
@@ -161,6 +164,7 @@ module.exports = {
             workerAddressDetails.push(req.sessionModel.get('worker-address-line-2'));
           }
           workerAddressDetails.push(req.sessionModel.get('worker-town-or-city'));
+          workerAddressDetails.push(req.sessionModel.get('worker-zipcode'));
           req.sessionModel.set('workerAddress', workerAddressDetails.join(', '));
           return workerAddressDetails.join('\n');
         }
