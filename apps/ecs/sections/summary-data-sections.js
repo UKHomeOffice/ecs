@@ -164,7 +164,9 @@ module.exports = {
             workerAddressDetails.push(req.sessionModel.get('worker-address-line-2'));
           }
           workerAddressDetails.push(req.sessionModel.get('worker-town-or-city'));
-          workerAddressDetails.push(req.sessionModel.get('worker-zipcode'));
+          if (req.sessionModel.get('worker-zipcode')) {
+            workerAddressDetails.push(req.sessionModel.get('worker-zipcode').toUpperCase());
+          }
           req.sessionModel.set('workerAddress', workerAddressDetails.join(', '));
           return workerAddressDetails.join('\n');
         }
