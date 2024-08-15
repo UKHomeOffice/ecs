@@ -6,6 +6,7 @@ type: kubernetes
 environment:
   APP_NAME: ecs
   PROD_ENV: sas-ecs-prod
+  STG_ENV: sas-ecs-stg
   UAT_ENV: sas-ecs-uat
   BRANCH_ENV: sas-ecs-branch
   PRODUCTION_URL: www.employer-request-a-check.homeoffice.gov.uk
