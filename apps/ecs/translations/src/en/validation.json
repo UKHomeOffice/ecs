@@ -78,33 +78,39 @@
     "max": "Hours of work per week must be between 1 and 99"
   },
   "business-name": {
-    "required": "Tell us the business name",
+    "required": "Enter a business name",
     "notUrl": "Your answer must not contain URLs or links",
-    "maxlength": "Business name must be 254 characters or less"
+    "minlength": "Business name must be between 3 and 256 characters",
+    "maxlength": "Business name must be between 3 and 256 characters"
   },
   "type-of-business": {
-    "required": "Tell us the type of business",
+    "required": "Enter type of business",
     "notUrl": "Your answer must not contain URLs or links",
-    "maxlength": "Type of business must be 254 characters or less"
+    "minlength": "Type of business must be between 3 and 256 characters",
+    "maxlength": "Type of business must be between 3 and 256 characters"
   },
   "employers-contact-name": {
-    "required": "Tell us the employer's contact name",
+   "required": "Enter a name of a contact from the employer",
     "notUrl": "Your answer must not contain URLs or links",
-    "maxlength": "Employer's contact name must be 254 characters or less"
+    "minlength": "Contact name must be between 3 and 256 characters",
+    "maxlength": "Contact name must be between 3 and 256 characters"
   },
   "contact-job-title": {
-    "required": "Tell us the contact job title",
+    "required": "Enter the job title of the employer contact",
     "notUrl": "Your answer must not contain URLs or links",
-    "maxlength": "Contact job title must be 254 characters or less"
+    "minlength": "Contact job title must be between 3 and 256 characters",
+    "maxlength": "Contact job title must be between 3 and 256 characters"
   },
   "contact-telephone": {
-    "required": "Tell us the contact telephone number",
+    "required": "Enter a contact telephone number",
     "notUrl": "Your answer must not contain URLs or links",
-    "internationalPhoneNumber" : "Enter a valid UK telephone number"
+    "internationalPhoneNumber" : "Enter a telephone number, like 01632 960 001, 07700 900 982 or +44 808 157 0192"
   },
   "contact-email-address": {
-    "required": "Tell us the contact email address",
-    "email": "Enter a valid email address"
+    "required": "Enter a contact email address from the employer",
+    "email": "Enter a real email address",
+    "minlength": "Contact email address must be between 6 and 256 characters",
+    "maxlength": "Contact email address must be between 6 and 256 characters"
   },
   "business-address-line-1": {
     "required": "Enter address line 1, typically the building and street",

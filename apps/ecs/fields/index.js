@@ -186,23 +186,23 @@ module.exports = {
     className: ['govuk-input--width-2', 'govuk-input']
   },
   'business-name': {
-    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }]
+    validate: ['required', 'notUrl', { type: 'minlength', arguments: 3 }, { type: 'maxlength', arguments: 256 }]
   },
   'type-of-business': {
-    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }]
+    validate: ['required', 'notUrl', { type: 'minlength', arguments: 3 }, { type: 'maxlength', arguments: 256 }]
   },
   'employers-contact-name': {
-    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }]
+    validate: ['required', 'notUrl', { type: 'minlength', arguments: 3 }, { type: 'maxlength', arguments: 256 }]
   },
   'contact-job-title': {
-    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }]
+    validate: ['required', 'notUrl', { type: 'minlength', arguments: 3 }, { type: 'maxlength', arguments: 256 }]
   },
   'contact-telephone': {
     validate: ['required', 'notUrl', 'internationalPhoneNumber' ],
     className: ['govuk-input', 'govuk-!-width-one-half']
   },
   'contact-email-address': {
-    validate: ['required', 'email']
+    validate: ['required', 'email', { type: 'minlength', arguments: 3 }, { type: 'maxlength', arguments: 256 }]
   },
   'business-address-line-1': {
     validate: ['required', 'notUrl', { type: 'maxlength', arguments: 250 }],
