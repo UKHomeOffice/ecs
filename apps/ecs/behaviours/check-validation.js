@@ -31,10 +31,10 @@ module.exports = superclass => class extends superclass {
     if(key === 'before-1988-worker-year-of-entry-to-uk') {
       const yearOfEntry = req.form.values[key];
       const oneHundredTwentyYearsAgo = moment().subtract(120, 'years').format('YYYY');
-      if (yearOfEntry !== '' && yearOfEntry <= oneHundredTwentyYearsAgo) {
+      if (yearOfEntry && yearOfEntry <= oneHundredTwentyYearsAgo) {
         return validationErrorFunc('after120Years');
       }
-      if (yearOfEntry !== '' && yearOfEntry >= '1988') {
+      if (yearOfEntry && yearOfEntry >= '1988') {
         return validationErrorFunc('after1988Years');
       }
       const workerDob = req.form.values['before-1988-worker-dob'];
