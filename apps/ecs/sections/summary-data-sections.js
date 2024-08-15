@@ -19,7 +19,13 @@ module.exports = {
       {
         step: '/when-started',
         field: 'start-work-date',
-        parse: d => d && moment(d).format(config.PRETTY_DATE_FORMAT)
+        parse: (value, req) => {
+          if (req.sessionModel.get('person-work-for-you') === 'no' ||
+            !req.sessionModel.get('steps').includes('/when-started')) {
+            return null;
+          }
+          return value && moment(value).format(config.PRETTY_DATE_FORMAT);
+        }
       },
       {
         step: '/tupe',
@@ -35,7 +41,13 @@ module.exports = {
       {
         step: '/tupe-date',
         field: 'tupe-date',
-        parse: d => d && moment(d).format(config.PRETTY_DATE_FORMAT)
+        parse: (value, req) => {
+          if (req.sessionModel.get('person-work-for-you') === 'no' ||
+            !req.sessionModel.get('steps').includes('/tupe-date')) {
+            return null;
+          }
+          return value && moment(value).format(config.PRETTY_DATE_FORMAT);
+        }
       },
       {
         step: '/digital-right-to-work-service',

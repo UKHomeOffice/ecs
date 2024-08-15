@@ -55,14 +55,14 @@ module.exports = {
       continueOnEdit: true,
       forks: [
         {
-          target: '/ineligible-employee',
+          target: '/tupe-date',
           condition: {
             field: 'work-for-you-result-of-tupe-transfer',
-            value: 'no'
+            value: 'yes'
           }
         }
       ],
-      next: '/tupe-date'
+      next: '/ineligible-employee'
     },
     '/ineligible-employee': {
 
