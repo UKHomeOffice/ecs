@@ -29,15 +29,18 @@ module.exports = superclass => class extends superclass {
     }
 
     if(key === 'before-1988-worker-year-of-entry-to-uk') {
+      if (!validators.required(req.form.values[key])) return validationErrorFunc('required');
+      if (req.form.values[key]?.length < 4) return validationErrorFunc('maxlength');
+
       const yearOfEntry = parseInt(req.form.values[key], 10);
       if (isNaN(yearOfEntry)) {
         return validationErrorFunc('numeric');
       }
-      const oneHundredTwentyYearsAgo = moment().subtract(120, 'years').year();
-      if (yearOfEntry && yearOfEntry <= oneHundredTwentyYearsAgo) {
+      const minYearOfEntry = moment().subtract(120, 'years').year();
+      if (yearOfEntry < minYearOfEntry) {
         return validationErrorFunc('after120Years');
       }
-      if (yearOfEntry && yearOfEntry >= 1988) {
+      if (yearOfEntry >= 1988) {
         return validationErrorFunc('after1988Years');
       }
       const workerDob = req.form.values['before-1988-worker-dob'];

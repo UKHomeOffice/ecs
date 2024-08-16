@@ -250,10 +250,8 @@ module.exports = {
   },
   'before-1988-worker-year-of-entry-to-uk': {
     mixin: 'input-text',
-    validate: [
-      'required',
-      { type: 'maxlength', arguments: [4]}
-    ],
+    // validation is covered in check-validation behaviour
+    validate: [],
     className: ['govuk-input', 'govuk-input--width-4']
   },
   'before-1988-worker-national-insurance-number': {
