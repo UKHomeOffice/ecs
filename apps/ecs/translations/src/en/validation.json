@@ -54,21 +54,23 @@
   },
   "worker-dob": { 
     "required": "Enter the worker's date of birth",
-    "before": "Worker's date of birth must be before 1988, when they came to the UK",
+    "before": "The worker must be 16 years or older – this service only applies to workers aged 16 or over",
     "after": "Enter a real date of birth"
   },
   "worker-nationality": {
-    "required": "Select a country of nationality from the list"
+    "required": "Enter a country of nationality",
+    "excludeUkIr": "You do not need to request a Home Office right to work check if the worker is a UK or Republic of Ireland citizen"
   },
   "worker-reference-number": {
-    "required": "Enter the worker's Home Office reference number",
+    "required": "Enter a Home Office reference number",
     "notUrl": "Your answer must not contain URLs or links",
-    "maxlength": "Worker's full name must be 250 characters or less"
+    "minlength": "Home Office reference number must be between 2 and 250 characters",
+    "maxlength": "Home Office reference number must be between 2 and 250 characters"
   },
   "job-title": {
     "required": "Enter the job title of the role",
     "notUrl": "Your answer must not contain URLs or links",
-    "maxlength": "Contact job title must be 254 characters or less"
+    "maxlength": "Contact job title must be 250 characters or less"
   },
   "hours-of-work-per-week": {
     "required": "Tell us how many hours per week the job involves",
@@ -76,33 +78,38 @@
     "max": "Hours of work per week must be between 1 and 99"
   },
   "business-name": {
-    "required": "Tell us the business name",
+    "required": "Enter a business name",
     "notUrl": "Your answer must not contain URLs or links",
-    "maxlength": "Business name must be 254 characters or less"
+    "minlength": "Business name must be between 3 and 256 characters",
+    "maxlength": "Business name must be between 3 and 256 characters"
   },
   "type-of-business": {
-    "required": "Tell us the type of business",
+    "required": "Enter type of business",
     "notUrl": "Your answer must not contain URLs or links",
-    "maxlength": "Type of business must be 254 characters or less"
+    "minlength": "Type of business must be between 3 and 256 characters",
+    "maxlength": "Type of business must be between 3 and 256 characters"
   },
   "employers-contact-name": {
-    "required": "Tell us the employer's contact name",
+    "required": "Enter a name of a contact from the employer",
     "notUrl": "Your answer must not contain URLs or links",
-    "maxlength": "Employer's contact name must be 254 characters or less"
+    "minlength": "Contact name must be between 3 and 256 characters",
+    "maxlength": "Contact name must be between 3 and 256 characters"
   },
   "contact-job-title": {
-    "required": "Tell us the contact job title",
+    "required": "Enter the job title of the employer contact",
     "notUrl": "Your answer must not contain URLs or links",
-    "maxlength": "Contact job title must be 254 characters or less"
+    "minlength": "Contact job title must be between 3 and 256 characters",
+    "maxlength": "Contact job title must be between 3 and 256 characters"
   },
   "contact-telephone": {
-    "required": "Tell us the contact telephone number",
-    "notUrl": "Your answer must not contain URLs or links",
-    "ukPhoneNumber" : "Enter a valid UK telephone number"
+    "required": "Enter a contact telephone number",
+    "ukPhoneNumber" : "Enter a telephone number, like 01632 960 001, 07700 900 982 or +44 808 157 0192"
   },
   "contact-email-address": {
-    "required": "Tell us the contact email address",
-    "email": "Enter a valid email address"
+    "required": "Enter a contact email address from the employer",
+    "email": "Enter a real email address",
+    "minlength": "Contact email address must be between 6 and 256 characters",
+    "maxlength": "Contact email address must be between 6 and 256 characters"
   },
   "business-address-line-1": {
     "required": "Enter address line 1, typically the building and street",
@@ -130,11 +137,12 @@
   "before-1988-worker-dob": {
     "required": "Enter the worker's date of birth",
     "before": "The worker must be 16 years or over – this service only applies to workers aged 16 or over",
-    "after": "Enter a real date of birth"
+    "after": "Enter a real date of birth",
+    "afterDobYear": "Worker's date of birth must be before 1988, when they came to the UK"
   },
   "before-1988-worker-nationality": {
-    "required": "Select a country of nationality from the list",
-    "excludeUkIr": "You do not need to request a Home Office right to work check if you are a UK or Ireland Citizen"
+    "required": "Enter a country of nationality",
+    "excludeUkIr": "You do not need to request a Home Office right to work check if the worker is a UK or Republic of Ireland citizen"
   },
   "before-1988-worker-place-of-birth": {
     "required": "Tell us where the worker was born",
@@ -142,11 +150,12 @@
     "maxlength": "Worker's place of birth must be 250 characters or less"
   },
   "before-1988-worker-year-of-entry-to-uk": {
-    "required": "Tell us the year when the worker first came to the UK",
+    "required": "Tell us the year when the worker first came to the UK before 1988",
     "numeric": "Year must only contain numbers",
     "maxlength": "Year of entry to UK must be 4 characters",
-    "after": "Enter the real year of entry to uk",
-    "afterDobYear": "Year of entry must be after ({{afterDobYear}}) the worker's Date of Birth year"
+    "after120Years": "Enter a real date of entry",
+    "after1988Years": "You told us the worker arrived in the UK before 1988 – worker's year of entry must be before 1988",
+    "beforeDateOfBirth": "Worker's year of entry must be after {{beforeDateOfBirth}} when they were born"
   },
   "before-1988-worker-national-insurance-number": {
     "notUrl": "Your answer must not contain URLs or links",
