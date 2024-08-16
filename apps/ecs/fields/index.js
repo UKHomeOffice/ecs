@@ -198,7 +198,7 @@ module.exports = {
     validate: ['required', 'notUrl', { type: 'minlength', arguments: 3 }, { type: 'maxlength', arguments: 256 }]
   },
   'contact-telephone': {
-    validate: ['ukPhoneNumber', 'required'],
+    validate: ['required', 'ukPhoneNumber'],
     className: ['govuk-input', 'govuk-!-width-one-half']
   },
   'contact-email-address': {
@@ -251,7 +251,7 @@ module.exports = {
   'before-1988-worker-year-of-entry-to-uk': {
     mixin: 'input-text',
     validate: [
-      'required', 'numeric',
+      'required',
       { type: 'maxlength', arguments: [4]}
     ],
     className: ['govuk-input', 'govuk-input--width-4']

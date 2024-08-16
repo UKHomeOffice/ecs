@@ -29,17 +29,19 @@ module.exports = superclass => class extends superclass {
     }
 
     if(key === 'before-1988-worker-year-of-entry-to-uk') {
-      const yearOfEntry = req.form.values[key];
-      const oneHundredTwentyYearsAgo = moment().subtract(120, 'years').format('YYYY');
+      const yearOfEntry = parseInt(req.form.values[key], 10);
+      if (isNaN(yearOfEntry)) {
+        return validationErrorFunc('numeric');
+      }
+      const oneHundredTwentyYearsAgo = moment().subtract(120, 'years').year();
       if (yearOfEntry && yearOfEntry <= oneHundredTwentyYearsAgo) {
         return validationErrorFunc('after120Years');
       }
-      if (yearOfEntry && yearOfEntry >= '1988') {
+      if (yearOfEntry && yearOfEntry >= 1988) {
         return validationErrorFunc('after1988Years');
       }
       const workerDob = req.form.values['before-1988-worker-dob'];
-      if(yearOfEntry.length > 1 && !validators.url(yearOfEntry)
-         && yearOfEntry < moment(workerDob).format('YYYY') && workerDob) {
+      if(!validators.url(yearOfEntry) && yearOfEntry < moment(workerDob).year()) {
         return validationErrorFunc('beforeDateOfBirth', [moment(workerDob).format('DD MMMM YYYY')]);
       }
     }
