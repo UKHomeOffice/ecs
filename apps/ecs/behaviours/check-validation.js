@@ -40,7 +40,7 @@ module.exports = superclass => class extends superclass {
     if(key === 'worker-zipcode') {
       const zipCode = req.form.values[key];
       const zipCodeRegex = '^[a-z0-9][a-z0-9\\- ]{0,10}[a-z0-9]$';
-      if(zipCode && !validators.url(zipCode) && !validators.regex(zipCode, zipCodeRegex)) {
+      if(!zipCode?.length > 10 && !validators.url(zipCode) && !validators.regex(zipCode, zipCodeRegex)) {
         return validationErrorFunc('zipCode');
       }
     }
