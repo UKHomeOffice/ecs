@@ -230,8 +230,8 @@ module.exports = {
     mixin: 'input-date',
     validate: [
       'required', 'date',
-      { type: 'before', arguments: ['16', 'years'] },
-      { type: 'after', arguments: ['100', 'years']}
+      { type: 'before', arguments: ['16', 'years']},
+      { type: 'after', arguments: ['120', 'years']}
     ]
   }),
   'before-1988-worker-nationality': {
@@ -250,7 +250,8 @@ module.exports = {
   },
   'before-1988-worker-year-of-entry-to-uk': {
     mixin: 'input-text',
-    validate: ['required', 'numeric', { type: 'maxlength', arguments: [4] }],
+    // validation is covered in check-validation behaviour
+    validate: [],
     className: ['govuk-input', 'govuk-input--width-4']
   },
   'before-1988-worker-national-insurance-number': {
@@ -320,8 +321,8 @@ module.exports = {
     mixin: 'input-date',
     validate: [
       'required', 'date',
-      { type: 'before', arguments: ['1988-12-31'] },
-      { type: 'after', arguments: ['100', 'years']}
+      { type: 'before', arguments: ['16', 'years'] },
+      { type: 'after', arguments: ['120', 'years']}
     ]
   }),
   'worker-nationality': {
@@ -331,12 +332,12 @@ module.exports = {
     options: [{
       value: '',
       label: 'fields.worker-nationality.options.null'
-    }].concat(countries)
+    }].concat(countries.filter(country => !['Ireland', 'United Kingdom'].includes(country.value)))
   },
   'worker-reference-number': {
     mixin: 'input-text',
     labelClassName: 'govuk-label--s',
-    validate: ['required', 'notUrl', { type: 'maxlength', arguments: [250] }, { type: 'minlength', arguments: [2] }],
+    validate: ['required', 'notUrl', { type: 'minlength', arguments: 2 }, { type: 'maxlength', arguments: 250 }],
     className: ['govuk-input', 'govuk-!-width-two-thirds']
   },
   'privacy-check': {

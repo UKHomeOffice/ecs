@@ -54,11 +54,12 @@
   },
   "worker-dob": { 
     "required": "Enter the worker's date of birth",
-    "before": "Worker's date of birth must be before 1988, when they came to the UK",
+    "before": "The worker must be 16 years or older – this service only applies to workers aged 16 or over",
     "after": "Enter a real date of birth"
   },
   "worker-nationality": {
-    "required": "Select a country of nationality from the list"
+    "required": "Enter a country of nationality",
+    "excludeUkIr": "You do not need to request a Home Office right to work check if the worker is a UK or Republic of Ireland citizen"
   },
   "worker-reference-number": {
     "required": "Enter a Home Office reference number",
@@ -138,11 +139,12 @@
   "before-1988-worker-dob": {
     "required": "Enter the worker's date of birth",
     "before": "The worker must be 16 years or over – this service only applies to workers aged 16 or over",
-    "after": "Enter a real date of birth"
+    "after": "Enter a real date of birth",
+    "afterDobYear": "Worker's date of birth must be before 1988, when they came to the UK"
   },
   "before-1988-worker-nationality": {
-    "required": "Select a country of nationality from the list",
-    "excludeUkIr": "You do not need to request a Home Office right to work check if you are a UK or Ireland Citizen"
+    "required": "Enter a country of nationality",
+    "excludeUkIr": "You do not need to request a Home Office right to work check if the worker is a UK or Republic of Ireland citizen"
   },
   "before-1988-worker-place-of-birth": {
     "required": "Tell us where the worker was born",
@@ -150,11 +152,12 @@
     "maxlength": "Worker's place of birth must be 250 characters or less"
   },
   "before-1988-worker-year-of-entry-to-uk": {
-    "required": "Tell us the year when the worker first came to the UK",
+    "required": "Tell us the year when the worker first came to the UK before 1988",
     "numeric": "Year must only contain numbers",
     "maxlength": "Year of entry to UK must be 4 characters",
-    "after": "Enter the real year of entry to uk",
-    "afterDobYear": "Year of entry must be after ({{afterDobYear}}) the worker's Date of Birth year"
+    "after120Years": "Enter a real date of entry",
+    "after1988Years": "You told us the worker arrived in the UK before 1988 – worker's year of entry must be before 1988",
+    "beforeDateOfBirth": "Worker's year of entry must be after {{beforeDateOfBirth}} when they were born"
   },
   "before-1988-worker-national-insurance-number": {
     "notUrl": "Your answer must not contain URLs or links",
@@ -187,7 +190,7 @@
     "zipCode":"Postal code must only include letters a-z, numbers, spaces and dashes"
   },
   "worker-country": {
-    "required": "Enter worker country",
+    "required": "Enter the country the worker's address is in",
     "maxlength": "Country must be between 1 and 250 characters",
     "excludeUkIr": "You do not need to request a Home Office right to work check if you are a UK or Ireland Citizen"
   },
