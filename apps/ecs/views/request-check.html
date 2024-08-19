@@ -1,12 +1,6 @@
 {{<partials-page}}
   {{$page-content}}
-
-    <div class="table-details">
-      {{#rows}}
-        {{> partials-summary-table}}
-      {{/rows}}
-    </div>
-
+    {{#markdown}}right-to-work-check{{/markdown}}
     {{#input-submit}}continue{{/input-submit}}
   {{/page-content}}
 {{/partials-page}}

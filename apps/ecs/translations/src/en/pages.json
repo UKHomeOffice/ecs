@@ -16,8 +16,69 @@
     "ineligible-outro-link": "need to check that the employee's or prospective employee's documents are valid",
     "ineligible-outro-2": "and keep copies of the documents."
   },
+  "eu-settlement-scheme": {
+    "legend-1": "Has the worker applied to the",
+    "legend-link": "EU Settlement Scheme",
+    "legend-2": "(EUSS)?"
+  },
+  "ineligible-employee": {
+    "header": "You do not need to request a Home Office right to work check",
+    "ineligible-employee-reason-1": "If the employee has been working for you, without a break in employment, from a date before 29 February 2008, then you do not need to request a right to work check.",
+    "ineligible-employee-link": "Document checks should have been carried out when the person was recruited.",
+    "ineligible-employee-reason-2": "This would have established you with a statutory defence from prosecution which you retain throughout the individual's employment.",
+    "ineligible-employee-reason-3": "Therefore no further checks are required provided that the employment has been continuous."
+  },
+  "ineligible-tupe": {
+    "header": "You do not need to request a Home Office right to work check",
+    "ineligible-tupe-employee-reason-1": "If the employee has been working for you as a result of TUPE transfer, without a break in employment, from a date before 29 February 2008, then you do not need to request a right to work check.",
+    "ineligible-tupe-employee-link": "Document checks should have been carried out when the person was recruited."
+  },
+  "ineligible-document": {
+    "header": "You must have seen the original document",
+    "p1": "You must have seen the original application registration card to request a right to work check.",
+    "p2": "The purpose of this tool is to check the validity of documents you have seen."
+  },
+  "settlement-protection": {
+    "heading-1": "Has the worker applied for, or do they qualify for,",
+    "heading-link": "settlement protection",
+    "heading-2": "?"
+  },
+  "job-information": {
+    "header": "Worker's job information",
+    "intro": "We need this information to check whether the worker’s immigration status allows them to do the job you are checking them for."
+  },
+  "employer-contact-details": {
+    "header": "Employer contact details"
+  },
+  "business-address": {
+    "header": "Business address"
+  },
+  "worker-details-1988": {
+    "header": "Worker Details"
+  },
+  "worker-address": {
+    "header": "Worker's current address",
+    "intro": "We need to check this address against the one the worker has provided to the Home Office"
+  },
+  "worker-address-uk": {
+    "header": "Worker's current address",
+    "intro": "We need to check this address against the one the worker has provided to the Home Office"
+  },
+  "worker-details": {
+    "header": "Worker Details"
+  },
+  "reference-number": {
+    "header": "Home Office reference numbers"
+  },
   "check-your-answers": {
     "header": "Check your answers"
+  },
+  "data-protection": {
+    "header": "Data protection statement"
+  },
+  "check-requested": {
+    "confirmed": "Right to work check requested",
+    "p1": "A confirmation email with these details has been sent to the address you provided. We aim to respond within 5 working days. You need to wait for our response before taking any further action."
   },
   "confirm": {
     "header": "Summary",
@@ -25,26 +86,85 @@
       "eligibility-criteria": {
         "header": "Eligibility criteria"
       },
-      "employee-details": {
-        "header": "Employee details"
+      "worker-details": {
+        "header": "Worker details"
       },
-      "current-address": {
-        "header": "Current address"
-      },
-      "their-employment": {
-        "header": "Their employment"
-      },
-      "contact-details": {
-        "header": "Contact details"
+      "worker-address": {
+        "header": "Worker's address"
       },
       "workers-job-information": {
-        "header": "Worker's job information"
-      },
-      "business-address": {
-        "header": "Business address"
+        "header": "Job information"
       },
       "employer-contact-details": {
         "header": "Employer contact details"
+      }
+    },
+    "fields": {
+      "worker-has-eligible-docs": {
+        "label": "Does the worker have right to work documents?"
+      },
+      "contact-job-title": {
+        "label": "Contact job title"
+      },
+      "business-address-details": {
+        "label": "Business address"
+      },
+      "before-1988-worker-national-insurance-number": {
+        "label": "National Insurance number"
+      },
+      "before-1988-employer-telephone": {
+        "label": "Telephone number"
+      },
+      "before-1988-employer-email": {
+        "label": "Email address"
+      },
+      "worker-reference-number": {
+        "label": "Home Office reference number"
+      },
+      "worker-address-details": {
+        "label": "Current address"
+      },
+      "employers-contact-name": {
+        "label": "Contact name"
+      },
+      "type-of-business": {
+        "label": "Business type"
+      },
+      "contact-email-address": {
+        "label": "Contact email"
+      },
+      "person-work-for-you": {
+        "label": "Already work for you?"
+      },
+      "hours-of-work-per-week": {
+        "label": "Hours per week"
+      },
+      "start-work-date": {
+        "label": "Date they started working for you"
+      },
+      "work-for-you-result-of-tupe-transfer": {
+        "label": "Work for you due to a TUPE?"
+      },
+      "tupe-date": {
+        "label": "Date of TUPE transfer"
+      },
+      "use-digital-right-to-work": {
+        "label": "Unable to use the digital Right to Work service?"
+      },
+      "worker-applied-eu-settlement-scheme": {
+        "label": "Has the worker applied to the EUSS?"
+      },
+      "worker-has-arc-card": {
+        "label": "Does the worker have an ARC with a right to work?"
+      },
+      "arc-number": {
+        "label": "Worker’s application registration card number"
+      },
+      "worker-have-ongoing-appeal": {
+        "label": "Ongoing appeal or application with the Home Office?"
+      },
+      "worker-been-in-UK-before-1988": {
+        "label": "Has the worker been in the UK since before 1988?"
       }
     }
   }

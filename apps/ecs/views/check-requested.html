@@ -1,0 +1,19 @@
+{{<partials-page}}
+  {{$pageTitle}}
+    {{#t}}pages.check-requested.confirmed{{/t}} &ndash; {{#t}}journey.serviceName{{/t}} &ndash; GOV.UK
+  {{/pageTitle}}
+  {{$page-content}}
+    <div class="govuk-panel alert-complete govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">
+        {{#t}}pages.check-requested.confirmed{{/t}}
+      </h1>
+    </div>
+    <p class="govuk-body">{{#t}}pages.check-requested.p1{{/t}}</p>
+    <div>
+      <a href="/eligibility" role="button" draggable="false" class="govuk-button request-another-check" data-module="govuk-button">
+        {{#t}}buttons.request-another-check{{/t}}
+      </a>
+    </div>
+
+  {{/page-content}}
+{{/partials-page}}
