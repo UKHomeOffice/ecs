@@ -61,6 +61,10 @@ const getPersonalisation = (recipientType, req) => {
       req.sessionModel.get('worker-have-ongoing-appeal') === 'no' ? 'yes' : 'no',
     worker_been_in_UK_before_1988: getLabel('worker-been-in-UK-before-1988',
       req.sessionModel.get('worker-been-in-UK-before-1988')),
+    has_settlement_protection_question: req.sessionModel.get('use-digital-right-to-work') === 'no' &&
+      req.sessionModel.get('worker-been-in-UK-before-1988') === 'no' ? 'yes' : 'no',
+    worker_applied_for_settlement_protection: getLabel('worker-applied-for-settlement-protection',
+      req.sessionModel.get('worker-applied-for-settlement-protection')),
     has_worker_details_1988: req.sessionModel.get('steps').includes('/worker-details-1988') ? 'yes' : 'no',
     place_of_birth: req.sessionModel.get('before-1988-worker-place-of-birth') ?? '',
     year_of_entry_to_uk: req.sessionModel.get('before-1988-worker-year-of-entry-to-uk') ?? '',

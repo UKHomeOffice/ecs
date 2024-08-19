@@ -80,7 +80,7 @@ module.exports = {
         field: 'worker-have-ongoing-appeal',
         parse: (value, req) => {
           if (req.sessionModel.get('use-digital-right-to-work') === 'yes' ||
-            !req.sessionModel.get('steps').includes('ongoing-appeal')) {
+            !req.sessionModel.get('steps').includes('/ongoing-appeal')) {
             return null;
           }
           return value;

@@ -12,17 +12,18 @@ module.exports = {
   confirmStep: '/check-your-answers',
   steps: {
     '/eligibility': {
+      continueOnEdit: true,
       fields: ['worker-has-eligible-docs'],
       forks: [
         {
-          target: '/ineligible',
+          target: '/already-employed',
           condition: {
             field: 'worker-has-eligible-docs',
-            value: 'yes'
+            value: 'no'
           }
         }
       ],
-      next: '/already-employed'
+      next: '/ineligible'
     },
     '/ineligible': {
 
