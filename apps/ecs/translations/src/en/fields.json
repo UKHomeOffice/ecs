@@ -208,6 +208,9 @@
   "worker-town-or-city": {
     "label": "Town or city"
   },
+  "worker-zipcode": {
+    "label":"Postal or ZIP code (optional)"
+  },
   "worker-country": {
     "label": "Country",
     "hint": "Start to type the country name and options will appear",

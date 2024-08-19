@@ -178,7 +178,7 @@ module.exports = {
     ]
   },
   'job-title': {
-    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 250 }]
+    validate: ['required', 'notUrl',  { type: 'maxlength', arguments: [250] }, { type: 'minlength', arguments: [2] }]
   },
   'hours-of-work-per-week': {
     validate: ['required', { type: 'max', arguments: 99 }, { type: 'min', arguments: 1 }],
@@ -198,22 +198,22 @@ module.exports = {
     validate: ['required', 'notUrl', { type: 'minlength', arguments: 3 }, { type: 'maxlength', arguments: 256 }]
   },
   'contact-telephone': {
-    validate: ['required', 'ukPhoneNumber'],
+    validate: ['required'],
     className: ['govuk-input', 'govuk-!-width-one-half']
   },
   'contact-email-address': {
-    validate: ['required', 'email', { type: 'minlength', arguments: 3 }, { type: 'maxlength', arguments: 256 }]
+    validate: ['required', { type: 'minlength', arguments: 6 }, { type: 'maxlength', arguments: 256 }, 'email' ]
   },
   'business-address-line-1': {
-    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }],
+    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 250 }],
     className: ['govuk-input', 'govuk-!-width-two-thirds']
   },
   'business-address-line-2': {
-    validate: ['notUrl', { type: 'maxlength', arguments: 254 }],
+    validate: ['notUrl', { type: 'maxlength', arguments: 250 }],
     className: ['govuk-input', 'govuk-!-width-two-thirds']
   },
   'business-town-city': {
-    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 254 }],
+    validate: ['required', 'notUrl', { type: 'maxlength', arguments: 250 }],
     className: ['govuk-input', 'govuk-!-width-two-thirds']
   },
   'business-postcode': {
@@ -256,12 +256,12 @@ module.exports = {
   },
   'before-1988-worker-national-insurance-number': {
     mixin: 'input-text',
-    validate: ['notUrl'],
+    validate: [], // validation is covered in check-validation behaviour
     className: ['govuk-input', 'govuk-!-width-one-third']
   },
   'before-1988-employer-telephone': {
     mixin: 'input-text',
-    validate: ['ukPhoneNumber'],
+    validate: [], // validation is covered in check-validation behaviour
     className: ['govuk-input', 'govuk-!-width-one-half']
   },
   'before-1988-employer-email': {
@@ -279,6 +279,10 @@ module.exports = {
   'worker-town-or-city': {
     validate: ['required', 'notUrl', { type: 'maxlength', arguments: [250] }],
     className: ['govuk-input', 'govuk-!-width-two-thirds']
+  },
+  'worker-zipcode': {
+    className: ['govuk-input', 'govuk-input--width-10'],
+    validate: [{type: 'maxlength', arguments: [10]}]
   },
   'worker-country': {
     mixin: 'select',

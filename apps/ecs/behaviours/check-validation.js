@@ -29,9 +29,12 @@ module.exports = superclass => class extends superclass {
     }
 
     if(key === 'before-1988-worker-year-of-entry-to-uk') {
-      if (!validators.required(req.form.values[key])) return validationErrorFunc('required');
-      if (req.form.values[key]?.length < 4) return validationErrorFunc('maxlength');
-
+      if (!validators.required(req.form.values[key])) {
+        return validationErrorFunc('required');
+      }
+      if (req.form.values[key]?.length > 4) {
+        return validationErrorFunc('maxlength');
+      }
       const yearOfEntry = parseInt(req.form.values[key], 10);
       if (isNaN(yearOfEntry)) {
         return validationErrorFunc('numeric');
@@ -44,17 +47,67 @@ module.exports = superclass => class extends superclass {
         return validationErrorFunc('after1988Years');
       }
       const workerDob = req.form.values['before-1988-worker-dob'];
-      if(!validators.url(yearOfEntry) && yearOfEntry < moment(workerDob).year()) {
+      if(workerDob && yearOfEntry < moment(workerDob).year()) {
         return validationErrorFunc('beforeDateOfBirth', [moment(workerDob).format('DD MMMM YYYY')]);
       }
     }
 
-    if(key === 'before-1988-worker-national-insurance-number')  {
+    if(key === 'before-1988-worker-national-insurance-number') {
       const niNumber = req.form.values[key];
-      // eslint-disable-next-line max-len
-      const NINOregex = '^(?!BG)(?!GB)(?!NK)(?!KN)(?!TN)(?!NT)(?!ZZ)(?:[A-CEGHJ-PR-TW-Z][A-CEGHJ-NPR-TW-Z])(?:\\s*\\d\\s*){6}([A-D]|\\s)$';
-      if(!validators.url(niNumber) && !validators.regex(niNumber.toUpperCase(), NINOregex)) {
-        return validationErrorFunc('niNumber');
+      if(niNumber) {
+        if(validators.url(niNumber)) {
+          return validationErrorFunc('notUrl');
+        }
+        // eslint-disable-next-line max-len
+        const NINOregex = '^(?!BG)(?!GB)(?!NK)(?!KN)(?!TN)(?!NT)(?!ZZ)(?:[A-CEGHJ-PR-TW-Z][A-CEGHJ-NPR-TW-Z])(?:\\s*\\d\\s*){6}([A-D]|\\s)$';
+        if(!validators.regex(niNumber.toUpperCase(), NINOregex)) {
+          return validationErrorFunc('niNumber');
+        }
+      }
+    }
+
+    if(key === 'worker-zipcode') {
+      const zipCode = req.form.values[key];
+      if(zipCode) {
+        if(zipCode.length > 10) {
+          return validationErrorFunc('maxlength');
+        }
+        if(validators.url(zipCode)) {
+          return validationErrorFunc('notUrl');
+        }
+        const zipCodeRegex = '^[a-zA-Z0-9][a-zA-Z0-9\\- ]{0,10}[a-zA-Z0-9]$';
+        if(!validators.regex(zipCode, zipCodeRegex)) {
+          return validationErrorFunc('zipCode');
+        }
+      }
+    }
+
+    if(key === 'contact-telephone') {
+      const phoneNumber = req.form.values[key];
+      if(phoneNumber) {
+        if(validators.url(phoneNumber)) {
+          return validationErrorFunc('notUrl');
+        }
+        const phoneNumberWithoutSpace = phoneNumber.replace(/\s+/g, '').trim();
+        const isValidphoneNumber = validators.regex(phoneNumberWithoutSpace, /^\(?\+?[\d()-]{8,16}$/);
+        if(!isValidphoneNumber  || !validators.internationalPhoneNumber(phoneNumber)) {
+          return validationErrorFunc('internationalPhoneNumber');
+        }
+      }
+    }
+
+
+    if(key === 'before-1988-employer-telephone') {
+      const phoneNumber = req.form.values[key];
+      if(phoneNumber) {
+        if(validators.url(phoneNumber)) {
+          return validationErrorFunc('notUrl');
+        }
+        const phoneNumberWithoutSpace = phoneNumber.replace(/\s+/g, '').trim();
+        const isValidphoneNumber = validators.regex(phoneNumberWithoutSpace, /^\(?\+?[\d()-]{8,16}$/);
+        if(!isValidphoneNumber  || !validators.ukPhoneNumber(phoneNumber)) {
+          return validationErrorFunc('ukPhoneNumber');
+        }
       }
     }
 

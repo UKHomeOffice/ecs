@@ -4,6 +4,7 @@ const config = require('../../config');
 const legislativeEmploymentDate = config.legislativeEmploymentDate;
 const checkValidation = require('./behaviours/check-validation');
 const sendEmailNotification = require('./behaviours/submit-notify');
+const saveSession = require('./behaviours/save-session');
 
 module.exports = {
   name: 'ecs',
@@ -11,22 +12,25 @@ module.exports = {
   confirmStep: '/check-your-answers',
   steps: {
     '/eligibility': {
+      continueOnEdit: true,
       fields: ['worker-has-eligible-docs'],
       forks: [
         {
-          target: '/ineligible',
+          target: '/already-employed',
           condition: {
             field: 'worker-has-eligible-docs',
-            value: 'yes'
+            value: 'no'
           }
         }
       ],
-      next: '/already-employed'
+      next: '/ineligible'
     },
     '/ineligible': {
 
     },
     '/already-employed': {
+      behaviours: [saveSession],
+      continueOnEdit: true,
       fields: ['person-work-for-you'],
       forks: [
         {
@@ -40,6 +44,7 @@ module.exports = {
       next: '/digital-right-to-work-service'
     },
     '/when-started': {
+      behaviours: [saveSession],
       fields: ['start-work-date'],
       continueOnEdit: true,
       forks: [
@@ -55,14 +60,14 @@ module.exports = {
       continueOnEdit: true,
       forks: [
         {
-          target: '/ineligible-employee',
+          target: '/tupe-date',
           condition: {
             field: 'work-for-you-result-of-tupe-transfer',
-            value: 'no'
+            value: 'yes'
           }
         }
       ],
-      next: '/tupe-date'
+      next: '/ineligible-employee'
     },
     '/ineligible-employee': {
 
@@ -161,10 +166,12 @@ module.exports = {
       next: '/reference-number'
     },
     '/worker-address': {
+      behaviours: [checkValidation],
       fields: [
         'worker-address-line-1',
         'worker-address-line-2',
         'worker-town-or-city',
+        'worker-zipcode',
         'worker-country'
       ],
       next: '/job-information'
@@ -174,14 +181,14 @@ module.exports = {
       continueOnEdit: true,
       forks: [
         {
-          target: '/request-check',
+          target: '/before-1988',
           condition: {
             field: 'worker-have-ongoing-appeal',
-            value: 'yes'
+            value: 'no'
           }
         }
       ],
-      next: '/before-1988'
+      next: '/request-check'
     },
     '/before-1988': {
       fields: ['worker-been-in-UK-before-1988'],
@@ -198,6 +205,7 @@ module.exports = {
       next: '/settlement-protection'
     },
     '/settlement-protection': {
+      continueOnEdit: true,
       fields: ['worker-applied-for-settlement-protection'],
       next: '/request-check'
     },
@@ -244,6 +252,7 @@ module.exports = {
       next: '/employer-contact-details'
     },
     '/employer-contact-details': {
+      behaviours: [checkValidation],
       fields: ['business-name', 'type-of-business', 'employers-contact-name',
         'contact-job-title', 'contact-telephone', 'contact-email-address'],
       next: '/business-address'

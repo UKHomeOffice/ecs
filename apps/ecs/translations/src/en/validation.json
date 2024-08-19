@@ -64,13 +64,14 @@
   "worker-reference-number": {
     "required": "Enter a Home Office reference number",
     "notUrl": "Your answer must not contain URLs or links",
-    "minlength": "Home Office reference number must be between 2 and 250 characters",
-    "maxlength": "Home Office reference number must be between 2 and 250 characters"
+    "maxlength": "Home Office reference number must be between 2 and 250 characters",
+    "minlength": "Home Office reference number must be between 2 and 250 characters"
   },
   "job-title": {
     "required": "Enter the job title of the role",
     "notUrl": "Your answer must not contain URLs or links",
-    "maxlength": "Contact job title must be 250 characters or less"
+    "minlength": "Job title must be between 2 and 250 characters",
+    "maxlength": "Job title must be between 2 and 250 characters"
   },
   "hours-of-work-per-week": {
     "required": "Tell us how many hours per week the job involves",
@@ -90,7 +91,7 @@
     "maxlength": "Type of business must be between 3 and 256 characters"
   },
   "employers-contact-name": {
-    "required": "Enter a name of a contact from the employer",
+   "required": "Enter a name of a contact from the employer",
     "notUrl": "Your answer must not contain URLs or links",
     "minlength": "Contact name must be between 3 and 256 characters",
     "maxlength": "Contact name must be between 3 and 256 characters"
@@ -103,7 +104,8 @@
   },
   "contact-telephone": {
     "required": "Enter a contact telephone number",
-    "ukPhoneNumber" : "Enter a telephone number, like 01632 960 001, 07700 900 982 or +44 808 157 0192"
+    "notUrl": "Your answer must not contain URLs or links",
+    "internationalPhoneNumber" : "Enter a telephone number, like 01632 960 001, 07700 900 982 or +44 808 157 0192"
   },
   "contact-email-address": {
     "required": "Enter a contact email address from the employer",
@@ -114,16 +116,16 @@
   "business-address-line-1": {
     "required": "Enter address line 1, typically the building and street",
     "notUrl": "Your answer must not contain URLs or links",
-    "maxlength": "Contact job title must be 254 characters or less"
+    "maxlength": "Address line 1 must be between 1 and 250 characters"
   },
   "business-address-line-2": {
     "notUrl": "Your answer must not contain URLs or links",
-    "maxlength": "Contact job title must be 254 characters or less"
+    "maxlength": "Address line 2 must be between 1 and 250 characters"
   },
   "business-town-city": {
     "required": "Enter a town or city",
     "notUrl": "Your answer must not contain URLs or links",
-    "maxlength": "Contact job title must be 254 characters or less"
+    "maxlength": "Town or city must be between 1 and 250 characters"
   },
   "business-postcode": {
     "required": "Enter a postcode",
@@ -170,41 +172,46 @@
   },
   "worker-address-line-1": {
     "required": "Enter address line 1, typically the building and street",
-    "maxlength": "Address line 1 must be 250 characters or less",
+    "maxlength": "Address line 1 must be between 1 and 250 characters",
     "notUrl": "Your answer must not contain URLs or links"
   },
   "worker-address-line-2": {
     "notUrl": "Your answer must not contain URLs or links",
-    "maxlength": "Address line  must be 250 characters or less"
+    "maxlength": "Address line 2 must be between 1 and 250 characters"
   },
   "worker-town-or-city": {
     "required": "Enter a town or city",
-    "maxlength": "Town/City must be 250 characters or less",
+    "maxlength": "Town or city must be between 1 and 250 characters",
     "notUrl": "Your answer must not contain URLs or links"
   },
+  "worker-zipcode": {
+    "notUrl": "Your answer must not contain URLs or links",
+    "maxlength": "Postal code or ZIP code must be 10 characters or less",
+    "zipCode":"Postal code must only include letters a-z, numbers, spaces and dashes"
+  },
   "worker-country": {
-    "required": "Enter worker country",
-    "maxlength": "Country must be 250 characters or less",
+    "required": "Enter the country the worker's address is in",
+    "maxlength": "Country must be between 1 and 250 characters",
     "excludeUkIr": "You do not need to request a Home Office right to work check if you are a UK or Ireland Citizen"
   },
   "worker-uk-address-line-1": {
     "required": "Enter address line 1, typically the building and street",
-    "maxlength": "Address line 1 must be 250 characters or less",
+    "maxlength": "Address line 1 must be between 1 and 250 characters",
     "notUrl": "Your answer must not contain URLs or links"
   },
   "worker-uk-address-line-2": {
     "notUrl": "Your answer must not contain URLs or links",
-    "maxlength": "Address line 2 must be 250 characters or less"
+    "maxlength": "Address line 2 must be between 1 and 250 characters"
   },
   "worker-uk-town-or-city": {
     "required": "Enter a town or city",
-    "maxlength": "Town/City must be 250 characters or less",
+    "maxlength": "Town or city must be between 1 and 250 characters",
     "notUrl": "Your answer must not contain URLs or links"
   },
   "worker-uk-postcode": {
     "required": "Enter a postcode",
     "notUrl": "Your answer must not contain URLs or links",
-    "postcode": "Enter a real postcode"
+    "postcode": "Enter a real UK postcode"
   },
   "privacy-check": {
     "required": "Confirm you have read the Data Protection statement"
