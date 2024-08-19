@@ -75,7 +75,7 @@ module.exports = superclass => class extends superclass {
         if(validators.url(zipCode)) {
           return validationErrorFunc('notUrl');
         }
-        const zipCodeRegex = '^[a-z0-9][a-z0-9\\- ]{0,10}[a-z0-9]$';
+        const zipCodeRegex = '^[a-zA-Z0-9][a-zA-Z0-9\\- ]{0,10}[a-zA-Z0-9]$';
         if(!validators.regex(zipCode, zipCodeRegex)) {
           return validationErrorFunc('zipCode');
         }
