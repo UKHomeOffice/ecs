@@ -37,7 +37,7 @@ const getPersonalisation = (recipientType, req) => {
     person_worked_for_you: req.sessionModel.get('person-work-for-you') === 'yes' ? 'yes' : 'no',
     worker_start_date: req.sessionModel.get('start-work-date') ?
       moment(req.sessionModel.get('start-work-date')).format(config.PRETTY_DATE_FORMAT) : '',
-    is_tupe_transfer_question_eligible: req.sessionModel.get('person-work-for-you') === 'yes' &&
+    is_result_of_tupe_transfer_eligible: req.sessionModel.get('person-work-for-you') === 'yes' &&
       req.sessionModel.get('start-work-date') < config.legislativeEmploymentDate ? 'yes' : 'no',
     work_as_result_of_tupe_transfer: getLabel('work-for-you-result-of-tupe-transfer',
       req.sessionModel.get('work-for-you-result-of-tupe-transfer')),
