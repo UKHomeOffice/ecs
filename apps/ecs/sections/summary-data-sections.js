@@ -32,6 +32,7 @@ module.exports = {
         field: 'work-for-you-result-of-tupe-transfer',
         parse: (value, req) => {
           if (req.sessionModel.get('person-work-for-you') === 'no' ||
+            req.sessionModel.get('start-work-date') >= config.legislativeEmploymentDate ||
             !req.sessionModel.get('steps').includes('/tupe')) {
             return null;
           }
@@ -43,6 +44,7 @@ module.exports = {
         field: 'tupe-date',
         parse: (value, req) => {
           if (req.sessionModel.get('person-work-for-you') === 'no' ||
+            req.sessionModel.get('start-work-date') >= config.legislativeEmploymentDate ||
             !req.sessionModel.get('steps').includes('/tupe-date')) {
             return null;
           }
