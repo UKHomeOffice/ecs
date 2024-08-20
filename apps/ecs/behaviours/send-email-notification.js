@@ -14,6 +14,8 @@ const getLabel = (fieldKey, fieldValue) => {
 };
 
 const getPersonalisation = (recipientType, req) => {
+  const isTupeTransferEligible = req.sessionModel.get('person-work-for-you') === 'yes' &&
+    req.sessionModel.get('start-work-date') < config.legislativeEmploymentDate ? 'yes' : 'no';
   const basePersonalisation = {
     business_contact_name: req.sessionModel.get('employers-contact-name'),
     business_contact_job_title: req.sessionModel.get('contact-job-title'),
@@ -37,10 +39,11 @@ const getPersonalisation = (recipientType, req) => {
     person_worked_for_you: req.sessionModel.get('person-work-for-you') === 'yes' ? 'yes' : 'no',
     worker_start_date: req.sessionModel.get('start-work-date') ?
       moment(req.sessionModel.get('start-work-date')).format(config.PRETTY_DATE_FORMAT) : '',
-    work_as_result_of_tupe_transfer: getLabel('work-for-you-result-of-tupe-transfer',
-      req.sessionModel.get('work-for-you-result-of-tupe-transfer')),
+    is_result_of_tupe_transfer_eligible: isTupeTransferEligible,
+    work_as_result_of_tupe_transfer: isTupeTransferEligible === 'yes' ? getLabel('work-for-you-result-of-tupe-transfer',
+      req.sessionModel.get('work-for-you-result-of-tupe-transfer')) : '',
     result_of_tupe_transfer: req.sessionModel.get('work-for-you-result-of-tupe-transfer') === 'yes' ? 'yes' : 'no',
-    tupe_transfer_date: req.sessionModel.get('tupe-date') ?
+    tupe_transfer_date: isTupeTransferEligible === 'yes' && req.sessionModel.get('tupe-date') ?
       moment(req.sessionModel.get('tupe-date'))?.format(config.PRETTY_DATE_FORMAT) : '',
     use_digital_right_to_work: getLabel('use-digital-right-to-work', req.sessionModel.get('use-digital-right-to-work')),
     digital_right_to_work: req.sessionModel.get('use-digital-right-to-work') === 'no' ? 'yes' : 'no',
