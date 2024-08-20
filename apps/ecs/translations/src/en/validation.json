@@ -187,7 +187,7 @@
   "worker-zipcode": {
     "notUrl": "Your answer must not contain URLs or links",
     "maxlength": "Postal code or ZIP code must be 10 characters or less",
-    "zipCode":"Postal code must only include letters a-z, numbers, spaces and dashes"
+    "zipCode":"Postal or ZIP code must only include letters a-z, numbers, spaces and dashes"
   },
   "worker-country": {
     "required": "Enter the country the worker's address is in",
