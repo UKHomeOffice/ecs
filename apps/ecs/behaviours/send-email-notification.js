@@ -42,7 +42,8 @@ const getPersonalisation = (recipientType, req) => {
     is_result_of_tupe_transfer_eligible: isTupeTransferEligible,
     work_as_result_of_tupe_transfer: isTupeTransferEligible === 'yes' ? getLabel('work-for-you-result-of-tupe-transfer',
       req.sessionModel.get('work-for-you-result-of-tupe-transfer')) : '',
-    result_of_tupe_transfer: req.sessionModel.get('work-for-you-result-of-tupe-transfer') === 'yes' ? 'yes' : 'no',
+    result_of_tupe_transfer: isTupeTransferEligible === 'yes' &&
+      req.sessionModel.get('work-for-you-result-of-tupe-transfer') === 'yes' ? 'yes' : 'no',
     tupe_transfer_date: isTupeTransferEligible === 'yes' && req.sessionModel.get('tupe-date') ?
       moment(req.sessionModel.get('tupe-date'))?.format(config.PRETTY_DATE_FORMAT) : '',
     use_digital_right_to_work: getLabel('use-digital-right-to-work', req.sessionModel.get('use-digital-right-to-work')),

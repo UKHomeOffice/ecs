@@ -25,7 +25,7 @@ trigger:
 
 linting: &linting
   pull: if-not-exists
-  image: node:18
+  image: node:20.16.0-alpine3.20@sha256:eb8101caae9ac02229bd64c024919fe3d4504ff7f329da79ca60a04db08cef52
   environment:
     NOTIFY_KEY: USE_MOCK
   commands:
@@ -33,7 +33,7 @@ linting: &linting
 
 unit_tests: &unit_tests
   pull: if-not-exists
-  image: node:18
+  image: node:20.16.0-alpine3.20@sha256:eb8101caae9ac02229bd64c024919fe3d4504ff7f329da79ca60a04db08cef52
   environment:
     NOTIFY_KEY: USE_MOCK
   commands:
@@ -64,7 +64,7 @@ steps:
 
   - name: setup_deploy
     pull: if-not-exists
-    image: node:18
+    image: node:20.16.0-alpine3.20@sha256:eb8101caae9ac02229bd64c024919fe3d4504ff7f329da79ca60a04db08cef52
     environment:
       NOTIFY_KEY: USE_MOCK
     commands:
@@ -156,7 +156,7 @@ steps:
       TOLERATE: MEDIUM,HIGH,CRITICAL
       FAIL_ON_DETECTION: false
       IGNORE_UNFIXED: true
-      ALLOW_CVE_LIST_FILE: hof-services-config/Employers_Checking_Service/trivy-cve-exceptions.txt
+      ALLOW_CVE_LIST_FILE: hof-services-config/infrastructure/trivy/.trivyignore.yaml
     when:
       event:
       - pull_request
@@ -183,7 +183,7 @@ steps:
 
   - name: setup_branch
     pull: if-not-exists
-    image: node:18
+    image: node:20.16.0-alpine3.20@sha256:eb8101caae9ac02229bd64c024919fe3d4504ff7f329da79ca60a04db08cef52
     environment:
       NOTIFY_KEY: USE_MOCK
     commands:
@@ -380,7 +380,7 @@ steps:
       SEVERITY: MEDIUM,HIGH,CRITICAL
       FAIL_ON_DETECTION: false
       IGNORE_UNFIXED: true
-      ALLOW_CVE_LIST_FILE: hof-services-config/Employers_Checking_Service/trivy-cve-exceptions.txt
+      ALLOW_CVE_LIST_FILE: hof-services-config/infrastructure/trivy/.trivyignore.yaml
     when:
       cron: security_scans
       event: cron
