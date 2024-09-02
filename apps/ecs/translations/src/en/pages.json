@@ -80,6 +80,9 @@
     "confirmed": "Right to work check requested",
     "p1": "A confirmation email with these details has been sent to the address you provided. We aim to respond within 5 working days. You need to wait for our response before taking any further action."
   },
+  "request-check": {
+    "page-title": "You need to ask the Home Office to conduct a right to work check"
+  },
   "confirm": {
     "header": "Summary",
     "sections": {
