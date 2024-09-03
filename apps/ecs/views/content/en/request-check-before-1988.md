@@ -1,5 +1,3 @@
-# You need to ask the Home Office to conduct a right to work check
-
 The worker will need to agree to this check first. They can do this verbally or in writing.
 
 To request a right to work check you will need the worker's: 

@@ -83,6 +83,9 @@
   "request-check": {
     "header": "You need to ask the Home Office to conduct a right to work check"
   },
+  "request-check-before-1988": {
+    "header": "You need to ask the Home Office to conduct a right to work check"
+  },
   "confirm": {
     "header": "Summary",
     "sections": {
