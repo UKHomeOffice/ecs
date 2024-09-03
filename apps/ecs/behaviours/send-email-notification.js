@@ -87,7 +87,6 @@ const getPersonalisation = (recipientType, req) => {
   if (recipientType === 'user') {
     dynamicProps.business_address = req.sessionModel.get('businessAddress');
     dynamicProps.worker_address = req.sessionModel.get('workerAddress') ?? req.sessionModel.get('workerUkAddress');
-
   }
 
   if (recipientType === 'business') {
