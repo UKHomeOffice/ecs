@@ -16,11 +16,11 @@ const getLabel = (fieldKey, fieldValue) => {
 const getPersonalisation = (recipientType, req) => {
   const isTupeTransferEligible = req.sessionModel.get('person-work-for-you') === 'yes' &&
     req.sessionModel.get('start-work-date') < config.legislativeEmploymentDate ? 'yes' : 'no';
+
   const basePersonalisation = {
     business_contact_name: req.sessionModel.get('employers-contact-name'),
     business_contact_job_title: req.sessionModel.get('contact-job-title'),
     business_name: req.sessionModel.get('business-name'),
-    business_address: req.sessionModel.get('businessAddress'),
     business_contact_telephone: req.sessionModel.get('contact-telephone'),
     business_contact_email: req.sessionModel.get('contact-email-address'),
     business_type: req.sessionModel.get('type-of-business'),
@@ -30,7 +30,6 @@ const getPersonalisation = (recipientType, req) => {
       moment(req.sessionModel.get('before-1988-worker-dob')).format(config.PRETTY_DATE_FORMAT),
     worker_nationality: req.sessionModel.get('worker-nationality') ??
       req.sessionModel.get('before-1988-worker-nationality'),
-    worker_address: req.sessionModel.get('workerAddress') ?? req.sessionModel.get('workerUkAddress'),
     has_worker_country: req.sessionModel.get('steps').includes('/worker-address') ? 'yes' : 'no',
     worker_country: req.sessionModel.get('worker-country') ?? '',
     job_title: req.sessionModel.get('job-title'),
@@ -82,9 +81,36 @@ const getPersonalisation = (recipientType, req) => {
     has_ho_ref_number: req.sessionModel.get('steps').includes('/reference-number') ? 'yes' : 'no',
     ho_reference_number: req.sessionModel.get('worker-reference-number')?.toUpperCase() ?? ''
   };
-  return {
-    ...basePersonalisation
-  };
+
+  const dynamicProps = {};
+
+  if (recipientType === 'user') {
+    dynamicProps.business_address = req.sessionModel.get('businessAddress');
+    dynamicProps.worker_address = req.sessionModel.get('workerAddress') ?? req.sessionModel.get('workerUkAddress');
+  }
+
+  if (recipientType === 'business') {
+    dynamicProps.business_address_line_1 = req.sessionModel.get('business-address-line-1');
+    dynamicProps.business_address_line_2 = req.sessionModel.get('business-address-line-2') ?? '';
+    dynamicProps.business_address_town_city = req.sessionModel.get('business-town-city');
+    dynamicProps.business_address_postcode = req.sessionModel.get('business-postcode');
+
+    if (req.sessionModel.get('workerAddress')) {
+      dynamicProps.worker_address_line_1 = req.sessionModel.get('worker-address-line-1');
+      dynamicProps.worker_address_line_2 = req.sessionModel.get('worker-address-line-2') ?? '';
+      dynamicProps.worker_address_town_city = req.sessionModel.get('worker-town-or-city');
+      dynamicProps.worker_address_postcode = req.sessionModel.get('worker-zipcode') ?? '';
+    }
+
+    if (req.sessionModel.get('workerUkAddress')) {
+      dynamicProps.worker_address_line_1 = req.sessionModel.get('worker-uk-address-line-1');
+      dynamicProps.worker_address_line_2 = req.sessionModel.get('worker-uk-address-line-2') ?? '';
+      dynamicProps.worker_address_town_city = req.sessionModel.get('worker-uk-town-or-city');
+      dynamicProps.worker_address_postcode = req.sessionModel.get('worker-uk-postcode');
+    }
+  }
+
+  return Object.assign(basePersonalisation, dynamicProps);
 };
 
 module.exports = class SendEmailConfirmation {
