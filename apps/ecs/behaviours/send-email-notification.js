@@ -23,19 +23,32 @@ module.exports = class SendEmailConfirmation {
   documentTypeMap = req => {
     if (req.sessionModel.get('use-digital-right-to-work') === 'yes') {
       return 'or unable to use Digital Right to Work service due to technical error';
-    } else if (req.sessionModel.get('worker-applied-eu-settlement-scheme') === 'yes-certificate-of-application') {
+    }
+    
+    if (req.sessionModel.get('worker-applied-eu-settlement-scheme') === 'yes-certificate-of-application') {
       return 'a Certificate of Application (COA) issued following submission of an application under the EU Settlement Scheme (EUSS)';
-    } else if (req.sessionModel.get('worker-applied-eu-settlement-scheme') === 'yes-evidence-of-settled-status') {
+    }
+    
+    if (req.sessionModel.get('worker-applied-eu-settlement-scheme') === 'yes-evidence-of-settled-status') {
       return 'evidence to demonstrate the individual has settled or pre-settled status under the EU Settlement Scheme (EUSS) issued in a Crown Dependency';
-    } else if (req.sessionModel.get('worker-applied-eu-settlement-scheme') === 'no-frontier-worker') {
+    }
+    
+    if (req.sessionModel.get('worker-applied-eu-settlement-scheme') === 'no-frontier-worker') {
       return 'or is a Frontier Worker in the UK';
-    } else if (req.sessionModel.get('worker-has-arc-card') === 'yes') {
+    }
+    
+    if (req.sessionModel.get('worker-has-arc-card') === 'yes') {
       return 'an Application Registration Card (ARC) for an asylum seeker stating that the holder is allowed to work';
-    } else if (req.sessionModel.get('worker-have-ongoing-appeal') === 'yes') {
+    }
+    
+    if (req.sessionModel.get('worker-have-ongoing-appeal') === 'yes') {
       return 'an ongoing application or appeal for leave to remain in the UK';
-    } else if (req.sessionModel.get('worker-applied-for-settlement-protection') === 'yes') {
+    }
+    
+    if (req.sessionModel.get('worker-applied-for-settlement-protection') === 'yes') {
       return 'Settlement Protection';
     }
+    
     return 'none of the above';
   };
   /* eslint-enable max-len */
