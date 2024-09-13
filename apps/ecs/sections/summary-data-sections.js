@@ -82,6 +82,7 @@ module.exports = {
         field: 'worker-have-ongoing-appeal',
         parse: (value, req) => {
           if (req.sessionModel.get('use-digital-right-to-work') === 'yes' ||
+            req.sessionModel.get('worker-applied-eu-settlement-scheme') !== 'none-of-above' ||
             !req.sessionModel.get('steps').includes('/ongoing-appeal')) {
             return null;
           }
@@ -90,11 +91,27 @@ module.exports = {
       },
       {
         step: '/before-1988',
-        field: 'worker-been-in-UK-before-1988'
+        field: 'worker-been-in-UK-before-1988',
+        parse: (value, req) => {
+          if (req.sessionModel.get('use-digital-right-to-work') === 'yes' ||
+            req.sessionModel.get('worker-applied-eu-settlement-scheme') !== 'none-of-above' ||
+            !req.sessionModel.get('steps').includes('/before-1988')) {
+            return null;
+          }
+          return value;
+        }
       },
       {
         step: '/settlement-protection',
-        field: 'worker-applied-for-settlement-protection'
+        field: 'worker-applied-for-settlement-protection',
+        parse: (value, req) => {
+          if (req.sessionModel.get('use-digital-right-to-work') === 'yes' ||
+            req.sessionModel.get('worker-applied-eu-settlement-scheme') !== 'none-of-above' ||
+            !req.sessionModel.get('steps').includes('/settlement-protection')) {
+            return null;
+          }
+          return value;
+        }
       },
       {
         step: '/original-document',
