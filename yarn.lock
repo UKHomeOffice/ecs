@@ -466,10 +466,10 @@ accepts@~1.3.8:
     mime-types "~2.1.34"
     negotiator "0.6.3"
 
-accessible-autocomplete@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/accessible-autocomplete/-/accessible-autocomplete-3.0.0.tgz#f66ed03fb22d78f721326d187ee491dddbadec75"
-  integrity sha512-Kpm6EX+jjD0AurWfzSP4EVLEKsLUWCazZwidjum+8FCRtSINeaPzVa3ElKVGWvSqVZN9zjeSBF8cirhYEZjW1A==
+accessible-autocomplete@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/accessible-autocomplete/-/accessible-autocomplete-3.0.1.tgz#8ddf4934d0b4ba6acb28de486dd505e062cdc86e"
+  integrity sha512-xMshgc2LT5addvvfCTGzIkRrvhbOFeylFSnSMfS/PdjvvvElZkakCwxO3/yJYBWyi1hi3tZloqOJQ5kqqJtH4g==
 
 acorn-jsx@^5.3.2:
   version "5.3.2"
@@ -730,6 +730,15 @@ axios@^1.6.1:
   version "1.7.2"
   resolved "https://registry.yarnpkg.com/axios/-/axios-1.7.2.tgz#b625db8a7051fbea61c35a3cbb3a1daa7b9c7621"
   integrity sha512-2A8QhOMrbomlDuiLeK9XibIBzuHeRcqqNOHp0Cyp5EoJ1IFDh+XZH3A6BkXtv0K4gFGCI0Y4BM7B1wOEi0Rmgw==
+  dependencies:
+    follow-redirects "^1.15.6"
+    form-data "^4.0.0"
+    proxy-from-env "^1.1.0"
+
+axios@^1.7.2:
+  version "1.7.7"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-1.7.7.tgz#2f554296f9892a72ac8d8e4c5b79c14a91d0a47f"
+  integrity sha512-S4kL7XrjgBmvdGut0sN3yJxqYzrDOnivkBiN0OFs6hLiUam3UPvswUo0kqGyhqUZGEOytHyumEdXsAkgCOUf3Q==
   dependencies:
     follow-redirects "^1.15.6"
     form-data "^4.0.0"
@@ -2689,10 +2698,10 @@ hmac-drbg@^1.0.1:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.1"
 
-hof@^21.0.3:
-  version "21.0.6"
-  resolved "https://registry.yarnpkg.com/hof/-/hof-21.0.6.tgz#a4bef650abf31618f67bd2a06094a2d9fd9d7375"
-  integrity sha512-okcMb3oIrmGCgtCbetIDirs3wSxXkWZrW2nU2Ard3KTTnSuQI4SvoIe/JkywkoFN5u4tkEx8YVGGZf1mpmsyMQ==
+hof@^21.1.1:
+  version "21.1.1"
+  resolved "https://registry.yarnpkg.com/hof/-/hof-21.1.1.tgz#1f70c0a4c30ac82293761541c0524032042da11b"
+  integrity sha512-zQwFIrr4s9ev2ag5Aq4XZUb1agZC8Zw7DzzSqVX/gCen+hseC+swV8jIo5psvjUN8moAVaDDQG1Lwi4j54XzYg==
   dependencies:
     aliasify "^2.1.0"
     axios "^1.5.1"
@@ -3274,7 +3283,7 @@ jsonparse@^1.2.0:
   resolved "https://registry.yarnpkg.com/jsonparse/-/jsonparse-1.3.1.tgz#3f4dae4a91fac315f71062f8521cc239f1366280"
   integrity sha512-POQXvpdL69+CluYsillJ7SUhKvytYjW9vG/GKpnf+xP8UWgYEM/RaMzHHofbALDiKbbP1W8UEYmgGl39WkPZsg==
 
-jsonwebtoken@^9.0.0:
+jsonwebtoken@^9.0.0, jsonwebtoken@^9.0.2:
   version "9.0.2"
   resolved "https://registry.yarnpkg.com/jsonwebtoken/-/jsonwebtoken-9.0.2.tgz#65ff91f4abef1784697d40952bb1998c504caaf3"
   integrity sha512-PRp66vJ865SSqOlgqS8hujT5U4AOgMfhrwYIuIhfKaoSCZcirrmASQr8CX7cUg+RMih+hgznrjp99o+W4pJLHQ==
@@ -3793,6 +3802,14 @@ notifications-node-client@^8.2.0:
   dependencies:
     axios "^1.6.1"
     jsonwebtoken "^9.0.0"
+
+notifications-node-client@^8.2.1:
+  version "8.2.1"
+  resolved "https://registry.yarnpkg.com/notifications-node-client/-/notifications-node-client-8.2.1.tgz#6b3e0d855c675bcb706f0f773e25eb738b46688f"
+  integrity sha512-wyZh/NbjN8S2uQX18utYtCyC726BBaGeTc4HeUpdhZv5sYKuaQY94N31v9syh8SzVgehyMzW37y08EePmi+k3Q==
+  dependencies:
+    axios "^1.7.2"
+    jsonwebtoken "^9.0.2"
 
 nyc@^15.1.0:
   version "15.1.0"
