@@ -17,7 +17,8 @@ module.exports = {
     notifyApiKey: process.env.NOTIFY_KEY,
     caseworkerEmail: process.env.CASEWORKER_EMAIL,
     userConfirmationTemplateId: process.env.USER_CONFIRMATION_TEMPLATE_ID,
-    businessConfirmationTemplateId: process.env.BUSINESS_CONFIRMATION_TEMPLATE_ID
+    businessConfirmationTemplateId: process.env.BUSINESS_CONFIRMATION_TEMPLATE_ID,
+    replyToEmailID: process.env.REPLY_TO_EMAIL_ID
   },
   PRETTY_DATE_FORMAT: 'DD MMMM YYYY'
 };

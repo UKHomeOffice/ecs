@@ -163,11 +163,13 @@ module.exports = class SendEmailConfirmation {
       const targetTemplate = `${recipientType}ConfirmationTemplateId`;
       const targetEmailAddress = recipientType === 'user' ?
         this.req.sessionModel.get('contact-email-address') : config.govukNotify.caseworkerEmail;
+      const emailReplyToId = config.govukNotify.replyToEmailID;
       await notifyClient.sendEmail(
         config.govukNotify[targetTemplate],
         targetEmailAddress,
         {
-          personalisation: recipientType === 'user' ? this.userEmailPersonalisation : this.businessEmailPersonalisation
+          personalisation: recipientType === 'user' ? this.userEmailPersonalisation : this.businessEmailPersonalisation,
+          emailReplyToId: emailReplyToId
         }
       );
 
