@@ -6,7 +6,7 @@ This service is run by the Home Office. We want as many people as possible to be
 - navigate most of the website using speech recognition software
 - listen to most of the website using a screen reader (including the most recent versions of JAWS, NVDA and VoiceOver)
 
-We have also made the website text as simple as possible to understand. AbilityNet has advice on making your device easier to use if you have a disability.
+We have also made the website text as simple as possible to understand. [AbilityNet](https://mcmw.abilitynet.org.uk/) has advice on making your device easier to use if you have a disability.
 
 ## Reporting accessibility problems with this website
 

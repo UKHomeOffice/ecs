@@ -1,6 +1,6 @@
 # Employer's Checking Service (ECS)
 
-Employer's Checking Service (ECS) - In this form Users (Employers) will use this service to request the Home Office to check an employee’s or potential employee’s immigration status if they cannot show their documents or online immigration status. 
+Employer's Checking Service (ECS) - In this form Users (Employers) will use this service to request the Home Office to check an employee’s or prospective employee's immigration status if they cannot show their documents or online immigration status. 
 
 ## Description
 
@@ -94,7 +94,7 @@ By following these steps, you should be able to run your application using a dev
 ### Testing
 
 #### Linting Tests
-`$ yarn run test:lint`
+`$ yarn test:lint`
 
 #### Unit Tests
 `$ yarn test:unit`
