@@ -276,5 +276,8 @@ module.exports = {
       backLink: false,
       clearSession: true
     }
+  },
+  pages: {
+    '/accessibility': 'static/accessibility'
   }
 };

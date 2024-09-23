@@ -11,6 +11,6 @@
   "session": {
     "name": "ecs.hof.sid"
   },
-  "getAccessibility": true,
+  "getAccessibility": false,
   "emailerFallback": true
 }
