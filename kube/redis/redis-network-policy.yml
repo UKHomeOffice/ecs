@@ -16,13 +16,6 @@ spec:
           {{ else }}
           name: {{ .APP_NAME }}
           {{ end }}
-    - podSelector:
-        matchLabels:
-          {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
-          name: {{ .APP_NAME }}-{{ .DRONE_SOURCE_BRANCH }}
-          {{ else }}
-          name: {{ .APP_NAME }}
-          {{ end }}
     ports:
     - port: 6379
       protocol: TCP
