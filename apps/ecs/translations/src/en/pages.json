@@ -86,6 +86,9 @@
   "request-check-before-1988": {
     "header": "You need to ask the Home Office to conduct a right to work check"
   },
+  "accessibility": {
+    "header": "Accessibility statement for Employer’s Checking Service "
+  },
   "confirm": {
     "header": "Summary",
     "sections": {
