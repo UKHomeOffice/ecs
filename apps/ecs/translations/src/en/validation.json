@@ -55,7 +55,8 @@
   "worker-dob": { 
     "required": "Enter the worker's date of birth",
     "before": "The worker must be 16 years or older – this service only applies to workers aged 16 or over",
-    "after": "Enter a real date of birth"
+    "after": "Enter a real date of birth",
+    "date": "Enter a real date of birth"
   },
   "worker-nationality": {
     "required": "Enter a country of nationality",
@@ -138,6 +139,7 @@
   },
   "before-1988-worker-dob": {
     "required": "Enter the worker's date of birth",
+    "date": "Enter a real date of birth",
     "before": "The worker must be 16 years or over – this service only applies to workers aged 16 or over",
     "after": "Enter a real date of birth",
     "afterDobYear": "Worker's date of birth must be before 1988, when they came to the UK"
@@ -191,8 +193,7 @@
   },
   "worker-country": {
     "required": "Enter the country the worker's address is in",
-    "maxlength": "Country must be between 1 and 250 characters",
-    "excludeUkIr": "You do not need to request a Home Office right to work check if you are a UK or Ireland Citizen"
+    "maxlength": "Country must be between 1 and 250 characters"
   },
   "worker-uk-address-line-1": {
     "required": "Enter address line 1, typically the building and street",

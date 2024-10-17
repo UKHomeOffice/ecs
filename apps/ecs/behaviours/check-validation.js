@@ -14,8 +14,7 @@ module.exports = superclass => class extends superclass {
       }
     }
 
-    if(key === 'before-1988-worker-nationality' || key === 'worker-country' ||
-     key === 'worker-nationality') {
+    if(key === 'before-1988-worker-nationality' || key === 'worker-nationality') {
       if(req.form.values[key] === 'United Kingdom' || req.form.values[key] === 'Ireland') {
         return validationErrorFunc('excludeUkIr');
       }
@@ -23,6 +22,9 @@ module.exports = superclass => class extends superclass {
 
     if(key === 'before-1988-worker-dob') {
       const workerDob = req.form.values[key];
+      if (!validators.date(workerDob)) {
+        return validationErrorFunc('date');
+      }
       if (moment(workerDob).isSameOrAfter('1988-01-01')) {
         return validationErrorFunc('afterDobYear');
       }
