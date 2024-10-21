@@ -229,7 +229,7 @@ module.exports = {
   'before-1988-worker-dob': dateComponent('before-1988-worker-dob', {
     mixin: 'input-date',
     validate: [
-      'required', 'date',
+      'required',
       { type: 'before', arguments: ['16', 'years']},
       { type: 'after', arguments: ['120', 'years']}
     ]
@@ -293,7 +293,7 @@ module.exports = {
         value: '',
         label: 'fields.worker-country.options.null'
       }
-    ].concat(countries.filter(country => !['Ireland', 'United Kingdom'].includes(country.value)))
+    ].concat(countries)
   },
   'worker-uk-address-line-1': {
     validate: ['required', 'notUrl', { type: 'maxlength', arguments: [250] }],
