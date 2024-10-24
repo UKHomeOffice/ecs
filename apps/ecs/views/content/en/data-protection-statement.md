@@ -1,7 +1,6 @@
-I confirm that the worker:
+I confirm that the employee or prospective employee:
 
-- has been told that a right to work check will be carried out on them
-- has been given permission for their information to be shared with the Home Office
+- has been told that a right to work check will be carried out on them (guidance on the lawful basis for using information)
 
 I understand that:
 

@@ -1,6 +1,7 @@
-The worker will need to agree to this check first. They can do this verbally or in writing.
+You will need to provide the following information to request a check.
 
-To request a right to work check you will need the worker's: 
+Your employee’s or potential employee’s:
+
   - full name
   - date of birth
   - nationality
@@ -12,6 +13,7 @@ To request a right to work check you will need the worker's:
   - hours worked per week
 
 As well as the employer’s:
+
   - business name
   - business type
   - business address
