@@ -215,18 +215,12 @@ module.exports = {
     '/worker-details': {
       continueOnEdit: true,
       behaviours: [checkValidation],
-      forks: [
-        {
-          target: '/worker-address',
-          condition: req => req.sessionModel.get('use-digital-right-to-work') === 'yes'
-        }
-      ],
       fields: [
         'worker-full-name',
         'worker-dob',
         'worker-nationality'
       ],
-      next: '/worker-address-uk'
+      next: '/reference-number'
     },
     '/reference-number': {
       fields: ['worker-reference-number'],
