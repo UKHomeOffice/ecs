@@ -2,6 +2,7 @@
 kind: pipeline
 name: default
 type: kubernetes
+
 environment:
   APP_NAME: ecs
   PROD_ENV: sas-ecs-prod
@@ -16,29 +17,34 @@ environment:
   NON_PROD_AVAILABILITY: Sun-Sat 06:00-24:00 Europe/London
   READY_FOR_TEST_DELAY: 20s
   NOTIFY_STUB: stub
+
 trigger:
   branch:
     - feature/*
     - master
-linting:
+
+linting: &linting
   pull: if-not-exists
   image: node:20.17.0-alpine3.20@sha256:2cc3d19887bfea8bf52574716d5f16d4668e35158de866099711ddfb2b16b6e0
   environment:
     NOTIFY_KEY: USE_MOCK
   commands:
     - yarn run test:lint
-unit_tests:
+
+unit_tests: &unit_tests
   pull: if-not-exists
   image: node:20.17.0-alpine3.20@sha256:2cc3d19887bfea8bf52574716d5f16d4668e35158de866099711ddfb2b16b6e0
   environment:
     NOTIFY_KEY: USE_MOCK
   commands:
     - yarn run test:unit
-sonar_scanner:
+
+sonar_scanner: &sonar_scanner
   pull: if-not-exists
   image: quay.io/ukhomeofficedigital/sonar-scanner-nodejs:latest
   commands:
     - sonar-scanner -Dproject.settings=./sonar-project.properties
+
 steps:
   - name: clone_repos
     image: alpine/git
@@ -48,16 +54,15 @@ steps:
       DRONE_GIT_TOKEN:
         from_secret: drone_git_token
     commands:
-      - git clone
-        https://$${DRONE_GIT_USERNAME}:$${DRONE_GIT_TOKEN}@github.com/UKHomeOfficeForms/hof-services-config.git
+      - git clone https://$${DRONE_GIT_USERNAME}:$${DRONE_GIT_TOKEN}@github.com/UKHomeOfficeForms/hof-services-config.git
     when:
       branch:
         include:
-          - master
-          - feature/*
-      event:
-        - push
-        - pull_request
+        - master
+        - feature/*
+      event: [push, pull_request]
+
+    # Trivy Security Scannner for scanning OS related vulnerabilities in Base image of Dockerfile
   - name: scan_image_os
     pull: always
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/trivy/client:latest
@@ -72,9 +77,8 @@ steps:
       IGNORE_UNFIXED: false
       ALLOW_CVE_LIST_FILE: hof-services-config/infrastructure/trivy/.trivyignore.yaml
     when:
-      event:
-        - push
-        - pull_request
+      event: [push, pull_request]
+
   - name: setup_deploy
     pull: if-not-exists
     image: node:20.17.0-alpine3.20@sha256:2cc3d19887bfea8bf52574716d5f16d4668e35158de866099711ddfb2b16b6e0
@@ -86,65 +90,54 @@ steps:
     when:
       branch:
         include:
-          - master
-          - feature/*
+        - master
+        - feature/*
       event: push
+
   - name: linting_deploy
-    pull: if-not-exists
-    image: node:20.17.0-alpine3.20@sha256:2cc3d19887bfea8bf52574716d5f16d4668e35158de866099711ddfb2b16b6e0
-    environment:
-      NOTIFY_KEY: USE_MOCK
-    commands:
-      - yarn run test:lint
+    <<: *linting
     when:
       branch:
         include:
           - master
           - feature/*
       event: push
+
   - name: unit_tests_deploy
-    pull: if-not-exists
-    image: node:20.17.0-alpine3.20@sha256:2cc3d19887bfea8bf52574716d5f16d4668e35158de866099711ddfb2b16b6e0
-    environment:
-      NOTIFY_KEY: USE_MOCK
-    commands:
-      - yarn run test:unit
+    <<: *unit_tests
     when:
       branch:
         include:
           - master
       event: push
+
   - name: sonar_scanner_deploy
-    pull: if-not-exists
-    image: quay.io/ukhomeofficedigital/sonar-scanner-nodejs:latest
-    commands:
-      - sonar-scanner -Dproject.settings=./sonar-project.properties
+    <<: *sonar_scanner
     when:
       branch:
         include:
           - master
           - feature/*
       event: push
+
   - name: build_image
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
     environment:
       DOCKER_PASSWORD:
         from_secret: DOCKER_PASSWORD
     commands:
-      - n=0; while [ "$n" -lt 60 ] && [ ! docker stats --no-stream ]; do n=$(( n
-        + 1 )); sleep 1; done
+      - n=0; while [ "$n" -lt 60 ] && [ ! docker stats --no-stream ]; do n=$(( n + 1 )); sleep 1; done
       - docker build --no-cache -t $${IMAGE_REPO}:$${DRONE_COMMIT_SHA} .
     volumes:
       - name: dockersock
         path: /var/run
     when:
-      branch:
+      branch: 
         include:
           - master
           - feature/*
-      event:
-        - push
-        - pull_request
+      event: [push, pull_request]
+
   - name: image_to_ecr
     image: plugins/ecr
     settings:
@@ -153,6 +146,7 @@ steps:
       secret_key:
         from_secret: aws_secret_access_key
       region: eu-west-2
+      #repo: ${IMAGE_REPO}
       repo: sas/ecs
       registry: 340268328991.dkr.ecr.eu-west-2.amazonaws.com
       tags:
@@ -163,9 +157,10 @@ steps:
         include:
           - master
           - feature/*
-      event:
-        - push
-        - pull_request
+      event: [push, pull_request]
+
+  # Trivy Security Scannner
+
   - name: scan_node_packages
     pull: always
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/trivy/client:latest
@@ -180,9 +175,9 @@ steps:
       IGNORE_UNFIXED: false
       ALLOW_CVE_LIST_FILE: hof-services-config/infrastructure/trivy/.trivyignore.yaml
     when:
-      event:
-        - push
-        - pull_request
+      event: [push, pull_request]
+  
+  # Deploy to pull request Branch environment
   - name: deploy_to_branch
     pull: if-not-exists
     image: quay.io/ukhomeofficedigital/kd:v1.14.0
@@ -199,6 +194,7 @@ steps:
           - master
           - feature/*
       event: pull_request
+
   - name: setup_branch
     pull: if-not-exists
     image: node:20.17.0-alpine3.20@sha256:2cc3d19887bfea8bf52574716d5f16d4668e35158de866099711ddfb2b16b6e0
@@ -213,43 +209,35 @@ steps:
           - master
           - feature/*
       event: pull_request
+
   - name: linting_branch
-    pull: if-not-exists
-    image: node:20.17.0-alpine3.20@sha256:2cc3d19887bfea8bf52574716d5f16d4668e35158de866099711ddfb2b16b6e0
-    environment:
-      NOTIFY_KEY: USE_MOCK
-    commands:
-      - yarn run test:lint
+    <<: *linting
     when:
       branch:
         include:
           - master
           - feature/*
       event: pull_request
+
   - name: unit_tests_branch
-    pull: if-not-exists
-    image: node:20.17.0-alpine3.20@sha256:2cc3d19887bfea8bf52574716d5f16d4668e35158de866099711ddfb2b16b6e0
-    environment:
-      NOTIFY_KEY: USE_MOCK
-    commands:
-      - yarn run test:unit
+    <<: *unit_tests
     when:
       branch:
         include:
-          - master
-          - feature/*
+        - master
+        - feature/*
       event: pull_request
+
   - name: sonar_scanner_branch
-    pull: if-not-exists
-    image: quay.io/ukhomeofficedigital/sonar-scanner-nodejs:latest
-    commands:
-      - sonar-scanner -Dproject.settings=./sonar-project.properties
+    <<: *sonar_scanner
     when:
       branch:
         include:
           - master
           - feature/*
       event: pull_request
+
+  # Deploy to master UAT environment
   - name: deploy_to_uat
     pull: if-not-exists
     image: quay.io/ukhomeofficedigital/kd:v1.14.0
@@ -263,6 +251,8 @@ steps:
     when:
       branch: master
       event: push
+
+  # Get pull request branch so correct PR UAT environment is torn down in the tear_down_branch step that follows
   - name: get_pr_branch
     pull: if-not-exists
     image: drone/cli:alpine@sha256:14409f7f7247befb9dd2effdb2f61ac40d1f5fbfb1a80566cf6f2f8d21f3be11
@@ -275,12 +265,12 @@ steps:
       - name: dockersock
         path: /root/.dockersock
     commands:
-      - drone build info $GIT_REPO $DRONE_BUILD_NUMBER --format {{.Message}} |
-        grep -o '[^ ]\+$' -m1 | sed 's|UKHomeOffice/||g' | tr '[:upper:]'
-        '[:lower:]' | tr '/' '-' > /root/.dockersock/branch_name.txt
+      - drone build info $GIT_REPO $DRONE_BUILD_NUMBER --format {{.Message}} | grep -o '[^ ]\+$' -m1 | sed 's|UKHomeOffice/||g' | tr '[:upper:]' '[:lower:]' | tr '/' '-' > /root/.dockersock/branch_name.txt
     when:
       branch: master
       event: push
+  
+  # Tear down pull request UAT environment
   - name: tear_down_branch
     pull: if-not-exists
     image: quay.io/ukhomeofficedigital/kd:v1.14.0
@@ -297,6 +287,8 @@ steps:
     when:
       branch: master
       event: push
+
+   # Deploy to Staging environment
   - name: deploy_to_stg
     pull: if-not-exists
     image: quay.io/ukhomeofficedigital/kd:v1.14.0
@@ -310,6 +302,8 @@ steps:
     when:
       branch: master
       event: push
+
+  # Checks a build being promoted has passed, is on master which effectively means a healthy build on Staging
   - name: sanity_check_build_prod
     pull: if-not-exists
     image: drone/cli:alpine@sha256:14409f7f7247befb9dd2effdb2f61ac40d1f5fbfb1a80566cf6f2f8d21f3be11
@@ -323,6 +317,7 @@ steps:
     when:
       target: PROD
       event: promote
+
   - name: clone_repos_prod
     image: alpine/git
     environment:
@@ -331,11 +326,12 @@ steps:
       DRONE_GIT_TOKEN:
         from_secret: DRONE_GIT_TOKEN
     commands:
-      - git clone
-        https://$${DRONE_GIT_USERNAME}:$${DRONE_GIT_TOKEN}@github.com/UKHomeOfficeForms/hof-services-config.git
+      - git clone https://$${DRONE_GIT_USERNAME}:$${DRONE_GIT_TOKEN}@github.com/UKHomeOfficeForms/hof-services-config.git
     when:
       target: PROD
       event: promote
+
+  # Deploy to Production environment
   - name: deploy_to_prod
     pull: if-not-exists
     image: quay.io/ukhomeofficedigital/kd:v1.14.0
@@ -349,6 +345,8 @@ steps:
     when:
       target: PROD
       event: promote
+
+   # CRON job step that tears down our pull request UAT environments
   - name: cron_tear_down
     pull: if-not-exists
     image: quay.io/ukhomeofficedigital/kd:v1.14.0
@@ -362,6 +360,8 @@ steps:
     when:
       cron: tear_down_pr_envs
       event: cron
+
+  # CRON job steps that runs security scans using Trivy
   - name: cron_clone_repos
     image: alpine/git
     environment:
@@ -370,11 +370,11 @@ steps:
       DRONE_GIT_TOKEN:
         from_secret: drone_git_token
     commands:
-      - git clone
-        https://$${DRONE_GIT_USERNAME}:$${DRONE_GIT_TOKEN}@github.com/UKHomeOfficeForms/hof-services-config.git
+      - git clone https://$${DRONE_GIT_USERNAME}:$${DRONE_GIT_TOKEN}@github.com/UKHomeOfficeForms/hof-services-config.git
     when:
       cron: security_scans
       event: cron
+
   - name: cron_build_image
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
     commands:
@@ -385,6 +385,7 @@ steps:
     when:
       cron: security_scans
       event: cron
+
   - name: cron_trivy_scan_image_os
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/trivy/client:latest
     pull: always
@@ -397,6 +398,7 @@ steps:
     when:
       cron: security_scans
       event: cron
+
   - name: cron_trivy_scan_node_packages
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/trivy/client:latest
     pull: always
@@ -409,9 +411,9 @@ steps:
     when:
       cron: security_scans
       event: cron
-      status:
-        - success
-        - failure
+      status: [success, failure]
+
+  # Slack notification upon a CRON job fail
   - name: cron_notify_slack_tear_down_pr_envs
     pull: if-not-exists
     image: plugins/slack:1.4.1
@@ -419,19 +421,18 @@ steps:
       channel: sas-hof-build-notify
       failure: ignore
       template: >
-        *✘ {{ uppercasefirst build.status }}*: Cron job `tear_down_pr_envs`
-        failed to tear down the deployments in the BRANCH environment.
+          *✘ {{ uppercasefirst build.status }}*: Cron job `tear_down_pr_envs` failed to tear down the deployments in the BRANCH environment.
 
-        *Repo* <https://github.com/{{ repo.owner }}/{{ repo.name }}/|{{ repo.owner }}/{{ repo.name }}> | *Branch* <https://github.com/{{ repo.owner }}/{{ repo.name }}/commits/{{ build.branch }}|{{build.branch}}> | *Commit* <https://github.com/{{ repo.owner }}/{{ repo.name }}/commit/{{ build.commit }}|{{ truncate build.commit 8 }}>
+          *Repo* <https://github.com/{{ repo.owner }}/{{ repo.name }}/|{{ repo.owner }}/{{ repo.name }}> | *Branch* <https://github.com/{{ repo.owner }}/{{ repo.name }}/commits/{{ build.branch }}|{{build.branch}}> | *Commit* <https://github.com/{{ repo.owner }}/{{ repo.name }}/commit/{{ build.commit }}|{{ truncate build.commit 8 }}>
 
-        *Build <{{build.link}}|#{{build.number}}>*
+          *Build <{{build.link}}|#{{build.number}}>*
       webhook:
         from_secret: slack_sas_hof_build_notify_webhook
     when:
       cron: tear_down_pr_envs
       event: cron
-      status:
-        - failure
+      status: [ failure ]
+  
   - name: cron_notify_slack_security_scans
     pull: if-not-exists
     image: plugins/slack:1.4.1
@@ -439,27 +440,30 @@ steps:
       channel: sas-hof-security
       failure: ignore
       template: >
-        *✘ {{ uppercasefirst build.status }}*: Cron job `security_scans` has
-        failed. Prioritise reviewing build logs and addressing issues.
+          *✘ {{ uppercasefirst build.status }}*: Cron job `security_scans` has failed. Prioritise reviewing build logs and addressing issues.
 
-        *Repo* <https://github.com/{{ repo.owner }}/{{ repo.name }}/|{{ repo.owner }}/{{ repo.name }}> | *Branch* <https://github.com/{{ repo.owner }}/{{ repo.name }}/commits/{{ build.branch }}|{{build.branch}}> | *Commit* <https://github.com/{{ repo.owner }}/{{ repo.name }}/commit/{{ build.commit }}|{{ truncate build.commit 8 }}>
+          *Repo* <https://github.com/{{ repo.owner }}/{{ repo.name }}/|{{ repo.owner }}/{{ repo.name }}> | *Branch* <https://github.com/{{ repo.owner }}/{{ repo.name }}/commits/{{ build.branch }}|{{build.branch}}> | *Commit* <https://github.com/{{ repo.owner }}/{{ repo.name }}/commit/{{ build.commit }}|{{ truncate build.commit 8 }}>
 
-        *Build <{{build.link}}|#{{build.number}}>*
+          *Build <{{build.link}}|#{{build.number}}>*
       webhook:
         from_secret: slack_sas_hof_security_webhook
     when:
       cron: security_scans
       event: cron
-      status:
-        - failure
+      status: [ failure ]
+
 services:
   - name: docker
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
+
+# Redis session setup in background so integration tests can run
   - name: session
     image: redis
     volumes:
       - name: dockersock
         path: /var/run
+
 volumes:
   - name: dockersock
     temp: {}
+...
