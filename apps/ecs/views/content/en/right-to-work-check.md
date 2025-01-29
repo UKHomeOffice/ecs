@@ -8,7 +8,6 @@ Your employee’s or potential employee’s:
   - home address
   - job title
   - hours worked per week
-  - Home Office reference number
 
 As well as the employer’s:
 
