@@ -1,11 +1,19 @@
-{{<partials-page}}
+{{<layout}}
+  {{$journeyHeader}}
+  {{#t}}journey.header{{/t}}
+  {{/journeyHeader}}
+
+  {{$propositionHeader}}
+    {{> partials-navigation}}
+  {{/propositionHeader}}
   {{$pageTitle}}
     {{#t}}pages.accessibility{{/t}} &ndash; {{#t}}journey.serviceName{{/t}} &ndash; GOV.UK
   {{/pageTitle}}
-  {{$page-content}}
+  {{$header}}{{header}}{{/header}}
+  {{$content}}
 
     <h1 class="govuk-heading-l">{{#t}}pages.accessibility{{/t}}</h1> 
 
     {{#markdown}}accessibility{{/markdown}}
-  {{/page-content}}
-{{/partials-page}}
+  {{/content}}
+{{/layout}}

@@ -2,7 +2,8 @@
   "appName": "Employer's Checking Service",
   "theme": "govUK",
   "behaviours": [
-    "hof/components/clear-session"
+    "hof/components/clear-session",
+    "hof/components/session-timeout-warning"
   ],
   "translations": "./apps/ecs/translations",
   "routes": [
