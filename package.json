@@ -26,7 +26,7 @@
   "homepage": "https://github.com/UKHomeOffice/ecs#readme",
   "dependencies": {
     "accessible-autocomplete": "^3.0.1",
-    "hof": "^21.1.1",
+    "hof": "~22.1.1",
     "notifications-node-client": "^8.2.1"
   },
   "devDependencies": {

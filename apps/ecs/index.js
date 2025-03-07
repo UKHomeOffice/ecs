@@ -269,7 +269,9 @@ module.exports = {
     '/check-requested': {
       backLink: false,
       clearSession: true
-    }
+    },
+    '/session-timeout': {},
+    '/exit': {}
   },
   pages: {
     '/accessibility': 'static/accessibility'
