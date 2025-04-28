@@ -26,28 +26,10 @@ The Home Office is committed to making its website accessible, in accordance wit
 
 ## Compliance status
 
-This website is partially compliant with the [Web Content Accessibility Guidelines version 2.2](https://www.w3.org/TR/WCAG22/) AA standard, due to the non-compliances listed below.
-
-## Non-accessible content
-
-The content listed below is non-accessible for the following reasons.
-
-### Non-compliance with the accessibility regulations
-
-The session timeout of 30 minutes cannot be changed, and the user is not alerted when time running out. This is for each individual page of the form, not the form overall. This does not meet the following WCAG standards and guidelines:
-
-2.2.1 Timing adjustable
-
-If you find an issue that we have yet to identify, please contact us using one of the routes described in the ‘Reporting accessibility problems with this website’ section of this statement.
-
-### Disproportionate burden
-At this time, we have not made any disproportionate burden claims.
-
-### Content that’s not within the scope of the accessibility regulations
-At this time, this service does not contain any content that is exempt from the regulations.
+This website is fully compliant with the [Web Content Accessibility Guidelines version 2.2](https://www.w3.org/TR/WCAG22/) AA standard.
 
 ## Preparation of this accessibility statement
-This statement was prepared on 18 September 2024. It was last reviewed on 18 September 2024.
+This statement was prepared on 18 September 2024. It was last reviewed on 07 March 2025.
 
 This website was last tested on 14 September 2024. The test was carried out internally by the Home Office.
 
