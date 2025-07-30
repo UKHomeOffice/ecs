@@ -9,7 +9,7 @@
   "ineligible": {
     "header": "You do not need to request a Home Office right to work check",
     "ineligible-intro": "You do not need to request a right to work check if the worker: ",
-    "ineligible-has-ppt": "has a UK or Irish passport or Irish passport card (current of expired)",
+    "ineligible-has-ppt": "has a UK or Irish passport or Irish passport card (current or expired)",
     "ineligible-has-ho-docs": "has immigration documents from the Home Office that show a right to work",
     "ineligible-has-digital-right": "has an immigration status which you can check online that demonstrates a right to work",
     "ineligible-outro": "Where applicable, you still",
