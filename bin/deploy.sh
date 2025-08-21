@@ -45,3 +45,4 @@ sleep $READY_FOR_TEST_DELAY
 if [[ ${KUBE_NAMESPACE} == ${BRANCH_ENV} ]]; then
   echo "Branch url - ecs-$DRONE_SOURCE_BRANCH.internal.$BRANCH_ENV.homeoffice.gov.uk"
 fi
+

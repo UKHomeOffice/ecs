@@ -27,3 +27,4 @@ if [[ "$REFS" != "refs/heads/master" ]]; then
 fi
 
 echo "Build number $DRONE_BUILD_PARENT passed sanity check. Ready to deploy to PROD!."
+

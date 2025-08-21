@@ -24,3 +24,4 @@ do
     $kubectl delete configmap "$each"
     fi
 done
+
