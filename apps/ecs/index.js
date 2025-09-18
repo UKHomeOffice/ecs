@@ -5,6 +5,8 @@ const legislativeEmploymentDate = config.legislativeEmploymentDate;
 const checkValidation = require('./behaviours/check-validation');
 const sendEmailNotification = require('./behaviours/submit-notify');
 const saveSession = require('./behaviours/save-session');
+const ClearWorkerDetails = require('./behaviours/clear-worker-details');
+
 
 module.exports = {
   name: 'ecs',
@@ -152,7 +154,7 @@ module.exports = {
       continueOnEdit: true
     },
     '/worker-details-1988': {
-      behaviours: [checkValidation],
+      behaviours: [checkValidation, ClearWorkerDetails],
       fields: [
         'before-1988-worker-full-name',
         'before-1988-worker-dob',
@@ -214,7 +216,7 @@ module.exports = {
     },
     '/worker-details': {
       continueOnEdit: true,
-      behaviours: [checkValidation],
+      behaviours: [checkValidation, ClearWorkerDetails],
       fields: [
         'worker-full-name',
         'worker-dob',
