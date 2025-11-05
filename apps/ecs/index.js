@@ -272,7 +272,6 @@ module.exports = {
       backLink: false,
       clearSession: true
     },
-    '/session-timeout': {},
     '/exit': {}
   },
   pages: {
