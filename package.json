@@ -4,7 +4,7 @@
   "description": "A service for employers to check employee's immigration status",
   "main": "index.js",
   "engines": {
-    "node": ">=20.17.0 <21.0.0"
+    "node": ">=20.17.0"
   },
   "scripts": {
     "start": "node server.js",
@@ -26,7 +26,7 @@
   "homepage": "https://github.com/UKHomeOffice/ecs#readme",
   "dependencies": {
     "accessible-autocomplete": "^3.0.1",
-    "hof": "~22.10.4",
+    "hof": "^22.12.0-beta.0",
     "notifications-node-client": "^8.2.1"
   },
   "devDependencies": {
