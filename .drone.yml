@@ -18,22 +18,33 @@ environment:
   READY_FOR_TEST_DELAY: 20s
   NOTIFY_STUB: stub
 
-trigger:
-  branch:
-    - feature/*
+include_default_branch: &include_default_branch
+  include:
     - master
 
-linting: &linting
+include_default_and_feature_branches: &include_default_and_feature_branches
+  include:
+    - master
+    - feature/*
+
+trigger:
+  branch:
+    <<: *include_default_and_feature_branches
+
+node_image: &node_image
   pull: if-not-exists
-  image: node:20.17.0-alpine3.20@sha256:2cc3d19887bfea8bf52574716d5f16d4668e35158de866099711ddfb2b16b6e0
+  image: quay.io/ukhomeofficedigital/hof-nodejs:20.20.2-alpine3.23@sha256:bcd17b68a0f1910f1670b07f6a47d1e2c28291bafc219807c494dc62b57ea25e
+
+
+linting: &linting
+  <<: *node_image
   environment:
     NOTIFY_KEY: USE_MOCK
   commands:
     - yarn run test:lint
 
 unit_tests: &unit_tests
-  pull: if-not-exists
-  image: node:20.17.0-alpine3.20@sha256:2cc3d19887bfea8bf52574716d5f16d4668e35158de866099711ddfb2b16b6e0
+  <<: *node_image
   environment:
     NOTIFY_KEY: USE_MOCK
   commands:
@@ -55,15 +66,14 @@ steps:
         from_secret: drone_git_token
     commands:
       - git clone https://$${DRONE_GIT_USERNAME}:$${DRONE_GIT_TOKEN}@github.com/UKHomeOfficeForms/hof-services-config.git
+      - find hof-services-config/* | grep -v $HOF_CONFIG | grep -v 'infrastructure' | xargs rm -rf
     when:
       branch:
-        include:
-        - master
-        - feature/*
+        <<: *include_default_and_feature_branches
       event: [push, pull_request]
 
-    # Trivy Security Scannner for scanning OS related vulnerabilities in Base image of Dockerfile
-  - name: scan_image_os
+  # Trivy Security Scanner for scanning OS related vulnerabilities in Base image of Dockerfile
+  - name: scan_base_image_os
     pull: always
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/trivy/client:latest
     resources:
@@ -71,17 +81,22 @@ steps:
         cpu: 1000
         memory: 1024Mi
     environment:
-      IMAGE_NAME: node:20.17.0-alpine3.20@sha256:2cc3d19887bfea8bf52574716d5f16d4668e35158de866099711ddfb2b16b6e0
+      IMAGE_NAME: quay.io/ukhomeofficedigital/hof-nodejs:20.20.2-alpine3.23@sha256:bcd17b68a0f1910f1670b07f6a47d1e2c28291bafc219807c494dc62b57ea25e
+      SERVICE_URL: https://acp-trivy-helm.acp-trivy.svc.cluster.local:443
       SEVERITY: MEDIUM,HIGH,CRITICAL  --dependency-tree
       FAIL_ON_DETECTION: false
       IGNORE_UNFIXED: false
       ALLOW_CVE_LIST_FILE: hof-services-config/infrastructure/trivy/.trivyignore.yaml
+    volumes:
+      - name: dockersock
+        path: /root/.dockersock
     when:
       event: [push, pull_request]
+    depends_on:
+      - clone_repos
 
-  - name: setup_deploy
-    pull: if-not-exists
-    image: node:20.17.0-alpine3.20@sha256:2cc3d19887bfea8bf52574716d5f16d4668e35158de866099711ddfb2b16b6e0
+  - name: setup
+    <<: *node_image
     environment:
       NOTIFY_KEY: USE_MOCK
     commands:
@@ -89,36 +104,36 @@ steps:
       - yarn run postinstall
     when:
       branch:
-        include:
-        - master
-        - feature/*
-      event: push
+        <<: *include_default_and_feature_branches
+      event: [push, pull_request]
 
-  - name: linting_deploy
+  - name: linting
     <<: *linting
     when:
       branch:
-        include:
-          - master
-          - feature/*
-      event: push
+        <<: *include_default_and_feature_branches
+      event: [push, pull_request]
+    depends_on:
+      - clone_repos
+      - setup
 
-  - name: unit_tests_deploy
+  - name: unit_tests
     <<: *unit_tests
     when:
       branch:
-        include:
-          - master
-      event: push
+        <<: *include_default_and_feature_branches
+      event: [push, pull_request]
+    depends_on:
+      - setup
 
-  - name: sonar_scanner_deploy
+  - name: sonar_scanner
     <<: *sonar_scanner
     when:
       branch:
-        include:
-          - master
-          - feature/*
-      event: push
+        <<: *include_default_and_feature_branches
+      event: [push, pull_request]
+    depends_on:
+      - clone_repos
 
   - name: build_image
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
@@ -126,17 +141,19 @@ steps:
       DOCKER_PASSWORD:
         from_secret: DOCKER_PASSWORD
     commands:
-      - n=0; while [ "$n" -lt 60 ] && [ ! docker stats --no-stream ]; do n=$(( n + 1 )); sleep 1; done
+      # wait for docker service to be up before running docker build
+      - /usr/local/bin/wait
       - docker build --no-cache -t $${IMAGE_REPO}:$${DRONE_COMMIT_SHA} .
     volumes:
       - name: dockersock
         path: /var/run
     when:
-      branch: 
-        include:
-          - master
-          - feature/*
+      branch:
+        <<: *include_default_and_feature_branches
       event: [push, pull_request]
+    depends_on:
+      - linting
+      - unit_tests
 
   - name: image_to_ecr
     image: plugins/ecr
@@ -146,21 +163,18 @@ steps:
       secret_key:
         from_secret: aws_secret_access_key
       region: eu-west-2
-      #repo: ${IMAGE_REPO}
       repo: sas/ecs
       registry: 340268328991.dkr.ecr.eu-west-2.amazonaws.com
       tags:
-        - latest_${DRONE_BRANCH//\//-}
         - ${DRONE_COMMIT_SHA}
     when:
       branch:
-        include:
-          - master
-          - feature/*
+        <<: *include_default_and_feature_branches
       event: [push, pull_request]
+    depends_on:
+      - build_image
 
   # Trivy Security Scannner
-
   - name: scan_node_packages
     pull: always
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/trivy/client:latest
@@ -174,8 +188,13 @@ steps:
       FAIL_ON_DETECTION: false
       IGNORE_UNFIXED: false
       ALLOW_CVE_LIST_FILE: hof-services-config/infrastructure/trivy/.trivyignore.yaml
+    volumes:
+      - name: dockersock
+        path: /root/.dockersock
     when:
       event: [push, pull_request]
+    depends_on:
+      - build_image
   
   # Deploy to pull request Branch environment
   - name: deploy_to_branch
@@ -190,52 +209,11 @@ steps:
       - bin/deploy.sh $${BRANCH_ENV}
     when:
       branch:
-        include:
-          - master
-          - feature/*
+        <<: *include_default_and_feature_branches
       event: pull_request
-
-  - name: setup_branch
-    pull: if-not-exists
-    image: node:20.17.0-alpine3.20@sha256:2cc3d19887bfea8bf52574716d5f16d4668e35158de866099711ddfb2b16b6e0
-    environment:
-      NOTIFY_KEY: USE_MOCK
-    commands:
-      - yarn install --frozen-lockfile
-      - yarn run postinstall
-    when:
-      branch:
-        include:
-          - master
-          - feature/*
-      event: pull_request
-
-  - name: linting_branch
-    <<: *linting
-    when:
-      branch:
-        include:
-          - master
-          - feature/*
-      event: pull_request
-
-  - name: unit_tests_branch
-    <<: *unit_tests
-    when:
-      branch:
-        include:
-        - master
-        - feature/*
-      event: pull_request
-
-  - name: sonar_scanner_branch
-    <<: *sonar_scanner
-    when:
-      branch:
-        include:
-          - master
-          - feature/*
-      event: pull_request
+    depends_on:
+      - clone_repos
+      - image_to_ecr
 
   # Deploy to master UAT environment
   - name: deploy_to_uat
@@ -249,8 +227,12 @@ steps:
     commands:
       - bin/deploy.sh $${UAT_ENV}
     when:
-      branch: master
+      branch:
+        <<: *include_default_branch
       event: push
+    depends_on:
+      - clone_repos
+      - image_to_ecr
 
   # Get pull request branch so correct PR UAT environment is torn down in the tear_down_branch step that follows
   - name: get_pr_branch
@@ -267,7 +249,8 @@ steps:
     commands:
       - drone build info $GIT_REPO $DRONE_BUILD_NUMBER --format {{.Message}} | grep -o '[^ ]\+$' -m1 | sed 's|UKHomeOffice/||g' | tr '[:upper:]' '[:lower:]' | tr '/' '-' > /root/.dockersock/branch_name.txt
     when:
-      branch: master
+      branch:
+        <<: *include_default_branch
       event: push
   
   # Tear down pull request UAT environment
@@ -285,8 +268,12 @@ steps:
     commands:
       - bin/deploy.sh tear_down
     when:
-      branch: master
+      branch:
+        <<: *include_default_branch
       event: push
+    depends_on:
+      - get_pr_branch
+      - deploy_to_uat
 
    # Deploy to Staging environment
   - name: deploy_to_stg
@@ -300,8 +287,12 @@ steps:
     commands:
       - bin/deploy.sh $${STG_ENV}
     when:
-      branch: master
+      branch:
+        <<: *include_default_branch
       event: push
+    depends_on:
+      - clone_repos
+      - image_to_ecr
 
   # Checks a build being promoted has passed, is on master which effectively means a healthy build on Staging
   - name: sanity_check_build_prod
@@ -327,9 +318,12 @@ steps:
         from_secret: DRONE_GIT_TOKEN
     commands:
       - git clone https://$${DRONE_GIT_USERNAME}:$${DRONE_GIT_TOKEN}@github.com/UKHomeOfficeForms/hof-services-config.git
+      - find hof-services-config/* | grep -v $HOF_CONFIG | grep -v 'infrastructure' | xargs rm -rf
     when:
       target: PROD
       event: promote
+    depends_on:
+      - sanity_check_build_prod
 
   # Deploy to Production environment
   - name: deploy_to_prod
@@ -345,6 +339,8 @@ steps:
     when:
       target: PROD
       event: promote
+    depends_on:
+      - clone_repos_prod
 
    # CRON job step that tears down our pull request UAT environments
   - name: cron_tear_down
@@ -371,6 +367,7 @@ steps:
         from_secret: drone_git_token
     commands:
       - git clone https://$${DRONE_GIT_USERNAME}:$${DRONE_GIT_TOKEN}@github.com/UKHomeOfficeForms/hof-services-config.git
+      - find hof-services-config/* | grep -v $HOF_CONFIG | grep -v 'infrastructure' | xargs rm -rf
     when:
       cron: security_scans
       event: cron
@@ -378,6 +375,8 @@ steps:
   - name: cron_build_image
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
     commands:
+      # wait for docker service to be up before running docker build
+      - /usr/local/bin/wait    
       - docker build --no-cache -t $${IMAGE_REPO}:$${DRONE_COMMIT_SHA} .
     volumes:
       - name: dockersock
@@ -385,12 +384,15 @@ steps:
     when:
       cron: security_scans
       event: cron
-
+    depends_on:
+      - cron_clone_repos
+  
+  # CRON Trivy scan for base image OS
   - name: cron_trivy_scan_image_os
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/trivy/client:latest
     pull: always
     environment:
-      IMAGE_NAME: node:20.17.0-alpine3.20@sha256:2cc3d19887bfea8bf52574716d5f16d4668e35158de866099711ddfb2b16b6e0
+      IMAGE_NAME: quay.io/ukhomeofficedigital/hof-nodejs:20.20.2-alpine3.23@sha256:bcd17b68a0f1910f1670b07f6a47d1e2c28291bafc219807c494dc62b57ea25e
       SEVERITY: UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL --dependency-tree
       FAIL_ON_DETECTION: true
       IGNORE_UNFIXED: false
@@ -398,7 +400,10 @@ steps:
     when:
       cron: security_scans
       event: cron
+    depends_on:
+      - cron_clone_repos
 
+  # CRON Trivy scan for node packages
   - name: cron_trivy_scan_node_packages
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/trivy/client:latest
     pull: always
@@ -412,6 +417,8 @@ steps:
       cron: security_scans
       event: cron
       status: [success, failure]
+    depends_on:
+      - cron_build_image
 
   # Slack notification upon a CRON job fail
   - name: cron_notify_slack_tear_down_pr_envs
@@ -421,17 +428,19 @@ steps:
       channel: sas-hof-build-notify
       failure: ignore
       template: >
-          *✘ {{ uppercasefirst build.status }}*: Cron job `tear_down_pr_envs` failed to tear down the deployments in the BRANCH environment.
+            *✘ {{ uppercasefirst build.status }}*: CRON Job `tear_down_pr_envs` for *Employer's Checking Service * has failed.
 
-          *Repo* <https://github.com/{{ repo.owner }}/{{ repo.name }}/|{{ repo.owner }}/{{ repo.name }}> | *Branch* <https://github.com/{{ repo.owner }}/{{ repo.name }}/commits/{{ build.branch }}|{{build.branch}}> | *Commit* <https://github.com/{{ repo.owner }}/{{ repo.name }}/commit/{{ build.commit }}|{{ truncate build.commit 8 }}>
+            Branch <https://github.com/{{ repo.owner }}/{{ repo.name }}/commits/{{ build.branch }}|{{build.branch}}> | Commit <https://github.com/{{ repo.owner }}/{{ repo.name }}/commit/{{ build.commit }}|{{ truncate build.commit 8 }}>
 
-          *Build <{{build.link}}|#{{build.number}}>*
+            *Build <{{build.link}}|#{{build.number}}>*
       webhook:
         from_secret: slack_sas_hof_build_notify_webhook
     when:
       cron: tear_down_pr_envs
       event: cron
       status: [ failure ]
+    depends_on:
+      - cron_tear_down
   
   - name: cron_notify_slack_security_scans
     pull: if-not-exists
@@ -440,17 +449,22 @@ steps:
       channel: sas-hof-security
       failure: ignore
       template: >
-          *✘ {{ uppercasefirst build.status }}*: Cron job `security_scans` has failed. Prioritise reviewing build logs and addressing issues.
+            *✘ {{ uppercasefirst build.status }}*: CRON Job `security_scans` for *Employer's Checking Service * has failed.
 
-          *Repo* <https://github.com/{{ repo.owner }}/{{ repo.name }}/|{{ repo.owner }}/{{ repo.name }}> | *Branch* <https://github.com/{{ repo.owner }}/{{ repo.name }}/commits/{{ build.branch }}|{{build.branch}}> | *Commit* <https://github.com/{{ repo.owner }}/{{ repo.name }}/commit/{{ build.commit }}|{{ truncate build.commit 8 }}>
+            Branch <https://github.com/{{ repo.owner }}/{{ repo.name }}/commits/{{ build.branch }}|{{build.branch}}> | Commit <https://github.com/{{ repo.owner }}/{{ repo.name }}/commit/{{ build.commit }}|{{ truncate build.commit 8 }}>
 
-          *Build <{{build.link}}|#{{build.number}}>*
+            *Build <{{build.link}}|#{{build.number}}>*
       webhook:
         from_secret: slack_sas_hof_security_webhook
     when:
       cron: security_scans
       event: cron
       status: [ failure ]
+      status:
+        - failure
+    depends_on:
+      - cron_trivy_scan_image_os
+      - cron_trivy_scan_node_packages
 
 services:
   - name: docker
