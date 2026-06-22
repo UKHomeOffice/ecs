@@ -43,6 +43,8 @@ spec:
             - "yes"
             - --dir
             - /data
+            - --protected-mode
+            - "no"
           ports:
             - containerPort: 6379
           volumeMounts:
