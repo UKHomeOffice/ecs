@@ -284,6 +284,9 @@ steps:
         from_secret: kube_server_prod
       KUBE_TOKEN:
         from_secret: kube_token_prod
+      REDIS_PERSISTENCE_ENABLED: "true"
+      REDIS_PERSISTENCE_SIZE: 1Gi
+      REDIS_PERSISTENCE_STORAGE_CLASS: gp2-encrypted
     commands:
       - bin/deploy.sh $${STG_ENV}
     when:
@@ -293,7 +296,6 @@ steps:
     depends_on:
       - clone_repos
       - image_to_ecr
-
   # Checks a build being promoted has passed, is on master which effectively means a healthy build on Staging
   - name: sanity_check_build_prod
     pull: if-not-exists
@@ -334,6 +336,9 @@ steps:
         from_secret: KUBE_SERVER_PROD
       KUBE_TOKEN:
         from_secret: KUBE_TOKEN_PROD
+      REDIS_PERSISTENCE_ENABLED: "true"
+      REDIS_PERSISTENCE_SIZE: 10Gi
+      REDIS_PERSISTENCE_STORAGE_CLASS: gp2-encrypted
     commands:
       - bin/deploy.sh $${PROD_ENV}
     when:
