@@ -3,9 +3,9 @@
 
 
 "@aws-sdk/client-sesv2@^3.907.0":
-  version "3.1083.0"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/client-sesv2/-/client-sesv2-3.1083.0.tgz#9b3153938da32ccbc7bdd6dc6ae2fbc632878739"
-  integrity sha512-Kz5+oSCE8Pdsf43wTV236MB7/EzhVSj9iw52pgYVdOrxjMFM1mOxaOgjEjVlqVRYnQXoO+RwVB3324T700HIGw==
+  version "3.1084.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/client-sesv2/-/client-sesv2-3.1084.0.tgz#2111abbc61312af5f7bb6c91e3a071e01d45b2f5"
+  integrity sha512-+4DUyO1NIL2/219MfqyI+ZiWqTeQ2oSCW7JurGHDV07HHy6rAWUTEN1jLbXLOrWGhNHsN2e5iRkIhlA5gmfZGQ==
   dependencies:
     "@aws-sdk/core" "^3.975.1"
     "@aws-sdk/credential-provider-node" "^3.972.66"
@@ -2978,10 +2978,10 @@ hide-powered-by@1.1.0:
   resolved "https://registry.yarnpkg.com/hide-powered-by/-/hide-powered-by-1.1.0.tgz#be3ea9cab4bdb16f8744be873755ca663383fa7a"
   integrity sha512-Io1zA2yOA1YJslkr+AJlWSf2yWFkKjvkcL9Ni1XSUqnGLr/qRQe2UI3Cn/J9MsJht7yEVCe0SscY1HgVMujbgg==
 
-hof@~24.1.0:
-  version "24.1.0"
-  resolved "https://registry.yarnpkg.com/hof/-/hof-24.1.0.tgz#3b358d27ebbdd1701dada386b252b4ce343eb4ba"
-  integrity sha512-NA7/pBeniIaob1JxC3cA8D+ZzO32O8z6xgT0VbZhni+Ncbg3Tt/G34sfzxdqu/kvwVxS0/PT+iWLTv2x2Ec4bQ==
+hof@~24.4.0:
+  version "24.4.0"
+  resolved "https://registry.yarnpkg.com/hof/-/hof-24.4.0.tgz#6a5af3a0bfcaa95b6f848e4ee71bcb5e69a21aee"
+  integrity sha512-VwW6Raj9P78Mc6gyTREBSz8UIRxUYzuxB2lVdbrjajNCi3gsbapmeYk1cA9eJB89LDSNQT5NOP4VFGP8X9zOHg==
   dependencies:
     "@aws-sdk/client-sesv2" "^3.907.0"
     "@rollup/plugin-commonjs" "^29.0.0"
@@ -3039,6 +3039,7 @@ hof@~24.1.0:
     underscore "^1.13.7"
     urijs "^1.19.11"
     uuid "^11.1.1"
+    vite "^7.3.6"
     winston "^3.18.3"
 
 hogan-express-strict@^0.5.4:
@@ -3895,7 +3896,7 @@ mkdirp@^1.0.4:
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
 
-mocha@^11.7.5:
+mocha@^11.7.6:
   version "11.7.6"
   resolved "https://registry.yarnpkg.com/mocha/-/mocha-11.7.6.tgz#ebbe22989d04cbb9424a36307320476624c41a33"
   integrity sha512-nS9xOGbw2I3cjCpxwZAEJ9xK9lmJ08vEkQvLtz4du9ZrF9UrjRpeJGiIgl2Z+Qs++pmB4ecDe48Fwsh+j+j7xA==
@@ -4031,7 +4032,7 @@ normalize-path@^3.0.0, normalize-path@~3.0.0:
   resolved "https://registry.yarnpkg.com/normalize-path/-/normalize-path-3.0.0.tgz#0dcd69ff23a1c9b11fd0978316644a0388216a65"
   integrity sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==
 
-notifications-node-client@^8.3.2, notifications-node-client@^8.4.0:
+notifications-node-client@^8.4.0:
   version "8.4.0"
   resolved "https://registry.yarnpkg.com/notifications-node-client/-/notifications-node-client-8.4.0.tgz#8b70275458ecacddb534bf3de929174ac813b58b"
   integrity sha512-BzjnNvJ4ia6bU2UvFp3K4+/YQIvL4Uf+s7ReNWNdAYbmi4kZSdD0sK/oYG5ezeV9I3Fd/jTA8Pycfr+wiQ25pA==
@@ -5314,7 +5315,7 @@ vary@~1.1.2:
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==
 
-vite@^7.3.5:
+vite@^7.3.6:
   version "7.3.6"
   resolved "https://registry.yarnpkg.com/vite/-/vite-7.3.6.tgz#0547a395e68d3746e9a505f1fd4469fe09b49cc4"
   integrity sha512-4XP60spRGjSZFf1qYH+dJIkK2znL3zQfl9KkOV9MkkRR/3Dls0dxaBsQPTloEc5BLXWPL9vsOxopxyKoMmDueg==
