@@ -29,7 +29,7 @@ The Home Office is committed to making its website accessible, in accordance wit
 This website is fully compliant with the [Web Content Accessibility Guidelines version 2.2](https://www.w3.org/TR/WCAG22/) AA standard.
 
 ## Preparation of this accessibility statement
-This statement was prepared on 18 September 2024. It was last reviewed on 07 March 2025.
+This statement was prepared on 18 September 2024. It was last reviewed on 25 August 2026.
 
 This website was last tested on 14 September 2024. The test was carried out internally by the Home Office.
 
