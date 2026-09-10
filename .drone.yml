@@ -34,7 +34,7 @@ trigger:
 
 node_image: &node_image
   pull: if-not-exists
-  image: node:24.18.0-alpine3.24@sha256:4ba75f835bb8802193e4c114572113d4b26f95f6f094f4b5229d2a77773e0afc
+  image: quay.io/ukhomeofficedigital/hof-nodejs:24.19.0-alpine3.24-v3@sha256:20887d4a5a15886deb9653e96dc4393b10ad9c70cd8d134a43da6cee7ddd45f3
 
 
 linting: &linting
@@ -59,7 +59,7 @@ sonar_scanner: &sonar_scanner
 
 github_app_token_step: &github_app_token_step
   pull: if-not-exists
-  image: alpine:3.21
+  image: quay.io/ukhomeofficedigital/hof-nodejs:24.19.0-alpine3.24-v3@sha256:20887d4a5a15886deb9653e96dc4393b10ad9c70cd8d134a43da6cee7ddd45f3
   volumes:
     - name: dockersock
       path: /root/.dockersock
@@ -132,7 +132,7 @@ steps:
         cpu: 1000
         memory: 1024Mi
     environment:
-      IMAGE_NAME: node:24.18.0-alpine3.24@sha256:4ba75f835bb8802193e4c114572113d4b26f95f6f094f4b5229d2a77773e0afc
+      IMAGE_NAME: quay.io/ukhomeofficedigital/hof-nodejs:24.19.0-alpine3.24-v3@sha256:20887d4a5a15886deb9653e96dc4393b10ad9c70cd8d134a43da6cee7ddd45f3
       SERVICE_URL: https://acp-trivy-helm.acp-trivy.svc.cluster.local:443
       SEVERITY: MEDIUM,HIGH,CRITICAL  --dependency-tree
       FAIL_ON_DETECTION: false
@@ -280,7 +280,7 @@ steps:
         path: /root/.dockersock
     commands:
       - npm install -g n
-      - n 24.18.0
+      - n 24.19.0
       - hash -r
       - node --version
       - yarn install --frozen-lockfile
@@ -309,7 +309,7 @@ steps:
 
   - name: publish_e2e_report_to_pr
     pull: if-not-exists
-    image: alpine:3.21
+    image: quay.io/ukhomeofficedigital/hof-nodejs:24.19.0-alpine3.24-v3@sha256:20887d4a5a15886deb9653e96dc4393b10ad9c70cd8d134a43da6cee7ddd45f3
     volumes:
       - name: dockersock
         path: /root/.dockersock
@@ -525,7 +525,7 @@ steps:
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/trivy/client:latest
     pull: always
     environment:
-      IMAGE_NAME: node:24.18.0-alpine3.24@sha256:4ba75f835bb8802193e4c114572113d4b26f95f6f094f4b5229d2a77773e0afc
+      IMAGE_NAME: quay.io/ukhomeofficedigital/hof-nodejs:24.19.0-alpine3.24-v3@sha256:20887d4a5a15886deb9653e96dc4393b10ad9c70cd8d134a43da6cee7ddd45f3
       SEVERITY: UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL --dependency-tree
       FAIL_ON_DETECTION: true
       IGNORE_UNFIXED: false
@@ -606,7 +606,7 @@ steps:
         path: /root/.dockersock
     commands:
       - npm install -g n
-      - n 24.18.0
+      - n 24.19.0
       - hash -r
       - node --version
       - yarn install --frozen-lockfile
@@ -635,7 +635,7 @@ steps:
 
   - name: cron_notify_slack_nightly_e2e
     pull: if-not-exists
-    image: alpine:3.21
+    image: quay.io/ukhomeofficedigital/hof-nodejs:24.19.0-alpine3.24-v3@sha256:20887d4a5a15886deb9653e96dc4393b10ad9c70cd8d134a43da6cee7ddd45f3
     environment:
       SLACK_WEBHOOK:
         from_secret: slack_sas_hof_e2e_tests_webhook
