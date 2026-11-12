@@ -1,5 +1,5 @@
 const validators = require('hof/controller/validation/validators');
-const moment = require('moment');
+const dayjs = require('dayjs');
 const config = require('../../../config');
 
 module.exports = superclass => class extends superclass {
@@ -10,7 +10,7 @@ module.exports = superclass => class extends superclass {
       const DateToBeValidated = req.form.values[key];
       const startDateOfWork = req.sessionModel.get('start-work-date');
       if(!validators.after(DateToBeValidated, startDateOfWork)) {
-        return validationErrorFunc('after', [moment(startDateOfWork).format(config.PRETTY_DATE_FORMAT)]);
+        return validationErrorFunc('after', [dayjs(startDateOfWork).format(config.PRETTY_DATE_FORMAT)]);
       }
     }
 
@@ -25,7 +25,7 @@ module.exports = superclass => class extends superclass {
       if (!validators.date(workerDob)) {
         return validationErrorFunc('date');
       }
-      if (moment(workerDob).isSameOrAfter('1988-01-01')) {
+      if (!dayjs(workerDob).isBefore('1988-01-01')) {
         return validationErrorFunc('afterDobYear');
       }
     }
@@ -41,7 +41,7 @@ module.exports = superclass => class extends superclass {
       if (isNaN(yearOfEntry)) {
         return validationErrorFunc('numeric');
       }
-      const minYearOfEntry = moment().subtract(120, 'years').year();
+      const minYearOfEntry = dayjs().subtract(120, 'years').year();
       if (yearOfEntry < minYearOfEntry) {
         return validationErrorFunc('after120Years');
       }
@@ -49,8 +49,8 @@ module.exports = superclass => class extends superclass {
         return validationErrorFunc('after1988Years');
       }
       const workerDob = req.form.values['before-1988-worker-dob'];
-      if(workerDob && yearOfEntry < moment(workerDob).year()) {
-        return validationErrorFunc('beforeDateOfBirth', [moment(workerDob).format('DD MMMM YYYY')]);
+      if(workerDob && yearOfEntry < dayjs(workerDob).year()) {
+        return validationErrorFunc('beforeDateOfBirth', [dayjs(workerDob).format('DD MMMM YYYY')]);
       }
     }
 

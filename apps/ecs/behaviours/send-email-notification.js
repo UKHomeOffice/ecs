@@ -2,7 +2,7 @@ const config = require('../../../config');
 const NotifyClient = require('notifications-node-client').NotifyClient;
 const notifyKey = config.govukNotify.notifyApiKey;
 const notifyClient = new NotifyClient(notifyKey);
-const moment = require('moment');
+const dayjs = require('dayjs');
 const translation = require('../translations/src/en/fields.json');
 
 module.exports = class SendEmailConfirmation {
@@ -66,8 +66,8 @@ module.exports = class SendEmailConfirmation {
       business_type: req.sessionModel.get('type-of-business'),
       worker_full_name: req.sessionModel.get('worker-full-name') ??
         req.sessionModel.get('before-1988-worker-full-name'),
-      worker_date_birth: moment(req.sessionModel.get('worker-dob')).format(config.PRETTY_DATE_FORMAT) ??
-        moment(req.sessionModel.get('before-1988-worker-dob')).format(config.PRETTY_DATE_FORMAT),
+      worker_date_birth: dayjs(req.sessionModel.get('worker-dob')).format(config.PRETTY_DATE_FORMAT) ??
+        dayjs(req.sessionModel.get('before-1988-worker-dob')).format(config.PRETTY_DATE_FORMAT),
       worker_nationality: req.sessionModel.get('worker-nationality') ??
         req.sessionModel.get('before-1988-worker-nationality'),
       has_worker_country: req.sessionModel.get('steps').includes('/worker-address') ? 'yes' : 'no',
@@ -77,7 +77,7 @@ module.exports = class SendEmailConfirmation {
       person_work_for_you: this.getLabel('person-work-for-you', req.sessionModel.get('person-work-for-you')),
       person_worked_for_you: req.sessionModel.get('person-work-for-you') === 'yes' ? 'yes' : 'no',
       worker_start_date: req.sessionModel.get('start-work-date') ?
-        moment(req.sessionModel.get('start-work-date')).format(config.PRETTY_DATE_FORMAT) : '',
+        dayjs(req.sessionModel.get('start-work-date')).format(config.PRETTY_DATE_FORMAT) : '',
       is_result_of_tupe_transfer_eligible: isTupeTransferEligible,
       work_as_result_of_tupe_transfer: isTupeTransferEligible === 'yes' ?
         this.getLabel('work-for-you-result-of-tupe-transfer',
@@ -85,7 +85,7 @@ module.exports = class SendEmailConfirmation {
       result_of_tupe_transfer: isTupeTransferEligible === 'yes' &&
         req.sessionModel.get('work-for-you-result-of-tupe-transfer') === 'yes' ? 'yes' : 'no',
       tupe_transfer_date: isTupeTransferEligible === 'yes' && req.sessionModel.get('tupe-date') ?
-        moment(req.sessionModel.get('tupe-date'))?.format(config.PRETTY_DATE_FORMAT) : '',
+        dayjs(req.sessionModel.get('tupe-date'))?.format(config.PRETTY_DATE_FORMAT) : '',
       has_arc_card: req.sessionModel.get('use-digital-right-to-work') === 'no' &&
         req.sessionModel.get('worker-has-arc-card') === 'yes' ? 'yes' : 'no',
       seen_original_document: this.getLabel('seen-original-document',

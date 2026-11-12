@@ -1,7 +1,7 @@
 
 'use strict';
 
-const moment = require('moment');
+const dayjs = require('dayjs');
 const config = require('../../../config');
 
 module.exports = {
@@ -24,7 +24,7 @@ module.exports = {
             !req.sessionModel.get('steps').includes('/when-started')) {
             return null;
           }
-          return value && moment(value).format(config.PRETTY_DATE_FORMAT);
+          return value && dayjs(value).format(config.PRETTY_DATE_FORMAT);
         }
       },
       {
@@ -48,7 +48,7 @@ module.exports = {
             !req.sessionModel.get('steps').includes('/tupe-date')) {
             return null;
           }
-          return value && moment(value).format(config.PRETTY_DATE_FORMAT);
+          return value && dayjs(value).format(config.PRETTY_DATE_FORMAT);
         }
       },
       {
@@ -133,7 +133,7 @@ module.exports = {
       {
         step: '/worker-details-1988',
         field: 'before-1988-worker-dob',
-        parse: d => d && moment(d).format(config.PRETTY_DATE_FORMAT)
+        parse: d => d && dayjs(d).format(config.PRETTY_DATE_FORMAT)
       },
       {
         step: '/worker-details-1988',
@@ -167,7 +167,7 @@ module.exports = {
       {
         step: '/worker-details',
         field: 'worker-dob',
-        parse: d => d && moment(d).format(config.PRETTY_DATE_FORMAT)
+        parse: d => d && dayjs(d).format(config.PRETTY_DATE_FORMAT)
       },
       {
         step: '/worker-details',
