@@ -603,6 +603,9 @@ steps:
   - name: cron_nightly_e2e_tests
     pull: if-not-exists
     image: mcr.microsoft.com/playwright:v1.61.1-noble
+    environment:
+      SAS_HOF_EMAIL:
+        from_secret: SAS_HOF_EMAIL
     volumes:
       - name: dockersock
         path: /root/.dockersock
